@@ -1,0 +1,1696 @@
+{'batch_size': 100, 'test_batch_size': 1, 'no_cuda': False, 'dataset': 'mnist', 'save': './saved_results', 'attack': 'ours', 'numimg': 0, 'maxiter': 3000, 'print_every': 100, 'firstimg': 0, 'binary_steps': 1, 'init_const': 0.5, 'use_zvalue': False, 'untargeted': True, 'reset_adam': False, 'use_resize': False, 'seed': 1216, 'solver': 'adam', 'save_ckpts': '', 'load_ckpt': '', 'start_iter': 0, 'init_size': 32, 'uniform': False, 'lr': 0.01, 'inception': False, 'use_tanh': False}
+Loading model mnist and test data
+Done...
+Using 10000 test images
+Using adam solver
+Using adam solver
+True labels: 7
+Predicted logits tensor([-16.2955,   9.2808,   6.5453,   9.8614,   3.5771, -15.6604, -38.0959,
+         51.0929,  -4.8503,   3.5548], device='cuda:0') 
+Probability tensor([5.4151e-30, 6.9383e-19, 4.5001e-20, 1.2399e-18, 2.3129e-21, 1.0219e-29,
+        1.8442e-39, 1.0000e+00, 5.0606e-25, 2.2619e-21], device='cuda:0')
+The original label before attack 7
+Batch:  34, search step: 0
+Step:    0, loss: 20.6157, loss1: 20.615747, loss2: 0.000000, dist:  0.00000, modifier mean: 5.76710e-04
+Step:  100, loss: 90.7083, loss1: 1.042829, loss2: 89.665482, dist: 89.66548, modifier mean: 5.16411e-02
+Step:  200, loss: 123.1962, loss1: 0.000000, loss2: 123.196182, dist: 123.19618, modifier mean: 7.56458e-02
+Step:  300, loss: 148.4039, loss1: 0.000000, loss2: 148.403946, dist: 148.40395, modifier mean: 7.35303e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.815635617507589
+The label after attack 5
+[STATS][L1] total = 1, seq = 34, time = 28.631, success = True, distortion = 9.81564, avg_step = 114.00000, success_rate = 1.000
+True labels: 8
+Predicted logits tensor([-19.5692,  -4.9667,  -2.3642,   7.0241, -14.6362,  -4.5472, -14.4689,
+        -13.1187,  57.3076,   8.8793], device='cuda:0') 
+Probability tensor([4.1008e-34, 9.0078e-28, 1.2159e-26, 1.4527e-22, 5.6917e-32, 1.3704e-27,
+        6.7281e-32, 2.5958e-31, 1.0000e+00, 9.2869e-22], device='cuda:0')
+The original label before attack 8
+Batch: 128, search step: 0
+Step:    0, loss: 24.2141, loss1: 24.214132, loss2: 0.000000, dist:  0.00000, modifier mean: 4.15397e-04
+Step:  100, loss: 97.6963, loss1: 8.577714, loss2: 89.118576, dist: 89.11858, modifier mean: 2.75920e-02
+Step:  200, loss: 137.2915, loss1: 0.000000, loss2: 137.291550, dist: 137.29155, modifier mean: 1.65310e-02
+Step:  300, loss: 174.6234, loss1: 0.000000, loss2: 174.623367, dist: 174.62337, modifier mean: 3.50950e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.156561744013617
+The label after attack 5
+[STATS][L1] total = 2, seq = 128, time = 20.640, success = True, distortion = 9.98610, avg_step = 125.00000, success_rate = 1.000
+True labels: 6
+Predicted logits tensor([  9.2308, -14.5181,  -9.6686, -11.3018,   1.5487,  11.0334,  53.8002,
+        -25.0668,   1.8457, -23.6287], device='cuda:0') 
+Probability tensor([4.4028e-20, 2.1366e-30, 2.7280e-28, 5.3277e-29, 2.0297e-23, 2.6705e-19,
+        1.0000e+00, 5.6038e-35, 2.7317e-23, 2.3606e-34], device='cuda:0')
+The original label before attack 6
+Batch: 353, search step: 0
+Step:    0, loss: 21.3834, loss1: 21.383421, loss2: 0.000000, dist:  0.00000, modifier mean: 3.92399e-04
+Step:  100, loss: 88.9621, loss1: 0.000000, loss2: 88.962120, dist: 88.96212, modifier mean: -2.35052e-02
+Step:  200, loss: 152.0224, loss1: 0.000000, loss2: 152.022430, dist: 152.02243, modifier mean: -1.31007e-02
+Step:  300, loss: 175.4923, loss1: 0.000000, loss2: 175.492325, dist: 175.49232, modifier mean: 3.14936e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.3475790203201
+The label after attack 8
+[STATS][L1] total = 3, seq = 353, time = 20.953, success = True, distortion = 9.43993, avg_step = 111.66667, success_rate = 1.000
+True labels: 9
+Predicted logits tensor([-16.3743, -12.6899,  -7.4051,   0.2377,  10.8817,  -5.2063, -19.6076,
+          5.9833,   8.0061,  44.6942], device='cuda:0') 
+Probability tensor([3.0078e-27, 1.1978e-25, 2.3635e-23, 4.9290e-20, 2.0673e-15, 2.1304e-22,
+        1.1860e-28, 1.5418e-17, 1.1656e-16, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 599, search step: 0
+Step:    0, loss: 16.9063, loss1: 16.906277, loss2: 0.000000, dist:  0.00000, modifier mean: 3.96139e-04
+Step:  100, loss: 74.3170, loss1: 8.434719, loss2: 65.882278, dist: 65.88228, modifier mean: 1.77461e-02
+Step:  200, loss: 121.8929, loss1: 0.295557, loss2: 121.597321, dist: 121.59732, modifier mean: 4.78813e-02
+Step:  300, loss: 152.7966, loss1: 0.000000, loss2: 152.796646, dist: 152.79665, modifier mean: 7.92282e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.110764214080795
+The label after attack 1
+[STATS][L1] total = 4, seq = 599, time = 20.878, success = True, distortion = 9.85764, avg_step = 134.50000, success_rate = 1.000
+True labels: 5
+Predicted logits tensor([ -9.3932,  -6.2818, -27.1319, -10.3371, -18.7328,  52.5739,   9.9751,
+        -20.9964,  14.4258,  11.8743], device='cuda:0') 
+Probability tensor([1.2247e-27, 2.7500e-26, 2.4223e-35, 4.7654e-28, 1.0762e-31, 1.0000e+00,
+        3.1593e-19, 1.1190e-32, 2.7071e-17, 2.1107e-18], device='cuda:0')
+The original label before attack 5
+Batch: 779, search step: 0
+Step:    0, loss: 19.0740, loss1: 19.074043, loss2: 0.000000, dist:  0.00000, modifier mean: 1.01939e-03
+Step:  100, loss: 78.5422, loss1: 9.741688, loss2: 68.800552, dist: 68.80055, modifier mean: 8.51345e-02
+Step:  200, loss: 116.6654, loss1: 10.158438, loss2: 106.506996, dist: 106.50700, modifier mean: 1.18481e-01
+Step:  300, loss: 141.4509, loss1: 5.859063, loss2: 135.591858, dist: 135.59186, modifier mean: 1.43049e-01
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 5, seq = 779, time = 21.079, success = False, distortion = 9.85764, avg_step = 134.50000, success_rate = 0.800
+True labels: 5
+Predicted logits tensor([-18.3233,  -8.4615, -26.9683,  14.3048, -23.1925,  60.8908,  -1.3067,
+        -21.4586,   4.3341,  15.8476], device='cuda:0') 
+Probability tensor([3.9607e-35, 7.5976e-31, 6.9706e-39, 5.8612e-21, 3.0416e-37, 1.0000e+00,
+        9.7274e-28, 1.7223e-36, 2.7399e-25, 2.7415e-20], device='cuda:0')
+The original label before attack 5
+Batch: 1046, search step: 0
+Step:    0, loss: 22.5216, loss1: 22.521606, loss2: 0.000000, dist:  0.00000, modifier mean: 8.36316e-04
+Step:  100, loss: 83.3251, loss1: 11.439041, loss2: 71.886078, dist: 71.88608, modifier mean: 8.26261e-02
+Step:  200, loss: 119.2530, loss1: 4.634219, loss2: 114.618774, dist: 114.61877, modifier mean: 1.21553e-01
+Step:  300, loss: 149.2272, loss1: 0.000000, loss2: 149.227188, dist: 149.22719, modifier mean: 1.55588e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.880610054356294
+The label after attack 2
+[STATS][L1] total = 6, seq = 1046, time = 21.217, success = True, distortion = 10.26223, avg_step = 163.80000, success_rate = 0.833
+True labels: 2
+Predicted logits tensor([  2.4804,  -3.7118,  49.7960,  13.0293, -21.9355, -26.0944, -18.3726,
+          9.8507,   8.7627, -10.8302], device='cuda:0') 
+Probability tensor([2.8254e-21, 5.7788e-24, 1.0000e+00, 1.0775e-16, 7.0369e-32, 1.0995e-33,
+        2.4816e-30, 4.4869e-18, 1.5116e-18, 4.6813e-27], device='cuda:0')
+The original label before attack 2
+Batch: 1056, search step: 0
+Step:    0, loss: 18.3834, loss1: 18.383364, loss2: 0.000000, dist:  0.00000, modifier mean: 6.72756e-04
+Step:  100, loss: 84.1807, loss1: 4.221023, loss2: 79.959686, dist: 79.95969, modifier mean: 7.46636e-02
+Step:  200, loss: 112.8184, loss1: 4.360206, loss2: 108.458229, dist: 108.45823, modifier mean: 8.71122e-02
+Step:  300, loss: 142.4844, loss1: 1.912200, loss2: 140.572235, dist: 140.57224, modifier mean: 1.15649e-01
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 2
+[STATS][L1] total = 7, seq = 1056, time = 21.026, success = False, distortion = 10.26223, avg_step = 163.80000, success_rate = 0.714
+True labels: 3
+Predicted logits tensor([-23.4397,  -0.5306, -18.8217,  59.9544, -27.7872,  18.8324, -22.2932,
+         -7.8988,  10.3285,  10.6529], device='cuda:0') 
+Probability tensor([6.0590e-37, 5.3914e-27, 6.1376e-35, 1.0000e+00, 7.8400e-39, 1.3834e-18,
+        1.9068e-36, 3.4019e-30, 2.8039e-22, 3.8781e-22], device='cuda:0')
+The original label before attack 3
+Batch: 1134, search step: 0
+Step:    0, loss: 20.5610, loss1: 20.560976, loss2: 0.000000, dist:  0.00000, modifier mean: 4.87138e-04
+Step:  100, loss: 97.3709, loss1: 3.005635, loss2: 94.365311, dist: 94.36531, modifier mean: 3.76658e-02
+Step:  200, loss: 132.8875, loss1: 0.000000, loss2: 132.887497, dist: 132.88750, modifier mean: 5.70131e-02
+Step:  300, loss: 168.3946, loss1: 0.000000, loss2: 168.394592, dist: 168.39459, modifier mean: 6.33190e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.641154854419804
+The label after attack 8
+[STATS][L1] total = 8, seq = 1134, time = 20.639, success = True, distortion = 10.32538, avg_step = 159.33333, success_rate = 0.750
+True labels: 1
+Predicted logits tensor([ -4.8691,  31.7201,  -6.0785, -12.1199,   0.9729,  -2.6328,  -0.4808,
+          3.2285,   2.4604,  -4.0971], device='cuda:0') 
+Probability tensor([1.2868e-16, 1.0000e+00, 3.8392e-17, 9.1310e-20, 4.4323e-14, 1.2043e-15,
+        1.0359e-14, 4.2291e-13, 1.9619e-13, 2.7845e-16], device='cuda:0')
+The original label before attack 1
+Batch: 1350, search step: 0
+Step:    0, loss: 14.2458, loss1: 14.245805, loss2: 0.000000, dist:  0.00000, modifier mean: 9.48360e-04
+Step:  100, loss: 80.7436, loss1: 0.000000, loss2: 80.743637, dist: 80.74364, modifier mean: 9.38231e-02
+Step:  200, loss: 115.9287, loss1: 0.000000, loss2: 115.928703, dist: 115.92870, modifier mean: 1.29203e-01
+Step:  300, loss: 145.5332, loss1: 0.000000, loss2: 145.533249, dist: 145.53325, modifier mean: 1.51350e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.227495452868873
+The label after attack 7
+[STATS][L1] total = 9, seq = 1350, time = 20.857, success = True, distortion = 9.88283, avg_step = 147.28571, success_rate = 0.778
+True labels: 9
+Predicted logits tensor([  1.2754,  -1.5546,  -2.4072,  -0.7323,   0.4497,  -3.1573, -11.0800,
+          8.2908,   2.1223,   6.2226], device='cuda:0') 
+Probability tensor([7.9457e-04, 4.6892e-05, 1.9991e-05, 1.0671e-04, 3.4797e-04, 9.4421e-06,
+        3.4219e-09, 8.8495e-01, 1.8533e-03, 1.1187e-01], device='cuda:0')
+The original label before attack 7
+skip wrongly classified image no. , original class, classified as
+True labels: 5
+Predicted logits tensor([-20.2704,  -9.7859, -24.2354,   3.4737, -17.2005,  64.6721,   3.2857,
+        -23.3445,   2.3798,  18.9892], device='cuda:0') 
+Probability tensor([1.2880e-37, 4.6057e-33, 2.4431e-39, 2.6416e-27, 2.7745e-36, 1.0000e+00,
+        2.1888e-27, 5.9547e-39, 8.8470e-28, 1.4459e-20], device='cuda:0')
+The original label before attack 5
+Batch: 1471, search step: 0
+Step:    0, loss: 22.8415, loss1: 22.841482, loss2: 0.000000, dist:  0.00000, modifier mean: 7.82549e-04
+Step:  100, loss: 79.1502, loss1: 2.583534, loss2: 76.566711, dist: 76.56671, modifier mean: 7.49527e-02
+Step:  200, loss: 113.8612, loss1: 6.056922, loss2: 107.804276, dist: 107.80428, modifier mean: 9.76642e-02
+Step:  300, loss: 133.1271, loss1: 3.838309, loss2: 129.288788, dist: 129.28879, modifier mean: 1.14646e-01
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 10, seq = 1471, time = 21.288, success = False, distortion = 9.88283, avg_step = 147.28571, success_rate = 0.700
+True labels: 7
+Predicted logits tensor([ -3.3281,  -5.8790,   7.4734,   1.7199,   8.5409,  -6.2908, -13.2587,
+         25.8037,  -4.5660,  -6.8361], device='cuda:0') 
+Probability tensor([2.2295e-13, 1.7393e-14, 1.0946e-08, 3.4715e-11, 3.1830e-08, 1.1522e-14,
+        1.0849e-17, 1.0000e+00, 6.4656e-14, 6.6785e-15], device='cuda:0')
+The original label before attack 7
+Batch: 1477, search step: 0
+Step:    0, loss: 8.6314, loss1: 8.631430, loss2: 0.000000, dist:  0.00000, modifier mean: 7.01509e-04
+Step:  100, loss: 80.5211, loss1: 0.000000, loss2: 80.521057, dist: 80.52106, modifier mean: 5.30294e-02
+Step:  200, loss: 128.2795, loss1: 0.000000, loss2: 128.279480, dist: 128.27948, modifier mean: 7.32213e-02
+Step:  300, loss: 164.3009, loss1: 0.000000, loss2: 164.300903, dist: 164.30090, modifier mean: 9.13858e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.323056678645355
+The label after attack 5
+[STATS][L1] total = 11, seq = 1477, time = 21.057, success = True, distortion = 9.56286, avg_step = 138.25000, success_rate = 0.727
+True labels: 5
+Predicted logits tensor([ -3.3674, -12.7709, -10.0583,   5.4930, -21.6312,  36.2209,  -1.5116,
+         -4.5993,  -3.8114,   9.1263], device='cuda:0') 
+Probability tensor([6.4128e-18, 5.2862e-22, 7.9657e-21, 4.5190e-14, 7.5016e-26, 1.0000e+00,
+        4.1019e-17, 1.8708e-18, 4.1135e-18, 1.7099e-12], device='cuda:0')
+The original label before attack 5
+Batch: 1525, search step: 0
+Step:    0, loss: 13.5473, loss1: 13.547283, loss2: 0.000000, dist:  0.00000, modifier mean: 6.34963e-04
+Step:  100, loss: 64.4194, loss1: 0.000000, loss2: 64.419403, dist: 64.41940, modifier mean: 3.97487e-02
+Step:  200, loss: 106.9536, loss1: 0.000000, loss2: 106.953583, dist: 106.95358, modifier mean: 7.31858e-02
+Step:  300, loss: 125.9846, loss1: 0.000000, loss2: 125.984634, dist: 125.98463, modifier mean: 8.71068e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.325353818296589
+The label after attack 3
+[STATS][L1] total = 12, seq = 1525, time = 20.548, success = True, distortion = 9.31425, avg_step = 132.77778, success_rate = 0.750
+True labels: 0
+Predicted logits tensor([ 34.8240, -17.4592,  -5.3154, -10.2046,  -4.1692, -10.1954,  18.3666,
+         -7.7582, -11.0297,   2.6400], device='cuda:0') 
+Probability tensor([1.0000e+00, 1.9665e-23, 3.6956e-18, 2.7817e-20, 1.1626e-17, 2.8075e-20,
+        7.1221e-08, 3.2120e-19, 1.2190e-20, 1.0536e-14], device='cuda:0')
+The original label before attack 0
+Batch: 1533, search step: 0
+Step:    0, loss: 8.2287, loss1: 8.228738, loss2: 0.000000, dist:  0.00000, modifier mean: 2.40833e-04
+Step:  100, loss: 81.5529, loss1: 0.563580, loss2: 80.989288, dist: 80.98929, modifier mean: 2.51675e-02
+Step:  200, loss: 125.6828, loss1: 0.000000, loss2: 125.682777, dist: 125.68278, modifier mean: 4.88825e-02
+Step:  300, loss: 143.6342, loss1: 0.000000, loss2: 143.634201, dist: 143.63420, modifier mean: 5.37231e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.47878748096902
+The label after attack 6
+[STATS][L1] total = 13, seq = 1533, time = 20.596, success = True, distortion = 9.33070, avg_step = 130.70000, success_rate = 0.769
+True labels: 3
+Predicted logits tensor([-17.6752,   2.9442,  -5.0561,  35.2037, -15.2515,  10.0493, -16.6859,
+          8.9836,   1.0323,  -1.2133], device='cuda:0') 
+Probability tensor([1.0838e-23, 9.7696e-15, 3.2761e-18, 1.0000e+00, 1.2234e-22, 1.1901e-11,
+        2.9149e-23, 4.0996e-12, 1.4438e-15, 1.5285e-16], device='cuda:0')
+The original label before attack 3
+Batch: 1601, search step: 0
+Step:    0, loss: 12.5772, loss1: 12.577208, loss2: 0.000000, dist:  0.00000, modifier mean: 5.76199e-04
+Step:  100, loss: 94.3137, loss1: 6.918303, loss2: 87.395363, dist: 87.39536, modifier mean: 3.43682e-02
+Step:  200, loss: 136.1061, loss1: 3.908785, loss2: 132.197311, dist: 132.19731, modifier mean: 5.91684e-02
+Step:  300, loss: 158.6922, loss1: 0.000000, loss2: 158.692230, dist: 158.69223, modifier mean: 4.34621e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 12.557240765960366
+The label after attack 8
+[STATS][L1] total = 14, seq = 1601, time = 21.060, success = True, distortion = 9.62402, avg_step = 145.90909, success_rate = 0.786
+True labels: 7
+Predicted logits tensor([ -3.3032,  12.0769,   1.1309,   3.4806,  -5.9419, -11.1387, -20.3230,
+         24.8748,   0.5166,   3.8428], device='cuda:0') 
+Probability tensor([5.7868e-13, 2.7665e-06, 4.8773e-11, 5.1122e-10, 4.1352e-14, 2.2884e-16,
+        2.3489e-20, 1.0000e+00, 2.6387e-11, 7.3437e-10], device='cuda:0')
+The original label before attack 7
+Batch: 1716, search step: 0
+Step:    0, loss: 6.3990, loss1: 6.398963, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05864e-03
+Step:  100, loss: 77.5956, loss1: 0.000000, loss2: 77.595612, dist: 77.59561, modifier mean: 1.00613e-01
+Step:  200, loss: 112.4733, loss1: 0.000000, loss2: 112.473259, dist: 112.47326, modifier mean: 1.47333e-01
+Step:  300, loss: 121.9869, loss1: 0.000000, loss2: 121.986923, dist: 121.98692, modifier mean: 1.59812e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.024849920562913
+The label after attack 5
+[STATS][L1] total = 15, seq = 1716, time = 20.770, success = True, distortion = 9.49076, avg_step = 140.83333, success_rate = 0.800
+True labels: 3
+Predicted logits tensor([-31.1348,   2.2975,  -5.9021,  73.7013, -36.6470,   7.6160, -21.2282,
+         -1.4153,  14.8135,  -3.4555], device='cuda:0') 
+Probability tensor([0.0000, 0.0000, 0.0000, 1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:0')
+The original label before attack 3
+Batch: 1731, search step: 0
+Step:    0, loss: 29.4439, loss1: 29.443880, loss2: 0.000000, dist:  0.00000, modifier mean: 2.75068e-04
+Step:  100, loss: 78.4828, loss1: 7.565649, loss2: 70.917114, dist: 70.91711, modifier mean: 1.88060e-02
+Step:  200, loss: 127.4094, loss1: 6.460958, loss2: 120.948395, dist: 120.94839, modifier mean: 4.38533e-02
+Step:  300, loss: 146.8558, loss1: 5.975236, loss2: 140.880539, dist: 140.88054, modifier mean: 6.26762e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 3
+[STATS][L1] total = 16, seq = 1731, time = 21.417, success = False, distortion = 9.49076, avg_step = 140.83333, success_rate = 0.750
+True labels: 6
+Predicted logits tensor([  7.7275,  -9.0005,  -5.3860, -17.5631,  -1.5262,  13.1313,  58.2570,
+        -26.6966,   2.4636, -31.4673], device='cuda:0') 
+Probability tensor([1.1359e-22, 6.1723e-30, 2.2919e-28, 1.1797e-33, 1.0877e-26, 2.5246e-20,
+        1.0000e+00, 1.2740e-37, 5.8782e-25, 1.0796e-39], device='cuda:0')
+The original label before attack 6
+Batch: 1733, search step: 0
+Step:    0, loss: 22.5628, loss1: 22.562815, loss2: 0.000000, dist:  0.00000, modifier mean: 7.72537e-04
+Step:  100, loss: 59.2893, loss1: 5.802736, loss2: 53.486568, dist: 53.48657, modifier mean: 2.19880e-02
+Step:  200, loss: 99.4339, loss1: 0.000000, loss2: 99.433907, dist: 99.43391, modifier mean: 3.44261e-02
+Step:  300, loss: 128.3048, loss1: 0.000000, loss2: 128.304810, dist: 128.30481, modifier mean: 5.79805e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.226115139186343
+The label after attack 5
+[STATS][L1] total = 17, seq = 1733, time = 20.992, success = True, distortion = 9.47040, avg_step = 142.46154, success_rate = 0.765
+True labels: 1
+Predicted logits tensor([ -3.8176,  34.3722,  -3.3015, -15.9119,   4.2105,  -3.5267,   1.7992,
+          1.6140,   4.4479, -12.3755], device='cuda:0') 
+Probability tensor([2.5966e-17, 1.0000e+00, 4.3502e-17, 1.4517e-22, 7.9608e-14, 3.4733e-17,
+        7.1402e-15, 5.9331e-15, 1.0093e-13, 4.9861e-21], device='cuda:0')
+The original label before attack 1
+Batch: 1766, search step: 0
+Step:    0, loss: 14.9622, loss1: 14.962152, loss2: 0.000000, dist:  0.00000, modifier mean: 9.28345e-04
+Step:  100, loss: 83.6206, loss1: 0.000000, loss2: 83.620590, dist: 83.62059, modifier mean: 9.81514e-02
+Step:  200, loss: 119.5518, loss1: 0.000000, loss2: 119.551804, dist: 119.55180, modifier mean: 1.37636e-01
+Step:  300, loss: 141.9326, loss1: 0.000000, loss2: 141.932556, dist: 141.93256, modifier mean: 1.48209e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 5.047737543903584
+The label after attack 8
+[STATS][L1] total = 18, seq = 1766, time = 20.802, success = True, distortion = 9.15450, avg_step = 135.78571, success_rate = 0.778
+True labels: 2
+Predicted logits tensor([  0.7344, -13.7693,  21.3333,   5.2011,  -2.4346,  -9.0612, -14.5558,
+          9.3110,  10.3013,  -6.4361], device='cuda:0') 
+Probability tensor([1.1324e-09, 5.6904e-16, 9.9998e-01, 9.8605e-08, 4.7615e-11, 6.3071e-14,
+        2.5916e-16, 6.0087e-06, 1.6175e-05, 8.7077e-13], device='cuda:0')
+The original label before attack 2
+Batch: 2044, search step: 0
+Step:    0, loss: 5.5160, loss1: 5.515998, loss2: 0.000000, dist:  0.00000, modifier mean: 4.91425e-04
+Step:  100, loss: 64.0706, loss1: 7.051981, loss2: 57.018616, dist: 57.01862, modifier mean: 2.29602e-02
+Step:  200, loss: 115.3542, loss1: 0.868532, loss2: 114.485634, dist: 114.48563, modifier mean: 6.20123e-02
+Step:  300, loss: 150.2586, loss1: 0.000000, loss2: 150.258591, dist: 150.25859, modifier mean: 8.38608e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.940788428647622
+The label after attack 3
+[STATS][L1] total = 19, seq = 2044, time = 20.839, success = True, distortion = 9.27358, avg_step = 140.86667, success_rate = 0.789
+True labels: 3
+Predicted logits tensor([-18.6146,   3.5675,  -8.6944,  52.4530, -29.7091,  14.5953, -15.1993,
+         -5.5260,   3.5911,   2.8524], device='cuda:0') 
+Probability tensor([1.3668e-31, 5.8788e-22, 2.7797e-27, 1.0000e+00, 2.0770e-36, 3.6190e-17,
+        4.1589e-30, 6.6070e-26, 6.0193e-22, 2.8755e-22], device='cuda:0')
+The original label before attack 3
+Batch: 2069, search step: 0
+Step:    0, loss: 18.9289, loss1: 18.928879, loss2: 0.000000, dist:  0.00000, modifier mean: 5.86728e-04
+Step:  100, loss: 59.6339, loss1: 15.312898, loss2: 44.320972, dist: 44.32097, modifier mean: 2.28299e-02
+Step:  200, loss: 109.1008, loss1: 9.619812, loss2: 99.480942, dist: 99.48094, modifier mean: 6.27286e-02
+Step:  300, loss: 134.8025, loss1: 3.169388, loss2: 131.633102, dist: 131.63310, modifier mean: 8.79035e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 3
+[STATS][L1] total = 20, seq = 2069, time = 21.198, success = False, distortion = 9.27358, avg_step = 140.86667, success_rate = 0.750
+True labels: 4
+Predicted logits tensor([-21.8514,  -9.2725, -14.0824, -16.7599,  55.1814,  -4.1252,  -5.1239,
+         -0.1630,   3.4321,  23.2634], device='cuda:0') 
+Probability tensor([3.5081e-34, 1.0187e-28, 8.3010e-31, 5.7053e-32, 1.0000e+00, 1.7517e-26,
+        6.4526e-27, 9.2095e-25, 3.3541e-23, 1.3747e-14], device='cuda:0')
+The original label before attack 4
+Batch: 2218, search step: 0
+Step:    0, loss: 15.9590, loss1: 15.958987, loss2: 0.000000, dist:  0.00000, modifier mean: 8.26299e-04
+Step:  100, loss: 64.7324, loss1: 1.482603, loss2: 63.249763, dist: 63.24976, modifier mean: 6.58511e-02
+Step:  200, loss: 120.7646, loss1: 0.000000, loss2: 120.764626, dist: 120.76463, modifier mean: 1.09143e-01
+Step:  300, loss: 140.0320, loss1: 0.000000, loss2: 140.031998, dist: 140.03200, modifier mean: 1.05246e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.450245816419198
+The label after attack 9
+[STATS][L1] total = 21, seq = 2218, time = 20.778, success = True, distortion = 9.22212, avg_step = 139.18750, success_rate = 0.762
+True labels: 7
+Predicted logits tensor([ -7.7039,   3.6978,  -2.4115,   8.3023,   1.7699,  -6.4498, -19.8430,
+         27.0364,  -4.0292,   4.4250], device='cuda:0') 
+Probability tensor([8.1744e-16, 7.3141e-11, 1.6254e-13, 7.3094e-09, 1.0639e-11, 2.8649e-15,
+        4.3707e-21, 1.0000e+00, 3.2237e-14, 1.5135e-10], device='cuda:0')
+The original label before attack 7
+Batch: 2252, search step: 0
+Step:    0, loss: 9.3671, loss1: 9.367054, loss2: 0.000000, dist:  0.00000, modifier mean: 8.08547e-04
+Step:  100, loss: 76.2312, loss1: 0.000000, loss2: 76.231239, dist: 76.23124, modifier mean: 7.85898e-02
+Step:  200, loss: 108.0400, loss1: 0.000000, loss2: 108.040047, dist: 108.04005, modifier mean: 1.19273e-01
+Step:  300, loss: 132.9721, loss1: 0.000000, loss2: 132.972122, dist: 132.97212, modifier mean: 1.51989e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.815546281090977
+The label after attack 5
+[STATS][L1] total = 22, seq = 2252, time = 21.751, success = True, distortion = 9.13938, avg_step = 136.05882, success_rate = 0.773
+True labels: 3
+Predicted logits tensor([-24.1952,   2.2880, -16.2330,  50.0001, -25.5750,  18.4186, -15.9653,
+         -2.5094,   9.8382,   3.1435], device='cuda:0') 
+Probability tensor([5.9896e-33, 1.9006e-21, 1.7191e-29, 1.0000e+00, 1.5071e-33, 1.9245e-14,
+        2.2469e-29, 1.5682e-23, 3.6134e-18, 4.4711e-21], device='cuda:0')
+The original label before attack 3
+Batch: 2284, search step: 0
+Step:    0, loss: 15.7908, loss1: 15.790775, loss2: 0.000000, dist:  0.00000, modifier mean: 6.47740e-04
+Step:  100, loss: 73.9900, loss1: 5.545147, loss2: 68.444809, dist: 68.44481, modifier mean: 5.32026e-02
+Step:  200, loss: 114.8289, loss1: 2.048419, loss2: 112.780449, dist: 112.78045, modifier mean: 7.58645e-02
+Step:  300, loss: 135.2746, loss1: 0.000000, loss2: 135.274567, dist: 135.27457, modifier mean: 8.88733e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.3264007308423
+The label after attack 2
+[STATS][L1] total = 23, seq = 2284, time = 22.348, success = True, distortion = 9.26088, avg_step = 142.72222, success_rate = 0.783
+True labels: 1
+Predicted logits tensor([ -2.6451,  33.2717,   0.0698, -15.5486,   2.7071,  -8.1879,  -2.8967,
+          4.9145,   7.3682,  -8.1834], device='cuda:0') 
+Probability tensor([2.5207e-16, 1.0000e+00, 3.8070e-15, 6.2750e-22, 5.3207e-14, 9.8703e-19,
+        1.9600e-16, 4.8376e-13, 5.6266e-12, 9.9148e-19], device='cuda:0')
+The original label before attack 1
+Batch: 2357, search step: 0
+Step:    0, loss: 12.9518, loss1: 12.951762, loss2: 0.000000, dist:  0.00000, modifier mean: 1.06591e-03
+Step:  100, loss: 77.0736, loss1: 0.000000, loss2: 77.073593, dist: 77.07359, modifier mean: 9.52440e-02
+Step:  200, loss: 105.1177, loss1: 0.000000, loss2: 105.117706, dist: 105.11771, modifier mean: 1.21882e-01
+Step:  300, loss: 135.8465, loss1: 0.000000, loss2: 135.846466, dist: 135.84647, modifier mean: 1.44543e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 6.749007823221158
+The label after attack 7
+[STATS][L1] total = 24, seq = 2357, time = 14.014, success = True, distortion = 9.12868, avg_step = 139.00000, success_rate = 0.792
+True labels: 7
+Predicted logits tensor([ -7.5035,  -2.0105,  -4.7038,  -3.2833,   2.2357,   5.1548, -17.5067,
+         41.8490,  -5.0549,  -4.7997], device='cuda:0') 
+Probability tensor([3.6855e-22, 8.9551e-20, 6.0587e-21, 2.5077e-20, 6.2540e-18, 1.1585e-16,
+        1.6678e-26, 1.0000e+00, 4.2646e-21, 5.5045e-21], device='cuda:0')
+The original label before attack 7
+Batch: 2365, search step: 0
+Step:    0, loss: 18.3471, loss1: 18.347126, loss2: 0.000000, dist:  0.00000, modifier mean: 6.60440e-04
+Step:  100, loss: 65.8905, loss1: 5.521428, loss2: 60.369099, dist: 60.36910, modifier mean: 3.37358e-02
+Step:  200, loss: 112.7527, loss1: 0.729754, loss2: 112.022949, dist: 112.02295, modifier mean: 6.80657e-02
+Step:  300, loss: 133.2765, loss1: 0.000000, loss2: 133.276459, dist: 133.27646, modifier mean: 8.27490e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.686512683973502
+The label after attack 4
+[STATS][L1] total = 25, seq = 2365, time = 24.673, success = True, distortion = 9.20657, avg_step = 142.35000, success_rate = 0.800
+True labels: 7
+Predicted logits tensor([ -5.4029,  -4.5813,   7.8484,   1.8043,  -3.0973, -14.7616, -23.4959,
+         32.8616,   0.3318,  10.8298], device='cuda:0') 
+Probability tensor([2.4094e-17, 5.4793e-17, 1.3706e-11, 3.2508e-14, 2.4168e-16, 2.0772e-21,
+        3.3438e-25, 1.0000e+00, 7.4554e-15, 2.7019e-10], device='cuda:0')
+The original label before attack 7
+Batch: 2372, search step: 0
+Step:    0, loss: 11.0159, loss1: 11.015942, loss2: 0.000000, dist:  0.00000, modifier mean: 7.27003e-04
+Step:  100, loss: 51.7684, loss1: 0.017878, loss2: 51.750504, dist: 51.75050, modifier mean: 5.75378e-02
+Step:  200, loss: 89.6691, loss1: 0.000000, loss2: 89.669144, dist: 89.66914, modifier mean: 9.48334e-02
+Step:  300, loss: 115.8655, loss1: 0.000000, loss2: 115.865524, dist: 115.86552, modifier mean: 1.19296e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.210821951803869
+The label after attack 9
+[STATS][L1] total = 26, seq = 2372, time = 25.147, success = True, distortion = 9.20677, avg_step = 144.04762, success_rate = 0.808
+True labels: 7
+Predicted logits tensor([ -8.7287,  -0.0131,  -2.2262,   5.1707,  -5.2361,  -7.8733, -31.2217,
+         49.7957,  -6.0249,  10.8342], device='cuda:0') 
+Probability tensor([3.8299e-26, 2.3353e-22, 2.5539e-23, 4.1653e-20, 1.2589e-24, 9.0091e-26,
+        6.5252e-36, 1.0000e+00, 5.7205e-25, 1.2002e-17], device='cuda:0')
+The original label before attack 7
+Batch: 2595, search step: 0
+Step:    0, loss: 19.4807, loss1: 19.480745, loss2: 0.000000, dist:  0.00000, modifier mean: 3.84375e-04
+Step:  100, loss: 77.8981, loss1: 5.954713, loss2: 71.943436, dist: 71.94344, modifier mean: 2.87603e-02
+Step:  200, loss: 122.6484, loss1: 0.000000, loss2: 122.648399, dist: 122.64840, modifier mean: 6.46999e-02
+Step:  300, loss: 151.2284, loss1: 0.000000, loss2: 151.228378, dist: 151.22838, modifier mean: 9.69311e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.430674988364398
+The label after attack 3
+[STATS][L1] total = 27, seq = 2595, time = 24.964, success = True, distortion = 9.26241, avg_step = 145.04545, success_rate = 0.815
+True labels: 8
+Predicted logits tensor([-15.0717,  -3.6297, -15.4811,   9.0665, -11.7698,  -8.5782,  -4.4912,
+        -17.9863,  64.7289,   3.0437], device='cuda:0') 
+Probability tensor([2.2031e-35, 2.0524e-30, 1.4631e-35, 6.7013e-25, 5.9849e-34, 1.4559e-32,
+        8.6719e-31, 1.1947e-36, 1.0000e+00, 1.6236e-27], device='cuda:0')
+The original label before attack 8
+Batch: 2600, search step: 0
+Step:    0, loss: 27.8312, loss1: 27.831161, loss2: 0.000000, dist:  0.00000, modifier mean: 3.09607e-04
+Step:  100, loss: 82.6076, loss1: 3.112415, loss2: 79.495216, dist: 79.49522, modifier mean: 2.35022e-02
+Step:  200, loss: 133.5750, loss1: 0.000000, loss2: 133.574951, dist: 133.57495, modifier mean: 3.00877e-02
+Step:  300, loss: 170.5394, loss1: 0.000000, loss2: 170.539352, dist: 170.53935, modifier mean: 6.03924e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.7139806298826
+The label after attack 2
+[STATS][L1] total = 28, seq = 2600, time = 24.770, success = True, distortion = 9.28204, avg_step = 144.13043, success_rate = 0.821
+True labels: 8
+Predicted logits tensor([-17.9637, -10.8609,  -6.9739,   3.8716,  -5.6408,  -7.2572,  -5.8083,
+        -13.3795,  54.2954,   8.1283], device='cuda:0') 
+Probability tensor([4.1523e-32, 5.0466e-29, 2.4607e-27, 1.2624e-22, 9.3331e-27, 1.8538e-27,
+        7.8938e-27, 4.0659e-30, 1.0000e+00, 8.9101e-21], device='cuda:0')
+The original label before attack 8
+Batch: 2744, search step: 0
+Step:    0, loss: 23.0836, loss1: 23.083551, loss2: 0.000000, dist:  0.00000, modifier mean: 5.99466e-04
+Step:  100, loss: 85.8183, loss1: 10.011646, loss2: 75.806671, dist: 75.80667, modifier mean: 5.00020e-02
+Step:  200, loss: 121.4398, loss1: 0.000000, loss2: 121.439781, dist: 121.43978, modifier mean: 7.24057e-02
+Step:  300, loss: 136.2645, loss1: 0.000000, loss2: 136.264481, dist: 136.26448, modifier mean: 8.87948e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.472880627491909
+The label after attack 5
+[STATS][L1] total = 29, seq = 2744, time = 25.144, success = True, distortion = 9.33166, avg_step = 145.08333, success_rate = 0.828
+True labels: 0
+Predicted logits tensor([ 38.9610, -12.1468,   5.5220, -11.8519, -10.5636, -21.7706,   9.2164,
+         -8.3149,   0.3764,   0.3877], device='cuda:0') 
+Probability tensor([1.0000e+00, 6.3705e-23, 3.0036e-15, 8.5559e-23, 3.1027e-22, 4.2133e-27,
+        1.2081e-13, 2.9401e-21, 1.7496e-17, 1.7695e-17], device='cuda:0')
+The original label before attack 0
+Batch: 2777, search step: 0
+Step:    0, loss: 14.8723, loss1: 14.872299, loss2: 0.000000, dist:  0.00000, modifier mean: 6.91503e-04
+Step:  100, loss: 71.8037, loss1: 1.611759, loss2: 70.191940, dist: 70.19194, modifier mean: 5.26797e-02
+Step:  200, loss: 120.4602, loss1: 0.000000, loss2: 120.460190, dist: 120.46019, modifier mean: 9.23654e-02
+Step:  300, loss: 134.9834, loss1: 0.000000, loss2: 134.983383, dist: 134.98338, modifier mean: 1.02163e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.352803312888083
+The label after attack 8
+[STATS][L1] total = 30, seq = 2777, time = 24.933, success = True, distortion = 9.33250, avg_step = 144.60000, success_rate = 0.833
+True labels: 8
+Predicted logits tensor([ -7.8541,  -4.5673,  -4.8416,   3.6346, -15.0995,  -7.9272,  -8.8399,
+        -10.4161,  55.9234,  -1.6974], device='cuda:0') 
+Probability tensor([2.0035e-28, 5.3605e-27, 4.0744e-27, 1.9555e-23, 1.4293e-31, 1.8621e-28,
+        7.4756e-29, 1.5456e-29, 1.0000e+00, 9.4534e-26], device='cuda:0')
+The original label before attack 8
+Batch: 2935, search step: 0
+Step:    0, loss: 26.1444, loss1: 26.144417, loss2: 0.000000, dist:  0.00000, modifier mean: 3.43373e-04
+Step:  100, loss: 103.0376, loss1: 7.738839, loss2: 95.298790, dist: 95.29879, modifier mean: 5.85302e-02
+Step:  200, loss: 132.4340, loss1: 1.227921, loss2: 131.206039, dist: 131.20604, modifier mean: 8.55292e-02
+Step:  300, loss: 161.8329, loss1: 0.000000, loss2: 161.832901, dist: 161.83290, modifier mean: 9.42094e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.67446972706697
+The label after attack 5
+[STATS][L1] total = 31, seq = 2935, time = 25.080, success = True, distortion = 9.42258, avg_step = 147.23077, success_rate = 0.839
+True labels: 6
+Predicted logits tensor([  2.5092, -10.2711,  -1.8132, -12.5344,   2.5271,  16.6500,  47.6951,
+        -26.9576,  -2.7842, -19.8391], device='cuda:0') 
+Probability tensor([2.3769e-20, 6.6921e-26, 3.1536e-22, 6.9608e-27, 2.4198e-20, 3.2906e-14,
+        1.0000e+00, 3.7907e-33, 1.1943e-22, 4.6801e-30], device='cuda:0')
+The original label before attack 6
+Batch: 3051, search step: 0
+Step:    0, loss: 15.5226, loss1: 15.522563, loss2: 0.000000, dist:  0.00000, modifier mean: 7.01007e-04
+Step:  100, loss: 72.1917, loss1: 0.188003, loss2: 72.003662, dist: 72.00366, modifier mean: 5.45759e-02
+Step:  200, loss: 103.1799, loss1: 0.000000, loss2: 103.179855, dist: 103.17986, modifier mean: 6.65884e-02
+Step:  300, loss: 113.2680, loss1: 0.000000, loss2: 113.268044, dist: 113.26804, modifier mean: 7.27243e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.585089297132914
+The label after attack 2
+[STATS][L1] total = 32, seq = 3051, time = 25.128, success = True, distortion = 9.39156, avg_step = 145.55556, success_rate = 0.844
+True labels: 6
+Predicted logits tensor([  4.1697, -17.2020,   1.3372,  -7.6129, -14.4974,  19.6443,  56.3880,
+        -33.8327,   9.0750, -25.5003], device='cuda:0') 
+Probability tensor([2.0984e-23, 1.0972e-32, 1.2352e-24, 1.6024e-28, 1.6400e-31, 1.1026e-16,
+        1.0000e+00, 6.5712e-40, 2.8330e-21, 2.7313e-36], device='cuda:0')
+The original label before attack 6
+Batch: 3141, search step: 0
+Step:    0, loss: 18.3719, loss1: 18.371857, loss2: 0.000000, dist:  0.00000, modifier mean: 5.98968e-04
+Step:  100, loss: 73.7003, loss1: 1.547258, loss2: 72.153008, dist: 72.15301, modifier mean: 5.22744e-02
+Step:  200, loss: 115.8075, loss1: 0.000000, loss2: 115.807487, dist: 115.80749, modifier mean: 8.29521e-02
+Step:  300, loss: 126.0344, loss1: 0.000000, loss2: 126.034378, dist: 126.03438, modifier mean: 8.65079e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.715992208548487
+The label after attack 8
+[STATS][L1] total = 33, seq = 3141, time = 25.058, success = True, distortion = 9.43886, avg_step = 147.32143, success_rate = 0.848
+True labels: 8
+Predicted logits tensor([ -8.5058,  -5.3100,   0.8795,   7.6131, -22.2041,   4.3086, -11.5753,
+        -15.9630,  55.5009,  -1.5297], device='cuda:0') 
+Probability tensor([1.5930e-28, 3.8916e-27, 1.8977e-24, 1.5943e-21, 1.7912e-34, 5.8541e-23,
+        7.3990e-30, 9.1959e-32, 1.0000e+00, 1.7058e-25], device='cuda:0')
+The original label before attack 8
+Batch: 3340, search step: 0
+Step:    0, loss: 23.9439, loss1: 23.943937, loss2: 0.000000, dist:  0.00000, modifier mean: 4.78182e-04
+Step:  100, loss: 90.4944, loss1: 3.668169, loss2: 86.826187, dist: 86.82619, modifier mean: 3.84937e-02
+Step:  200, loss: 127.3273, loss1: 2.648703, loss2: 124.678627, dist: 124.67863, modifier mean: 5.28370e-02
+Step:  300, loss: 140.5959, loss1: 1.365206, loss2: 139.230652, dist: 139.23065, modifier mean: 6.28376e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 8
+[STATS][L1] total = 34, seq = 3340, time = 24.825, success = False, distortion = 9.43886, avg_step = 147.32143, success_rate = 0.824
+True labels: 4
+Predicted logits tensor([-18.7654,  -1.5712,   4.2080, -15.7891,  50.5857,  -9.5926,  -1.3883,
+          7.5748,  -9.2991,   2.2859], device='cuda:0') 
+Probability tensor([7.6063e-31, 2.2311e-23, 7.2179e-21, 1.4920e-29, 1.0000e+00, 7.3265e-27,
+        2.6789e-23, 2.0921e-19, 9.8249e-27, 1.0560e-21], device='cuda:0')
+The original label before attack 4
+Batch: 3370, search step: 0
+Step:    0, loss: 21.5055, loss1: 21.505482, loss2: 0.000000, dist:  0.00000, modifier mean: 5.11940e-04
+Step:  100, loss: 62.0136, loss1: 1.679198, loss2: 60.334396, dist: 60.33440, modifier mean: 3.74879e-02
+Step:  200, loss: 104.2564, loss1: 0.000000, loss2: 104.256432, dist: 104.25643, modifier mean: 6.56648e-02
+Step:  300, loss: 125.1052, loss1: 0.000000, loss2: 125.105156, dist: 125.10516, modifier mean: 7.07587e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.744899898281114
+The label after attack 9
+[STATS][L1] total = 35, seq = 3370, time = 24.910, success = True, distortion = 9.41493, avg_step = 146.37931, success_rate = 0.829
+True labels: 2
+Predicted logits tensor([ -6.0583,  10.5671,  32.9505,  12.0991, -11.3114, -13.0148,  -8.4431,
+          4.5373,  -2.3689, -15.6859], device='cuda:0') 
+Probability tensor([1.1447e-17, 1.9010e-10, 1.0000e+00, 8.7973e-10, 5.9878e-20, 1.0902e-20,
+        1.0544e-18, 4.5738e-13, 4.5812e-16, 7.5417e-22], device='cuda:0')
+The original label before attack 2
+Batch: 3375, search step: 0
+Step:    0, loss: 10.4257, loss1: 10.425702, loss2: 0.000000, dist:  0.00000, modifier mean: 6.54984e-04
+Step:  100, loss: 68.9370, loss1: 1.689109, loss2: 67.247932, dist: 67.24793, modifier mean: 2.95473e-02
+Step:  200, loss: 111.0504, loss1: 0.967362, loss2: 110.083038, dist: 110.08304, modifier mean: 6.32078e-02
+Step:  300, loss: 125.1576, loss1: 0.000000, loss2: 125.157562, dist: 125.15756, modifier mean: 7.30431e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.753245019173646
+The label after attack 5
+[STATS][L1] total = 36, seq = 3375, time = 25.140, success = True, distortion = 9.45954, avg_step = 148.80000, success_rate = 0.833
+True labels: 5
+Predicted logits tensor([-15.5376, -13.4772, -20.9288,   0.0904,  -9.7330,  52.1255,  11.8298,
+        -22.8347,   0.7275,  17.4391], device='cuda:0') 
+Probability tensor([4.1141e-30, 3.2292e-29, 1.8747e-32, 2.5203e-23, 1.3652e-27, 1.0000e+00,
+        3.1606e-18, 2.7873e-33, 4.7656e-23, 8.6270e-16], device='cuda:0')
+The original label before attack 5
+Batch: 3468, search step: 0
+Step:    0, loss: 17.3432, loss1: 17.343231, loss2: 0.000000, dist:  0.00000, modifier mean: 5.44191e-04
+Step:  100, loss: 73.6828, loss1: 14.483080, loss2: 59.199726, dist: 59.19973, modifier mean: 2.42752e-02
+Step:  200, loss: 125.7853, loss1: 6.468596, loss2: 119.316658, dist: 119.31666, modifier mean: 5.67541e-02
+Step:  300, loss: 151.8178, loss1: 0.000000, loss2: 151.817810, dist: 151.81781, modifier mean: 7.20065e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 12.268743383451476
+The label after attack 2
+[STATS][L1] total = 37, seq = 3468, time = 25.177, success = True, distortion = 9.55016, avg_step = 153.45161, success_rate = 0.838
+True labels: 2
+Predicted logits tensor([ -6.0672,  -1.6384,  45.7180,  12.4083,  -9.2375, -15.3451, -14.5235,
+         11.1739,  -0.9478, -16.1665], device='cuda:0') 
+Probability tensor([3.2358e-23, 2.7126e-21, 1.0000e+00, 3.4183e-15, 1.3588e-24, 3.0243e-27,
+        6.8777e-27, 9.9470e-16, 5.4112e-21, 1.3301e-27], device='cuda:0')
+The original label before attack 2
+Batch: 3729, search step: 0
+Step:    0, loss: 16.6548, loss1: 16.654819, loss2: 0.000000, dist:  0.00000, modifier mean: 1.98562e-04
+Step:  100, loss: 109.6617, loss1: 7.977618, loss2: 101.684074, dist: 101.68407, modifier mean: -4.14812e-03
+Step:  200, loss: 156.7607, loss1: 0.000000, loss2: 156.760712, dist: 156.76071, modifier mean: 8.54554e-03
+Step:  300, loss: 187.1203, loss1: 0.586570, loss2: 186.533768, dist: 186.53377, modifier mean: 1.18788e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 12.376297083222731
+The label after attack 5
+[STATS][L1] total = 38, seq = 3729, time = 26.053, success = True, distortion = 9.63848, avg_step = 154.62500, success_rate = 0.842
+True labels: 6
+Predicted logits tensor([  2.1490, -10.9207, -11.2729, -27.0963,  15.8946,  17.3485,  63.5798,
+        -25.8206,  -3.0212, -27.2438], device='cuda:0') 
+Probability tensor([2.0939e-27, 4.4140e-33, 3.1036e-33, 4.1672e-40, 1.9524e-21, 8.3561e-21,
+        1.0000e+00, 1.4924e-39, 1.1900e-29, 3.5959e-40], device='cuda:0')
+The original label before attack 6
+Batch: 3822, search step: 0
+Step:    0, loss: 23.1156, loss1: 23.115648, loss2: 0.000000, dist:  0.00000, modifier mean: 7.41532e-04
+Step:  100, loss: 67.0388, loss1: 9.570549, loss2: 57.468262, dist: 57.46826, modifier mean: 4.78826e-02
+Step:  200, loss: 93.9721, loss1: 0.488506, loss2: 93.483589, dist: 93.48359, modifier mean: 7.12527e-02
+Step:  300, loss: 115.6834, loss1: 0.000000, loss2: 115.683418, dist: 115.68342, modifier mean: 9.77001e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.970645079621155
+The label after attack 8
+[STATS][L1] total = 39, seq = 3822, time = 25.081, success = True, distortion = 9.61824, avg_step = 154.42424, success_rate = 0.846
+True labels: 2
+Predicted logits tensor([ -1.1852,  10.5347,  54.1484,   1.9273, -16.6938, -27.2795, -18.8402,
+         12.1866,   2.2317,  -9.2031], device='cuda:0') 
+Probability tensor([9.3102e-25, 1.1451e-19, 1.0000e+00, 2.0926e-23, 1.7126e-31, 4.3284e-36,
+        2.0021e-32, 5.9739e-19, 2.8370e-23, 3.0677e-28], device='cuda:0')
+The original label before attack 2
+Batch: 3839, search step: 0
+Step:    0, loss: 20.9809, loss1: 20.980862, loss2: 0.000000, dist:  0.00000, modifier mean: 4.91433e-04
+Step:  100, loss: 90.2116, loss1: 10.721257, loss2: 79.490318, dist: 79.49032, modifier mean: 3.08758e-02
+Step:  200, loss: 134.5442, loss1: 4.755917, loss2: 129.788315, dist: 129.78831, modifier mean: 5.40259e-02
+Step:  300, loss: 156.3389, loss1: 0.000000, loss2: 156.338928, dist: 156.33893, modifier mean: 6.42617e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.895894831527952
+The label after attack 5
+[STATS][L1] total = 40, seq = 3839, time = 24.853, success = True, distortion = 9.68523, avg_step = 157.17647, success_rate = 0.850
+True labels: 6
+Predicted logits tensor([  8.8635, -10.4930,  12.9983,  -8.5543, -19.4043,   6.3842,  24.1151,
+        -27.0093,   9.9174,  -0.7599], device='cuda:0') 
+Probability tensor([2.3785e-07, 9.3294e-16, 1.4860e-05, 6.4837e-15, 1.2582e-19, 1.9933e-08,
+        9.9998e-01, 6.2654e-23, 6.8234e-07, 1.5736e-11], device='cuda:0')
+The original label before attack 6
+Batch: 3853, search step: 0
+Step:    0, loss: 5.5584, loss1: 5.558395, loss2: 0.000000, dist:  0.00000, modifier mean: 7.31528e-04
+Step:  100, loss: 63.1347, loss1: 3.504186, loss2: 59.630486, dist: 59.63049, modifier mean: 6.58864e-02
+Step:  200, loss: 107.8736, loss1: 2.379366, loss2: 105.494270, dist: 105.49427, modifier mean: 9.39298e-02
+Step:  300, loss: 123.1001, loss1: 0.000000, loss2: 123.100075, dist: 123.10007, modifier mean: 1.01395e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.75602021312694
+The label after attack 5
+[STATS][L1] total = 41, seq = 3853, time = 8.611, success = True, distortion = 9.71583, avg_step = 160.02857, success_rate = 0.854
+True labels: 8
+Predicted logits tensor([ -4.7653,  -5.8234,  -3.5345,   5.8892, -16.8128,  -3.2058,  -5.9010,
+        -11.8459,  50.1505,  -1.6778], device='cuda:0') 
+Probability tensor([1.4138e-24, 4.9074e-25, 4.8408e-24, 5.9918e-20, 8.2834e-30, 6.7246e-24,
+        4.5407e-25, 1.1893e-27, 1.0000e+00, 3.0993e-23], device='cuda:0')
+The original label before attack 8
+Batch: 4251, search step: 0
+Step:    0, loss: 22.1307, loss1: 22.130659, loss2: 0.000000, dist:  0.00000, modifier mean: 5.93471e-04
+Step:  100, loss: 87.0950, loss1: 4.356678, loss2: 82.738297, dist: 82.73830, modifier mean: 6.88430e-02
+Step:  200, loss: 121.7002, loss1: 0.000000, loss2: 121.700172, dist: 121.70017, modifier mean: 8.84869e-02
+Step:  300, loss: 155.7301, loss1: 0.000000, loss2: 155.730118, dist: 155.73012, modifier mean: 1.15428e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.15851987855745
+The label after attack 2
+[STATS][L1] total = 42, seq = 4251, time = 7.133, success = True, distortion = 9.72812, avg_step = 159.88889, success_rate = 0.857
+True labels: 6
+Predicted logits tensor([-10.0062, -10.2214,   1.6356, -14.3106,   7.4581,  23.1254,  45.3466,
+        -25.1476,   0.8166, -20.3780], device='cuda:0') 
+Probability tensor([9.1322e-25, 7.3641e-25, 1.0388e-19, 1.2337e-26, 3.5094e-17, 2.2358e-10,
+        1.0000e+00, 2.4251e-31, 4.5797e-20, 2.8585e-29], device='cuda:0')
+The original label before attack 6
+Batch: 4346, search step: 0
+Step:    0, loss: 11.1106, loss1: 11.110627, loss2: 0.000000, dist:  0.00000, modifier mean: 5.98934e-04
+Step:  100, loss: 64.1705, loss1: 3.652624, loss2: 60.517921, dist: 60.51792, modifier mean: 4.12173e-02
+Step:  200, loss: 119.3573, loss1: 0.000000, loss2: 119.357315, dist: 119.35732, modifier mean: 7.49322e-02
+Step:  300, loss: 145.4565, loss1: 0.000000, loss2: 145.456497, dist: 145.45650, modifier mean: 8.70828e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.156557988118594
+The label after attack 5
+[STATS][L1] total = 43, seq = 4346, time = 10.208, success = True, distortion = 9.73970, avg_step = 160.05405, success_rate = 0.860
+True labels: 4
+Predicted logits tensor([-16.3883,  -7.9696,  -1.8057, -16.6840,  51.7354,  -3.2638,   9.5633,
+          5.5606, -10.9197,  -3.9460], device='cuda:0') 
+Probability tensor([2.5956e-30, 1.1761e-26, 5.5899e-24, 1.9311e-30, 1.0000e+00, 1.3006e-24,
+        4.8401e-19, 8.8417e-21, 6.1552e-28, 6.5745e-25], device='cuda:0')
+The original label before attack 4
+Batch: 4544, search step: 0
+Step:    0, loss: 21.0861, loss1: 21.086086, loss2: 0.000000, dist:  0.00000, modifier mean: 6.98758e-04
+Step:  100, loss: 71.7049, loss1: 7.412575, loss2: 64.292305, dist: 64.29230, modifier mean: 4.77750e-02
+Step:  200, loss: 111.5131, loss1: 6.179960, loss2: 105.333138, dist: 105.33314, modifier mean: 7.39168e-02
+Step:  300, loss: 134.0678, loss1: 0.844222, loss2: 133.223541, dist: 133.22354, modifier mean: 9.38243e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 4
+[STATS][L1] total = 44, seq = 4544, time = 21.202, success = False, distortion = 9.73970, avg_step = 160.05405, success_rate = 0.841
+True labels: 4
+Predicted logits tensor([-17.4804, -12.1397, -18.0231, -21.4395,  52.3168,   3.0105,   5.3277,
+         -0.1091,  14.3735,  -0.7220], device='cuda:0') 
+Probability tensor([4.8693e-31, 1.0160e-28, 2.8297e-31, 9.2903e-33, 1.0000e+00, 3.8594e-22,
+        3.9165e-21, 1.7049e-23, 3.3221e-17, 9.2372e-24], device='cuda:0')
+The original label before attack 4
+Batch: 4609, search step: 0
+Step:    0, loss: 18.9717, loss1: 18.971670, loss2: 0.000000, dist:  0.00000, modifier mean: 1.03027e-03
+Step:  100, loss: 64.8917, loss1: 2.129667, loss2: 62.762066, dist: 62.76207, modifier mean: 5.95882e-02
+Step:  200, loss: 107.1886, loss1: 0.000000, loss2: 107.188629, dist: 107.18863, modifier mean: 9.05256e-02
+Step:  300, loss: 125.9326, loss1: 0.000000, loss2: 125.932625, dist: 125.93262, modifier mean: 9.83472e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.914479973602885
+The label after attack 8
+[STATS][L1] total = 45, seq = 4609, time = 21.114, success = True, distortion = 9.74430, avg_step = 160.31579, success_rate = 0.844
+True labels: 2
+Predicted logits tensor([  8.2272, -12.5373,  36.8980,   3.3421,   0.3743,  -5.7991,   6.0461,
+        -11.5542,  -4.5006, -18.9369], device='cuda:0') 
+Probability tensor([3.5351e-13, 3.3925e-22, 1.0000e+00, 2.6720e-15, 1.3739e-16, 2.8632e-19,
+        3.9920e-14, 9.0672e-22, 1.0491e-18, 5.6387e-25], device='cuda:0')
+The original label before attack 2
+Batch: 4615, search step: 0
+Step:    0, loss: 14.3354, loss1: 14.335429, loss2: 0.000000, dist:  0.00000, modifier mean: 5.46967e-04
+Step:  100, loss: 88.4372, loss1: 5.435093, loss2: 83.002090, dist: 83.00209, modifier mean: 2.46149e-02
+Step:  200, loss: 135.5112, loss1: 2.208024, loss2: 133.303177, dist: 133.30318, modifier mean: 4.43560e-02
+Step:  300, loss: 150.9660, loss1: 1.200428, loss2: 149.765579, dist: 149.76558, modifier mean: 4.93826e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 2
+[STATS][L1] total = 46, seq = 4615, time = 21.115, success = False, distortion = 9.74430, avg_step = 160.31579, success_rate = 0.826
+True labels: 6
+Predicted logits tensor([ -7.1343,  -7.8322,  -1.1037, -23.8221,  17.6672,  18.9423,  49.2460,
+        -27.7162,  -5.5089, -13.1363], device='cuda:0') 
+Probability tensor([3.2686e-25, 1.6266e-25, 1.3596e-22, 1.8490e-32, 1.9299e-14, 6.9068e-14,
+        1.0000e+00, 3.7650e-34, 1.6606e-24, 8.0856e-28], device='cuda:0')
+The original label before attack 6
+Batch: 4627, search step: 0
+Step:    0, loss: 15.1518, loss1: 15.151843, loss2: 0.000000, dist:  0.00000, modifier mean: 5.54702e-04
+Step:  100, loss: 66.6129, loss1: 2.852682, loss2: 63.760223, dist: 63.76022, modifier mean: 9.70888e-03
+Step:  200, loss: 105.1128, loss1: 0.000000, loss2: 105.112770, dist: 105.11277, modifier mean: 2.66537e-02
+Step:  300, loss: 115.3069, loss1: 0.000000, loss2: 115.306900, dist: 115.30690, modifier mean: 2.86023e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.104833039532911
+The label after attack 5
+[STATS][L1] total = 47, seq = 4627, time = 20.364, success = True, distortion = 9.75355, avg_step = 160.92308, success_rate = 0.830
+True labels: 9
+Predicted logits tensor([ -3.9029,  -8.0766, -13.0421,  14.0590,  -9.6647,  11.7309, -18.8659,
+         -3.7818,  -4.0121,  35.4596], device='cuda:0') 
+Probability tensor([8.0373e-18, 1.2373e-19, 8.6294e-22, 5.0799e-10, 2.5281e-20, 4.9516e-11,
+        2.5512e-24, 9.0721e-18, 7.2058e-18, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 4692, search step: 0
+Step:    0, loss: 10.7003, loss1: 10.700277, loss2: 0.000000, dist:  0.00000, modifier mean: 5.57476e-04
+Step:  100, loss: 73.1199, loss1: 0.000000, loss2: 73.119934, dist: 73.11993, modifier mean: 5.51401e-02
+Step:  200, loss: 109.9822, loss1: 0.000000, loss2: 109.982178, dist: 109.98218, modifier mean: 8.17204e-02
+Step:  300, loss: 135.9624, loss1: 0.000000, loss2: 135.962433, dist: 135.96243, modifier mean: 9.95716e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.97129918631671
+The label after attack 5
+[STATS][L1] total = 48, seq = 4692, time = 21.346, success = True, distortion = 9.70899, avg_step = 159.15000, success_rate = 0.833
+True labels: 4
+Predicted logits tensor([-23.6418,  -8.3616,  -7.3469, -16.4635,  56.1427, -11.4024,  -4.4180,
+          6.9824,   6.2654,   8.9132], device='cuda:0') 
+Probability tensor([2.2389e-35, 9.6860e-29, 2.6718e-28, 2.9343e-32, 1.0000e+00, 4.6294e-30,
+        4.9982e-27, 4.4662e-22, 2.1805e-22, 3.0794e-21], device='cuda:0')
+The original label before attack 4
+Batch: 4827, search step: 0
+Step:    0, loss: 23.6148, loss1: 23.614780, loss2: 0.000000, dist:  0.00000, modifier mean: 8.41819e-04
+Step:  100, loss: 85.6138, loss1: 8.340181, loss2: 77.273605, dist: 77.27361, modifier mean: 5.81599e-02
+Step:  200, loss: 115.0660, loss1: 2.473402, loss2: 112.592621, dist: 112.59262, modifier mean: 8.87243e-02
+Step:  300, loss: 133.2447, loss1: 0.000000, loss2: 133.244705, dist: 133.24471, modifier mean: 1.00433e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.031270056860308
+The label after attack 5
+[STATS][L1] total = 49, seq = 4827, time = 20.946, success = True, distortion = 9.74124, avg_step = 161.09756, success_rate = 0.837
+True labels: 0
+Predicted logits tensor([ 42.3181, -16.3458,   4.0697, -11.6192, -13.9926, -25.2823,   2.8632,
+         -0.5407,  -6.2875,   7.7326], device='cuda:0') 
+Probability tensor([1.0000e+00, 3.3312e-26, 2.4487e-17, 3.7613e-24, 3.5041e-25, 4.3808e-30,
+        7.3281e-18, 2.4359e-19, 7.7785e-22, 9.5443e-16], device='cuda:0')
+The original label before attack 0
+Batch: 4891, search step: 0
+Step:    0, loss: 17.2927, loss1: 17.292707, loss2: 0.000000, dist:  0.00000, modifier mean: 6.13986e-04
+Step:  100, loss: 55.3341, loss1: 12.317707, loss2: 43.016369, dist: 43.01637, modifier mean: 4.38215e-02
+Step:  200, loss: 93.1969, loss1: 9.456047, loss2: 83.740807, dist: 83.74081, modifier mean: 7.11331e-02
+Step:  300, loss: 114.9810, loss1: 5.976384, loss2: 109.004601, dist: 109.00460, modifier mean: 9.56646e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 0
+[STATS][L1] total = 50, seq = 4891, time = 21.110, success = False, distortion = 9.74124, avg_step = 161.09756, success_rate = 0.820
+True labels: 5
+Predicted logits tensor([-20.5650, -13.7682, -28.3752,   0.8079, -15.1774,  67.5065,   4.0166,
+        -24.9732,   4.3664,  22.5384], device='cuda:0') 
+Probability tensor([5.6369e-39, 5.0449e-36, 2.2855e-42, 1.0794e-29, 1.2326e-36, 1.0000e+00,
+        2.6711e-28, 6.8636e-41, 3.7897e-28, 2.9552e-20], device='cuda:0')
+The original label before attack 5
+Batch: 4892, search step: 0
+Step:    0, loss: 22.4841, loss1: 22.484066, loss2: 0.000000, dist:  0.00000, modifier mean: 6.87761e-04
+Step:  100, loss: 68.9429, loss1: 10.006124, loss2: 58.936790, dist: 58.93679, modifier mean: 5.17440e-02
+Step:  200, loss: 105.7169, loss1: 9.169191, loss2: 96.547668, dist: 96.54767, modifier mean: 7.60622e-02
+Step:  300, loss: 138.0928, loss1: 7.307826, loss2: 130.785004, dist: 130.78500, modifier mean: 9.37920e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 51, seq = 4892, time = 20.851, success = False, distortion = 9.74124, avg_step = 161.09756, success_rate = 0.804
+True labels: 1
+Predicted logits tensor([ -2.0664,  34.0344,   2.7708, -21.2533,   2.8026,  -6.5722,   1.0511,
+          2.3374,  10.3700, -14.7739], device='cuda:0') 
+Probability tensor([2.0970e-16, 1.0000e+00, 2.6446e-14, 9.7465e-25, 2.7302e-14, 2.3162e-18,
+        4.7370e-15, 1.7146e-14, 5.2802e-11, 6.3506e-22], device='cuda:0')
+The original label before attack 1
+Batch: 5227, search step: 0
+Step:    0, loss: 11.8322, loss1: 11.832234, loss2: 0.000000, dist:  0.00000, modifier mean: 7.78048e-04
+Step:  100, loss: 76.9205, loss1: 0.000000, loss2: 76.920517, dist: 76.92052, modifier mean: 8.13304e-02
+Step:  200, loss: 106.0594, loss1: 0.000000, loss2: 106.059380, dist: 106.05938, modifier mean: 9.32562e-02
+Step:  300, loss: 118.7858, loss1: 0.000000, loss2: 118.785828, dist: 118.78583, modifier mean: 9.88794e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 6.7444876308968285
+The label after attack 2
+[STATS][L1] total = 52, seq = 5227, time = 20.660, success = True, distortion = 9.66989, avg_step = 159.00000, success_rate = 0.808
+True labels: 0
+Predicted logits tensor([ 43.2403, -16.9284,   4.2115, -10.0159, -15.1900, -22.5498,   5.8299,
+         -6.1606,  -0.2894,   5.0926], device='cuda:0') 
+Probability tensor([1.0000e+00, 7.3970e-27, 1.1219e-17, 7.4317e-24, 4.2076e-26, 2.6773e-29,
+        5.6602e-17, 3.5110e-22, 1.2453e-19, 2.7078e-17], device='cuda:0')
+The original label before attack 0
+Batch: 5280, search step: 0
+Step:    0, loss: 18.7052, loss1: 18.705244, loss2: 0.000000, dist:  0.00000, modifier mean: 2.37523e-04
+Step:  100, loss: 86.4680, loss1: 0.000000, loss2: 86.468002, dist: 86.46800, modifier mean: 1.20042e-02
+Step:  200, loss: 134.6746, loss1: 0.000000, loss2: 134.674591, dist: 134.67459, modifier mean: 3.13568e-02
+Step:  300, loss: 146.9328, loss1: 0.000000, loss2: 146.932800, dist: 146.93280, modifier mean: 3.94475e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.7272620583526885
+The label after attack 6
+[STATS][L1] total = 53, seq = 5280, time = 20.577, success = True, distortion = 9.62471, avg_step = 157.16279, success_rate = 0.811
+True labels: 0
+Predicted logits tensor([ 50.3141, -24.3973,   4.1324,  -8.6679, -22.4067, -19.1098,   4.9082,
+         -6.2954,  -1.3840,   3.9516], device='cuda:0') 
+Probability tensor([1.0000e+00, 3.5749e-33, 8.7812e-21, 2.4234e-26, 2.6169e-32, 7.0726e-31,
+        1.9075e-20, 2.5989e-25, 3.5301e-23, 7.3288e-21], device='cuda:0')
+The original label before attack 0
+Batch: 5337, search step: 0
+Step:    0, loss: 22.7029, loss1: 22.702948, loss2: 0.000000, dist:  0.00000, modifier mean: 3.32358e-04
+Step:  100, loss: 79.8711, loss1: 3.745801, loss2: 76.125336, dist: 76.12534, modifier mean: 1.24564e-02
+Step:  200, loss: 133.4641, loss1: 0.386370, loss2: 133.077728, dist: 133.07773, modifier mean: 3.07934e-02
+Step:  300, loss: 152.6632, loss1: 0.000000, loss2: 152.663193, dist: 152.66319, modifier mean: 3.31131e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.631688972565085
+The label after attack 5
+[STATS][L1] total = 54, seq = 5337, time = 20.815, success = True, distortion = 9.67033, avg_step = 158.27273, success_rate = 0.815
+True labels: 1
+Predicted logits tensor([-10.2026,  34.7558,  -5.7203, -15.9666,   7.7059,  -1.0067,  -0.6396,
+          4.3621,  -1.4739,  -2.1583], device='cuda:0') 
+Probability tensor([2.9840e-20, 1.0000e+00, 2.6391e-18, 9.3658e-23, 1.7881e-12, 2.9414e-16,
+        4.2458e-16, 6.3120e-14, 1.8434e-16, 9.2982e-17], device='cuda:0')
+The original label before attack 1
+Batch: 5520, search step: 0
+Step:    0, loss: 13.5249, loss1: 13.524947, loss2: 0.000000, dist:  0.00000, modifier mean: 9.82118e-04
+Step:  100, loss: 79.7469, loss1: 0.606376, loss2: 79.140533, dist: 79.14053, modifier mean: 8.13806e-02
+Step:  200, loss: 123.3685, loss1: 0.000000, loss2: 123.368500, dist: 123.36850, modifier mean: 1.21888e-01
+Step:  300, loss: 142.4151, loss1: 0.000000, loss2: 142.415085, dist: 142.41508, modifier mean: 1.38265e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.113501423883413
+The label after attack 7
+[STATS][L1] total = 55, seq = 5520, time = 20.977, success = True, distortion = 9.65795, avg_step = 157.08889, success_rate = 0.818
+True labels: 8
+Predicted logits tensor([  8.1918, -10.2334,  -8.6796,   8.2778, -26.9995,   1.6585,   4.0255,
+        -25.0569,  37.0812,   4.2045], device='cuda:0') 
+Probability tensor([2.8410e-13, 2.8283e-21, 1.3375e-20, 3.0963e-13, 1.4794e-28, 4.1312e-16,
+        4.4062e-15, 1.0321e-27, 1.0000e+00, 5.2702e-15], device='cuda:0')
+The original label before attack 8
+Batch: 5530, search step: 0
+Step:    0, loss: 14.4017, loss1: 14.401701, loss2: 0.000000, dist:  0.00000, modifier mean: 1.16551e-04
+Step:  100, loss: 101.7152, loss1: 13.788726, loss2: 87.926483, dist: 87.92648, modifier mean: 6.11999e-03
+Step:  200, loss: 131.0974, loss1: 1.545594, loss2: 129.551849, dist: 129.55185, modifier mean: 2.15104e-02
+Step:  300, loss: 176.7091, loss1: 0.000000, loss2: 176.709137, dist: 176.70914, modifier mean: 2.79509e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.6128121751887
+The label after attack 5
+[STATS][L1] total = 56, seq = 5530, time = 20.791, success = True, distortion = 9.70045, avg_step = 158.36957, success_rate = 0.821
+True labels: 0
+Predicted logits tensor([ 45.3774, -19.3145,   4.7388,  -6.5154, -28.1695,  -8.3220,   6.4128,
+         -7.7175,   2.4106,  -4.6567], device='cuda:0') 
+Probability tensor([1.0000e+00, 8.0289e-29, 2.2432e-18, 2.9055e-23, 1.1455e-32, 4.7712e-24,
+        1.1964e-17, 8.7333e-24, 2.1864e-19, 1.8640e-22], device='cuda:0')
+The original label before attack 0
+Batch: 5554, search step: 0
+Step:    0, loss: 19.4823, loss1: 19.482323, loss2: 0.000000, dist:  0.00000, modifier mean: 4.48120e-04
+Step:  100, loss: 72.8233, loss1: 1.374968, loss2: 71.448303, dist: 71.44830, modifier mean: 3.15494e-02
+Step:  200, loss: 116.5166, loss1: 0.000000, loss2: 116.516624, dist: 116.51662, modifier mean: 5.37237e-02
+Step:  300, loss: 150.0631, loss1: 0.000000, loss2: 150.063080, dist: 150.06308, modifier mean: 5.54350e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.459776354526838
+The label after attack 5
+[STATS][L1] total = 57, seq = 5554, time = 20.880, success = True, distortion = 9.71660, avg_step = 158.68085, success_rate = 0.825
+True labels: 5
+Predicted logits tensor([-16.5843, -13.4574, -22.4553,   9.1473, -20.0693,  53.0816,   6.6991,
+        -27.6702,   7.8846,  22.3620], device='cuda:0') 
+Probability tensor([5.5526e-31, 1.2661e-29, 1.5658e-33, 8.3092e-20, 1.7021e-32, 1.0000e+00,
+        7.1836e-21, 8.5106e-36, 2.3507e-20, 4.5569e-14], device='cuda:0')
+The original label before attack 5
+Batch: 5570, search step: 0
+Step:    0, loss: 15.3598, loss1: 15.359776, loss2: 0.000000, dist:  0.00000, modifier mean: 2.97605e-04
+Step:  100, loss: 82.5078, loss1: 5.498874, loss2: 77.008942, dist: 77.00894, modifier mean: 2.47069e-02
+Step:  200, loss: 128.9556, loss1: 3.735896, loss2: 125.219688, dist: 125.21969, modifier mean: 4.77952e-02
+Step:  300, loss: 154.0185, loss1: 7.348089, loss2: 146.670380, dist: 146.67038, modifier mean: 5.79063e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 58, seq = 5570, time = 21.204, success = False, distortion = 9.71660, avg_step = 158.68085, success_rate = 0.810
+True labels: 7
+Predicted logits tensor([ -7.3981,   3.0748,  -2.8172,   6.7473,   0.1355,  -4.1430, -22.2319,
+         31.6549,  -5.7189,   3.5648], device='cuda:0') 
+Probability tensor([1.0953e-17, 3.8711e-13, 1.0690e-15, 1.5232e-11, 2.0478e-14, 2.8389e-16,
+        3.9558e-24, 1.0000e+00, 5.8717e-17, 6.3183e-13], device='cuda:0')
+The original label before attack 7
+Batch: 5798, search step: 0
+Step:    0, loss: 12.4538, loss1: 12.453809, loss2: 0.000000, dist:  0.00000, modifier mean: 8.39060e-04
+Step:  100, loss: 68.0907, loss1: 0.877327, loss2: 67.213348, dist: 67.21335, modifier mean: 6.59432e-02
+Step:  200, loss: 107.9398, loss1: 0.000000, loss2: 107.939812, dist: 107.93981, modifier mean: 1.08725e-01
+Step:  300, loss: 132.9277, loss1: 0.106884, loss2: 132.820831, dist: 132.82083, modifier mean: 1.14549e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.62037247067684
+The label after attack 5
+[STATS][L1] total = 59, seq = 5798, time = 20.583, success = True, distortion = 9.69377, avg_step = 157.75000, success_rate = 0.814
+True labels: 6
+Predicted logits tensor([ 17.6238, -15.0026,  -1.7977,  -3.0441,  -9.1052,   9.1515,  37.4916,
+        -18.2965,  -2.8081, -22.0954], device='cuda:0') 
+Probability tensor([2.3525e-09, 1.5924e-23, 8.6469e-18, 2.4862e-18, 5.7974e-21, 4.9207e-13,
+        1.0000e+00, 5.9092e-25, 3.1481e-18, 1.3233e-26], device='cuda:0')
+The original label before attack 6
+Batch: 5877, search step: 0
+Step:    0, loss: 9.9339, loss1: 9.933895, loss2: 0.000000, dist:  0.00000, modifier mean: 7.26019e-04
+Step:  100, loss: 71.3730, loss1: 0.000000, loss2: 71.372971, dist: 71.37297, modifier mean: 4.72333e-02
+Step:  200, loss: 113.5961, loss1: 0.000000, loss2: 113.596146, dist: 113.59615, modifier mean: 6.84976e-02
+Step:  300, loss: 131.1045, loss1: 0.000000, loss2: 131.104492, dist: 131.10449, modifier mean: 7.81413e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.647676112431429
+The label after attack 8
+[STATS][L1] total = 60, seq = 5877, time = 20.557, success = True, distortion = 9.65201, avg_step = 156.30612, success_rate = 0.817
+True labels: 0
+Predicted logits tensor([ 37.8557, -22.4589,   4.9637, -12.5045,  -7.0927, -13.3087,   5.4511,
+          0.0098, -12.3207,   2.3383], device='cuda:0') 
+Probability tensor([1.0000e+00, 6.3930e-27, 5.1903e-15, 1.3453e-22, 3.0142e-20, 6.0199e-23,
+        8.4500e-15, 3.6621e-17, 1.6169e-22, 3.7581e-16], device='cuda:0')
+The original label before attack 0
+Batch: 5993, search step: 0
+Step:    0, loss: 16.2023, loss1: 16.202307, loss2: 0.000000, dist:  0.00000, modifier mean: 4.60907e-04
+Step:  100, loss: 77.7293, loss1: 6.813111, loss2: 70.916183, dist: 70.91618, modifier mean: -1.20579e-02
+Step:  200, loss: 129.9200, loss1: 0.000000, loss2: 129.919983, dist: 129.91998, modifier mean: -4.62861e-03
+Step:  300, loss: 155.2257, loss1: 1.460768, loss2: 153.764969, dist: 153.76497, modifier mean: 1.11817e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.685226109298574
+The label after attack 5
+[STATS][L1] total = 61, seq = 5993, time = 21.356, success = True, distortion = 9.67267, avg_step = 156.32000, success_rate = 0.820
+True labels: 4
+Predicted logits tensor([-13.8992,  -3.4252,   5.5265, -12.5080,  48.7663, -12.1522,  -0.5538,
+         16.8799, -17.1451,  -3.9658], device='cuda:0') 
+Probability tensor([6.0914e-28, 2.1554e-23, 1.6641e-19, 2.4485e-27, 1.0000e+00, 3.4947e-27,
+        3.8068e-22, 1.4187e-14, 2.3716e-29, 1.2552e-23], device='cuda:0')
+The original label before attack 4
+Batch: 6100, search step: 0
+Step:    0, loss: 15.9432, loss1: 15.943211, loss2: 0.000000, dist:  0.00000, modifier mean: 3.35107e-04
+Step:  100, loss: 78.7315, loss1: 10.760287, loss2: 67.971176, dist: 67.97118, modifier mean: 1.91868e-02
+Step:  200, loss: 117.7258, loss1: 2.663031, loss2: 115.062767, dist: 115.06277, modifier mean: 3.47412e-02
+Step:  300, loss: 138.4711, loss1: 0.000000, loss2: 138.471115, dist: 138.47112, modifier mean: 5.65173e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.319800281717374
+The label after attack 7
+[STATS][L1] total = 62, seq = 6100, time = 21.289, success = True, distortion = 9.70497, avg_step = 157.98039, success_rate = 0.823
+True labels: 9
+Predicted logits tensor([-10.2767,  -9.4332, -12.3740,  12.3085,   0.0629,  -5.7485, -21.9692,
+          2.9556,   3.5508,  45.8180], device='cuda:0') 
+Probability tensor([4.3489e-25, 1.0110e-24, 5.3399e-26, 2.7991e-15, 1.3454e-20, 4.0270e-23,
+        3.6341e-30, 2.4273e-19, 4.4013e-19, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 6318, search step: 0
+Step:    0, loss: 16.7547, loss1: 16.754738, loss2: 0.000000, dist:  0.00000, modifier mean: 6.79481e-04
+Step:  100, loss: 80.8524, loss1: 0.000000, loss2: 80.852448, dist: 80.85245, modifier mean: 3.41131e-02
+Step:  200, loss: 110.2919, loss1: 0.000000, loss2: 110.291901, dist: 110.29190, modifier mean: 5.49812e-02
+Step:  300, loss: 133.0645, loss1: 0.000000, loss2: 133.064545, dist: 133.06454, modifier mean: 6.62935e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.007687213196737
+The label after attack 5
+[STATS][L1] total = 63, seq = 6318, time = 20.916, success = True, distortion = 9.67233, avg_step = 156.57692, success_rate = 0.825
+True labels: 0
+Predicted logits tensor([ 39.9451, -25.6901,   4.1304,  -5.6866, -11.9411, -17.0947,   7.2174,
+         -7.2576,  -4.1562,   8.2344], device='cuda:0') 
+Probability tensor([1.0000e+00, 3.1259e-29, 2.7915e-16, 1.5218e-20, 2.9249e-23, 1.6901e-25,
+        6.1166e-15, 3.1632e-21, 7.0310e-20, 1.6912e-14], device='cuda:0')
+The original label before attack 0
+Batch: 6344, search step: 0
+Step:    0, loss: 15.8554, loss1: 15.855368, loss2: 0.000000, dist:  0.00000, modifier mean: 3.73386e-04
+Step:  100, loss: 85.2660, loss1: 1.794666, loss2: 83.471313, dist: 83.47131, modifier mean: 1.91963e-02
+Step:  200, loss: 140.5460, loss1: 0.000000, loss2: 140.546005, dist: 140.54601, modifier mean: 5.28818e-02
+Step:  300, loss: 157.3464, loss1: 0.000000, loss2: 157.346436, dist: 157.34644, modifier mean: 6.66792e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.855359210276113
+The label after attack 5
+[STATS][L1] total = 64, seq = 6344, time = 21.198, success = True, distortion = 9.67578, avg_step = 155.81132, success_rate = 0.828
+True labels: 9
+Predicted logits tensor([-13.7044,  -7.8740, -12.9580,   2.6239,  11.6543,  -2.5906, -20.3137,
+          7.1773,  -3.3016,  45.6015], device='cuda:0') 
+Probability tensor([1.7530e-26, 5.9690e-24, 3.6979e-26, 2.1630e-19, 1.8070e-15, 1.1762e-21,
+        2.3628e-29, 2.0540e-17, 5.7768e-22, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 6401, search step: 0
+Step:    0, loss: 16.9736, loss1: 16.973560, loss2: 0.000000, dist:  0.00000, modifier mean: 6.77755e-04
+Step:  100, loss: 74.4713, loss1: 0.000000, loss2: 74.471268, dist: 74.47127, modifier mean: 5.64446e-02
+Step:  200, loss: 115.2901, loss1: 0.000000, loss2: 115.290070, dist: 115.29007, modifier mean: 8.66938e-02
+Step:  300, loss: 146.7496, loss1: 0.000000, loss2: 146.749603, dist: 146.74960, modifier mean: 1.05726e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 6.903157227813521
+The label after attack 5
+[STATS][L1] total = 65, seq = 6401, time = 20.526, success = True, distortion = 9.62444, avg_step = 154.25926, success_rate = 0.831
+True labels: 5
+Predicted logits tensor([-25.8550, -11.9700, -29.8262,   8.1540, -23.5887,  76.0801,   0.5752,
+        -26.5327,  12.9563,  15.4449], device='cuda:0') 
+Probability tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 1.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:0')
+The original label before attack 5
+Batch: 6415, search step: 0
+Step:    0, loss: 30.3175, loss1: 30.317497, loss2: 0.000000, dist:  0.00000, modifier mean: 4.24909e-04
+Step:  100, loss: 98.1490, loss1: 13.200833, loss2: 84.948204, dist: 84.94820, modifier mean: 5.08155e-02
+Step:  200, loss: 133.4147, loss1: 7.490071, loss2: 125.924583, dist: 125.92458, modifier mean: 7.36385e-02
+Step:  300, loss: 152.3059, loss1: 3.206240, loss2: 149.099701, dist: 149.09970, modifier mean: 8.37068e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 66, seq = 6415, time = 20.825, success = False, distortion = 9.62444, avg_step = 154.25926, success_rate = 0.818
+True labels: 6
+Predicted logits tensor([ -1.2172, -13.7200,   4.6477, -12.1175,  -0.4437,  22.7234,  61.5228,
+        -35.2809,  -4.1062, -25.8492], device='cuda:0') 
+Probability tensor([5.6542e-28, 2.1013e-33, 1.9929e-25, 1.0434e-32, 1.2255e-27, 1.4114e-17,
+        1.0000e+00, 9.0944e-43, 3.1456e-29, 1.1346e-38], device='cuda:0')
+The original label before attack 6
+Batch: 6509, search step: 0
+Step:    0, loss: 19.3997, loss1: 19.399668, loss2: 0.000000, dist:  0.00000, modifier mean: 5.10179e-04
+Step:  100, loss: 85.0166, loss1: 7.753294, loss2: 77.263268, dist: 77.26327, modifier mean: 2.60270e-02
+Step:  200, loss: 124.0136, loss1: 0.000000, loss2: 124.013603, dist: 124.01360, modifier mean: 4.54464e-02
+Step:  300, loss: 138.9983, loss1: 0.000000, loss2: 138.998337, dist: 138.99834, modifier mean: 5.47247e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.100526786882192
+The label after attack 5
+[STATS][L1] total = 67, seq = 6509, time = 20.998, success = True, distortion = 9.65128, avg_step = 155.03636, success_rate = 0.821
+True labels: 3
+Predicted logits tensor([-13.4181,  -5.4688,   1.5413,  44.5505, -21.5134,  14.2623,  -8.2085,
+         -6.6940,  -3.7565,  -3.3988], device='cuda:0') 
+Probability tensor([6.6761e-26, 1.8919e-22, 2.0956e-19, 1.0000e+00, 2.0361e-29, 7.0145e-14,
+        1.2219e-23, 5.5562e-23, 1.0483e-21, 1.4993e-21], device='cuda:0')
+The original label before attack 3
+Batch: 6517, search step: 0
+Step:    0, loss: 15.1441, loss1: 15.144108, loss2: 0.000000, dist:  0.00000, modifier mean: 2.53591e-04
+Step:  100, loss: 102.0132, loss1: 0.594736, loss2: 101.418442, dist: 101.41844, modifier mean: 3.37510e-02
+Step:  200, loss: 135.2344, loss1: 0.000000, loss2: 135.234375, dist: 135.23438, modifier mean: 4.55505e-02
+Step:  300, loss: 151.0650, loss1: 0.000000, loss2: 151.064987, dist: 151.06499, modifier mean: 5.14110e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.4300232565338
+The label after attack 2
+[STATS][L1] total = 68, seq = 6517, time = 21.646, success = True, distortion = 9.66518, avg_step = 154.23214, success_rate = 0.824
+True labels: 6
+Predicted logits tensor([ -1.2387,  -6.8016,   6.1351, -12.1538,   4.9712,   7.7067,  38.3391,
+        -17.0228,   1.3452, -24.2898], device='cuda:0') 
+Probability tensor([6.4803e-18, 2.4869e-20, 1.0328e-14, 1.1783e-22, 3.2250e-15, 4.9719e-14,
+        1.0000e+00, 9.0505e-25, 8.5856e-17, 6.3187e-28], device='cuda:0')
+The original label before attack 6
+Batch: 6531, search step: 0
+Step:    0, loss: 15.3162, loss1: 15.316191, loss2: 0.000000, dist:  0.00000, modifier mean: 7.42000e-04
+Step:  100, loss: 44.9824, loss1: 0.000000, loss2: 44.982407, dist: 44.98241, modifier mean: 3.91359e-02
+Step:  200, loss: 80.5593, loss1: 0.000000, loss2: 80.559265, dist: 80.55927, modifier mean: 6.47811e-02
+Step:  300, loss: 108.1160, loss1: 0.000000, loss2: 108.115967, dist: 108.11597, modifier mean: 1.01295e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 6.512822049135165
+The label after attack 5
+[STATS][L1] total = 69, seq = 6531, time = 20.845, success = True, distortion = 9.60988, avg_step = 153.19298, success_rate = 0.826
+True labels: 1
+Predicted logits tensor([ -2.4568,  38.6170,  -3.0405, -25.5812,  15.3234, -11.8571,  -7.8121,
+          8.0422,   7.6601,  -6.7202], device='cuda:0') 
+Probability tensor([1.4516e-18, 1.0000e+00, 8.0974e-19, 1.3154e-28, 7.6509e-11, 1.2005e-22,
+        6.8562e-21, 5.2662e-14, 3.5938e-14, 2.0432e-20], device='cuda:0')
+The original label before attack 1
+Batch: 6661, search step: 0
+Step:    0, loss: 11.6468, loss1: 11.646808, loss2: 0.000000, dist:  0.00000, modifier mean: 8.76828e-04
+Step:  100, loss: 70.9431, loss1: 0.000000, loss2: 70.943054, dist: 70.94305, modifier mean: 7.19651e-02
+Step:  200, loss: 119.0543, loss1: 0.000000, loss2: 119.054321, dist: 119.05432, modifier mean: 7.25959e-02
+Step:  300, loss: 145.2620, loss1: 0.000000, loss2: 145.261963, dist: 145.26196, modifier mean: 9.21773e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 6.722752430220609
+The label after attack 7
+[STATS][L1] total = 70, seq = 6661, time = 20.386, success = True, distortion = 9.56010, avg_step = 151.84483, success_rate = 0.829
+True labels: 2
+Predicted logits tensor([  5.5245,   6.1187,  54.0380,  -2.0146,  -7.1488, -21.1514,  -1.8971,
+          6.8067,  -8.4302, -22.0433], device='cuda:0') 
+Probability tensor([8.5282e-22, 1.5450e-21, 1.0000e+00, 4.5358e-25, 2.6725e-27, 2.2166e-33,
+        5.1013e-25, 3.0742e-21, 7.4201e-28, 9.0853e-34], device='cuda:0')
+The original label before attack 2
+Batch: 6800, search step: 0
+Step:    0, loss: 23.6156, loss1: 23.615629, loss2: 0.000000, dist:  0.00000, modifier mean: 8.28011e-04
+Step:  100, loss: 56.8732, loss1: 9.891394, loss2: 46.981812, dist: 46.98181, modifier mean: 4.80319e-02
+Step:  200, loss: 103.8148, loss1: 5.780848, loss2: 98.033905, dist: 98.03391, modifier mean: 8.54443e-02
+Step:  300, loss: 127.4339, loss1: 5.134983, loss2: 122.298943, dist: 122.29894, modifier mean: 9.75446e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 2
+[STATS][L1] total = 71, seq = 6800, time = 20.306, success = False, distortion = 9.56010, avg_step = 151.84483, success_rate = 0.817
+True labels: 2
+Predicted logits tensor([  4.4181,   2.8946,  53.7375,  -0.3541,  -8.3834, -23.3548,  -9.5106,
+          9.3847,  -7.5283, -14.6867], device='cuda:0') 
+Probability tensor([3.8092e-22, 8.3027e-23, 1.0000e+00, 3.2232e-24, 1.0501e-27, 3.3056e-34,
+        3.4018e-28, 5.4679e-20, 2.4694e-27, 1.9219e-30], device='cuda:0')
+The original label before attack 2
+Batch: 6828, search step: 0
+Step:    0, loss: 22.1764, loss1: 22.176407, loss2: 0.000000, dist:  0.00000, modifier mean: 5.68453e-04
+Step:  100, loss: 75.4419, loss1: 12.086367, loss2: 63.355488, dist: 63.35549, modifier mean: 5.23128e-02
+Step:  200, loss: 111.9417, loss1: 3.304649, loss2: 108.637047, dist: 108.63705, modifier mean: 7.90569e-02
+Step:  300, loss: 131.1885, loss1: 1.374753, loss2: 129.813766, dist: 129.81377, modifier mean: 9.94045e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 2
+[STATS][L1] total = 72, seq = 6828, time = 18.016, success = False, distortion = 9.56010, avg_step = 151.84483, success_rate = 0.806
+True labels: 1
+Predicted logits tensor([ -0.2284,  34.3340,   7.3885, -19.4232,   0.0776,  -7.2583,   0.5232,
+          2.4496,   7.9194, -15.8734], device='cuda:0') 
+Probability tensor([9.7660e-16, 1.0000e+00, 1.9848e-12, 4.5034e-24, 1.3262e-15, 8.6432e-19,
+        2.0707e-15, 1.4216e-14, 3.3750e-12, 1.5674e-22], device='cuda:0')
+The original label before attack 1
+Batch: 7014, search step: 0
+Step:    0, loss: 13.2073, loss1: 13.207314, loss2: 0.000000, dist:  0.00000, modifier mean: 1.15796e-03
+Step:  100, loss: 74.2147, loss1: 0.000000, loss2: 74.214691, dist: 74.21469, modifier mean: 9.42137e-02
+Step:  200, loss: 106.4596, loss1: 0.000000, loss2: 106.459587, dist: 106.45959, modifier mean: 1.12297e-01
+Step:  300, loss: 117.2064, loss1: 0.000000, loss2: 117.206398, dist: 117.20640, modifier mean: 1.16551e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.07521273211705
+The label after attack 2
+[STATS][L1] total = 73, seq = 7014, time = 25.175, success = True, distortion = 9.53493, avg_step = 150.81356, success_rate = 0.808
+True labels: 7
+Predicted logits tensor([ -6.7025,   9.3705,   1.3334,   1.6032,   0.8214,  -9.2353, -23.3898,
+         26.1488,  -4.8139,  12.1786], device='cuda:0') 
+Probability tensor([5.4057e-15, 5.1674e-08, 1.6703e-11, 2.1876e-11, 1.0010e-11, 4.2942e-16,
+        3.0595e-22, 1.0000e+00, 3.5734e-14, 8.5672e-07], device='cuda:0')
+The original label before attack 7
+Batch: 7030, search step: 0
+Step:    0, loss: 6.9851, loss1: 6.985076, loss2: 0.000000, dist:  0.00000, modifier mean: 8.74063e-04
+Step:  100, loss: 86.9135, loss1: 2.083683, loss2: 84.829849, dist: 84.82985, modifier mean: 8.67790e-02
+Step:  200, loss: 116.5002, loss1: 0.000000, loss2: 116.500221, dist: 116.50022, modifier mean: 1.09331e-01
+Step:  300, loss: 153.7486, loss1: 0.000000, loss2: 153.748581, dist: 153.74858, modifier mean: 1.37404e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.466593323792802
+The label after attack 5
+[STATS][L1] total = 74, seq = 7030, time = 25.158, success = True, distortion = 9.55046, avg_step = 151.28333, success_rate = 0.811
+True labels: 2
+Predicted logits tensor([-18.0151,  -1.1503,  49.3916,  16.4992, -16.7741,  -8.3731, -11.8886,
+         -1.3180,   8.7381, -11.5967], device='cuda:0') 
+Probability tensor([5.3167e-30, 1.1218e-22, 1.0000e+00, 5.1878e-15, 1.8390e-29, 8.1864e-26,
+        2.4341e-27, 9.4858e-23, 2.2101e-18, 3.2593e-27], device='cuda:0')
+The original label before attack 2
+Batch: 7328, search step: 0
+Step:    0, loss: 16.4462, loss1: 16.446232, loss2: 0.000000, dist:  0.00000, modifier mean: 3.25868e-04
+Step:  100, loss: 96.1065, loss1: 5.298589, loss2: 90.807899, dist: 90.80790, modifier mean: 1.24407e-02
+Step:  200, loss: 138.4887, loss1: 0.000000, loss2: 138.488708, dist: 138.48871, modifier mean: 2.95942e-02
+Step:  300, loss: 162.5372, loss1: 0.000000, loss2: 162.537201, dist: 162.53720, modifier mean: 3.79335e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.355016572739448
+The label after attack 5
+[STATS][L1] total = 75, seq = 7328, time = 25.823, success = True, distortion = 9.58004, avg_step = 151.67213, success_rate = 0.813
+True labels: 9
+Predicted logits tensor([-14.6744,  -8.0994, -15.5536,   0.4733,  16.0085,  -1.7465, -20.0412,
+          2.4896,   2.7215,  45.5902], device='cuda:0') 
+Probability tensor([6.7204e-27, 4.8184e-24, 2.7896e-27, 2.5468e-20, 1.4218e-13, 2.7664e-21,
+        3.1378e-29, 1.9126e-19, 2.4118e-19, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 7499, search step: 0
+Step:    0, loss: 14.7909, loss1: 14.790855, loss2: 0.000000, dist:  0.00000, modifier mean: 7.79791e-04
+Step:  100, loss: 79.5033, loss1: 0.000000, loss2: 79.503311, dist: 79.50331, modifier mean: 7.26637e-02
+Step:  200, loss: 124.0015, loss1: 0.000000, loss2: 124.001503, dist: 124.00150, modifier mean: 1.08075e-01
+Step:  300, loss: 147.8659, loss1: 0.000000, loss2: 147.865936, dist: 147.86594, modifier mean: 1.27514e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 6.438339919322996
+The label after attack 8
+[STATS][L1] total = 76, seq = 7499, time = 24.929, success = True, distortion = 9.52937, avg_step = 150.27419, success_rate = 0.816
+True labels: 6
+Predicted logits tensor([  6.1460,  -8.5404,  -4.0868, -23.3837,  17.9611,   6.1156,  40.6985,
+        -15.3516, -15.5912,  -5.2326], device='cuda:0') 
+Probability tensor([9.8645e-16, 4.1290e-22, 3.5483e-20, 1.4773e-28, 1.3344e-10, 9.5685e-16,
+        1.0000e+00, 4.5475e-25, 3.5786e-25, 1.1282e-20], device='cuda:0')
+The original label before attack 6
+Batch: 7503, search step: 0
+Step:    0, loss: 11.3687, loss1: 11.368696, loss2: 0.000000, dist:  0.00000, modifier mean: 5.09160e-04
+Step:  100, loss: 72.3224, loss1: 7.680075, loss2: 64.642342, dist: 64.64234, modifier mean: 4.32233e-02
+Step:  200, loss: 114.0306, loss1: 0.000000, loss2: 114.030571, dist: 114.03057, modifier mean: 6.35169e-02
+Step:  300, loss: 141.2444, loss1: 0.000000, loss2: 141.244385, dist: 141.24438, modifier mean: 8.33990e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.515763706142183
+The label after attack 5
+[STATS][L1] total = 77, seq = 7503, time = 25.526, success = True, distortion = 9.52915, avg_step = 150.19048, success_rate = 0.818
+True labels: 9
+Predicted logits tensor([ -6.4809,  -8.7818, -17.2343,  11.8234,   4.1542,  -0.0724, -20.1665,
+         -3.9697,  -0.5248,  46.7843], device='cuda:0') 
+Probability tensor([7.3663e-24, 7.3782e-25, 1.5743e-28, 6.5570e-16, 3.0619e-19, 4.4711e-21,
+        8.3874e-30, 9.0750e-23, 2.8441e-21, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 7557, search step: 0
+Step:    0, loss: 17.4804, loss1: 17.480412, loss2: 0.000000, dist:  0.00000, modifier mean: 6.71753e-04
+Step:  100, loss: 82.6069, loss1: 0.000000, loss2: 82.606903, dist: 82.60690, modifier mean: 4.43075e-02
+Step:  200, loss: 119.6430, loss1: 0.000000, loss2: 119.643028, dist: 119.64303, modifier mean: 5.88566e-02
+Step:  300, loss: 141.7288, loss1: 0.000000, loss2: 141.728760, dist: 141.72876, modifier mean: 7.19161e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 8.021704318493661
+The label after attack 5
+[STATS][L1] total = 78, seq = 7557, time = 24.868, success = True, distortion = 9.50560, avg_step = 149.14062, success_rate = 0.821
+True labels: 1
+Predicted logits tensor([ -2.3705,  36.5139,   2.9270, -22.5343,   6.6411,  -9.2993,   0.7787,
+          1.4978,   8.7560, -13.5211], device='cuda:0') 
+Probability tensor([1.2963e-17, 1.0000e+00, 2.5906e-15, 2.2683e-26, 1.0627e-13, 1.2693e-20,
+        3.0226e-16, 6.2042e-16, 8.8083e-13, 1.8624e-22], device='cuda:0')
+The original label before attack 1
+Batch: 7561, search step: 0
+Step:    0, loss: 13.8790, loss1: 13.878958, loss2: 0.000000, dist:  0.00000, modifier mean: 8.97314e-04
+Step:  100, loss: 78.0206, loss1: 0.000000, loss2: 78.020569, dist: 78.02057, modifier mean: 8.18001e-02
+Step:  200, loss: 107.4357, loss1: 0.000000, loss2: 107.435707, dist: 107.43571, modifier mean: 9.23106e-02
+Step:  300, loss: 120.4323, loss1: 0.000000, loss2: 120.432312, dist: 120.43231, modifier mean: 9.02545e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.590368200726986
+The label after attack 2
+[STATS][L1] total = 79, seq = 7561, time = 25.042, success = True, distortion = 9.47614, avg_step = 148.10769, success_rate = 0.823
+True labels: 0
+Predicted logits tensor([ 49.2375, -21.6779,  10.3229,  -6.9561, -30.1572, -17.5035,   1.9713,
+         -5.7236,   2.0986,  -2.7908], device='cuda:0') 
+Probability tensor([1.0000e+00, 1.5917e-31, 1.2579e-17, 3.9397e-25, 3.3061e-35, 1.0345e-29,
+        2.9687e-21, 1.3511e-24, 3.3718e-21, 2.5376e-23], device='cuda:0')
+The original label before attack 0
+Batch: 7617, search step: 0
+Step:    0, loss: 19.4573, loss1: 19.457256, loss2: 0.000000, dist:  0.00000, modifier mean: 5.79707e-04
+Step:  100, loss: 71.9540, loss1: 9.701422, loss2: 62.252602, dist: 62.25260, modifier mean: 3.92722e-02
+Step:  200, loss: 114.2702, loss1: 7.604442, loss2: 106.665771, dist: 106.66577, modifier mean: 5.61970e-02
+Step:  300, loss: 131.9044, loss1: 6.681554, loss2: 125.222885, dist: 125.22289, modifier mean: 6.61138e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 0
+[STATS][L1] total = 80, seq = 7617, time = 25.376, success = False, distortion = 9.47614, avg_step = 148.10769, success_rate = 0.812
+True labels: 2
+Predicted logits tensor([  1.0072, -10.2306,  54.6025,   9.4436,  -4.9949, -20.3359,  -2.5632,
+         -6.1867,  -1.8098, -16.8766], device='cuda:0') 
+Probability tensor([5.2949e-24, 6.9721e-29, 1.0000e+00, 2.4422e-20, 1.3098e-26, 2.8490e-33,
+        1.4903e-25, 3.9773e-27, 3.1657e-25, 9.0579e-32], device='cuda:0')
+The original label before attack 2
+Batch: 7685, search step: 0
+Step:    0, loss: 22.5794, loss1: 22.579405, loss2: 0.000000, dist:  0.00000, modifier mean: 4.43145e-04
+Step:  100, loss: 76.5114, loss1: 9.897093, loss2: 66.614281, dist: 66.61428, modifier mean: 2.35855e-02
+Step:  200, loss: 118.7895, loss1: 7.396415, loss2: 111.393105, dist: 111.39310, modifier mean: 4.73717e-02
+Step:  300, loss: 137.9320, loss1: 3.903477, loss2: 134.028534, dist: 134.02853, modifier mean: 6.76419e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 2
+[STATS][L1] total = 81, seq = 7685, time = 25.270, success = False, distortion = 9.47614, avg_step = 148.10769, success_rate = 0.802
+True labels: 1
+Predicted logits tensor([ -5.2852,  35.5635,  -3.5412, -15.9616,   6.1536,  -7.1333,  -4.6700,
+          9.4606,   4.5234,  -9.0137], device='cuda:0') 
+Probability tensor([1.8182e-18, 1.0000e+00, 1.0400e-17, 4.1971e-23, 1.6883e-13, 2.8644e-19,
+        3.3637e-18, 4.6096e-12, 3.3071e-14, 4.3688e-20], device='cuda:0')
+The original label before attack 1
+Batch: 7708, search step: 0
+Step:    0, loss: 13.0514, loss1: 13.051439, loss2: 0.000000, dist:  0.00000, modifier mean: 9.83366e-04
+Step:  100, loss: 79.7551, loss1: 0.000000, loss2: 79.755074, dist: 79.75507, modifier mean: 8.77790e-02
+Step:  200, loss: 115.3671, loss1: 0.000000, loss2: 115.367065, dist: 115.36707, modifier mean: 1.15353e-01
+Step:  300, loss: 128.3218, loss1: 0.000000, loss2: 128.321762, dist: 128.32176, modifier mean: 1.21599e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 5.526958977884031
+The label after attack 7
+[STATS][L1] total = 82, seq = 7708, time = 16.657, success = True, distortion = 9.41630, avg_step = 146.71212, success_rate = 0.805
+True labels: 2
+Predicted logits tensor([  3.4403,  -9.4443,  42.2021,  10.6164, -17.7919, -13.8095,  -8.3057,
+          7.8694,   6.5510, -17.6667], device='cuda:0') 
+Probability tensor([1.4654e-17, 3.7174e-23, 1.0000e+00, 1.9164e-14, 8.8086e-27, 4.7254e-25,
+        1.1608e-22, 1.2288e-15, 3.2879e-16, 9.9836e-27], device='cuda:0')
+The original label before attack 2
+Batch: 7986, search step: 0
+Step:    0, loss: 15.7929, loss1: 15.792868, loss2: 0.000000, dist:  0.00000, modifier mean: 6.97258e-04
+Step:  100, loss: 86.5353, loss1: 6.053318, loss2: 80.482002, dist: 80.48200, modifier mean: 3.57195e-02
+Step:  200, loss: 131.2761, loss1: 0.000000, loss2: 131.276062, dist: 131.27606, modifier mean: 5.80197e-02
+Step:  300, loss: 159.1488, loss1: 0.000000, loss2: 159.148849, dist: 159.14885, modifier mean: 7.15899e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.028066721562505
+The label after attack 5
+[STATS][L1] total = 83, seq = 7986, time = 25.244, success = True, distortion = 9.44036, avg_step = 147.19403, success_rate = 0.807
+True labels: 7
+Predicted logits tensor([ -5.7430,   6.4222,  -7.5365,   4.1098,  -0.9887,  -2.2136, -27.2671,
+         34.7827,  -8.5090,  12.1418], device='cuda:0') 
+Probability tensor([2.5113e-18, 4.8217e-13, 4.1783e-19, 4.7743e-14, 2.9152e-16, 8.5642e-17,
+        1.1275e-27, 1.0000e+00, 1.5800e-19, 1.4695e-10], device='cuda:0')
+The original label before attack 7
+Batch: 8074, search step: 0
+Step:    0, loss: 11.3205, loss1: 11.320463, loss2: 0.000000, dist:  0.00000, modifier mean: 5.47955e-04
+Step:  100, loss: 100.2290, loss1: 1.682969, loss2: 98.546051, dist: 98.54605, modifier mean: 5.32814e-02
+Step:  200, loss: 133.1318, loss1: 0.624053, loss2: 132.507736, dist: 132.50774, modifier mean: 8.36372e-02
+Step:  300, loss: 155.0406, loss1: 0.000000, loss2: 155.040634, dist: 155.04063, modifier mean: 9.04949e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.622822219146718
+The label after attack 5
+[STATS][L1] total = 84, seq = 8074, time = 25.468, success = True, distortion = 9.47245, avg_step = 148.10294, success_rate = 0.810
+True labels: 5
+Predicted logits tensor([-11.5549, -20.0621, -19.1588,   3.7919,  -7.6967,  54.6024,   5.8405,
+        -21.4460,   0.8698,  12.5179], device='cuda:0') 
+Probability tensor([1.8545e-29, 3.7464e-33, 9.2445e-33, 8.5753e-23, 8.7867e-28, 1.0000e+00,
+        6.6522e-22, 9.3882e-34, 4.6156e-24, 5.2833e-19], device='cuda:0')
+The original label before attack 5
+Batch: 8142, search step: 0
+Step:    0, loss: 21.0423, loss1: 21.042278, loss2: 0.000000, dist:  0.00000, modifier mean: 8.59000e-04
+Step:  100, loss: 83.3027, loss1: 14.796106, loss2: 68.506592, dist: 68.50659, modifier mean: 5.82273e-02
+Step:  200, loss: 112.7930, loss1: 7.234916, loss2: 105.558090, dist: 105.55809, modifier mean: 8.05471e-02
+Step:  300, loss: 120.7660, loss1: 5.706159, loss2: 115.059845, dist: 115.05984, modifier mean: 8.57477e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 85, seq = 8142, time = 26.195, success = False, distortion = 9.47245, avg_step = 148.10294, success_rate = 0.800
+True labels: 6
+Predicted logits tensor([ -3.1013, -12.2952,   6.5434,  -2.7296,  -4.3345,  11.5311,  40.1637,
+        -24.9801,   7.3554, -23.8813], device='cuda:0') 
+Probability tensor([1.6227e-19, 1.6496e-23, 2.5054e-15, 2.3532e-19, 4.7279e-20, 3.6727e-13,
+        1.0000e+00, 5.1095e-29, 5.6430e-15, 1.5331e-28], device='cuda:0')
+The original label before attack 6
+Batch: 8197, search step: 0
+Step:    0, loss: 14.3163, loss1: 14.316340, loss2: 0.000000, dist:  0.00000, modifier mean: 3.84384e-04
+Step:  100, loss: 85.0784, loss1: 8.346807, loss2: 76.731583, dist: 76.73158, modifier mean: 6.81065e-03
+Step:  200, loss: 122.4738, loss1: 2.564453, loss2: 119.909325, dist: 119.90932, modifier mean: 2.61560e-02
+Step:  300, loss: 143.7115, loss1: 1.933655, loss2: 141.777847, dist: 141.77785, modifier mean: 3.91339e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 6
+[STATS][L1] total = 86, seq = 8197, time = 25.896, success = False, distortion = 9.47245, avg_step = 148.10294, success_rate = 0.791
+True labels: 1
+Predicted logits tensor([ -0.5841,  39.3600,   3.9850, -21.1351,   0.3535,  -9.4467,   3.8919,
+         -1.1040,   9.8147, -17.0212], device='cuda:0') 
+Probability tensor([4.4926e-18, 1.0000e+00, 4.3331e-16, 5.3372e-27, 1.1473e-17, 6.3606e-22,
+        3.9482e-16, 2.6710e-18, 1.4744e-13, 3.2653e-25], device='cuda:0')
+The original label before attack 1
+Batch: 8239, search step: 0
+Step:    0, loss: 14.7727, loss1: 14.772673, loss2: 0.000000, dist:  0.00000, modifier mean: 8.46317e-04
+Step:  100, loss: 83.2104, loss1: 0.000000, loss2: 83.210388, dist: 83.21039, modifier mean: 7.78086e-02
+Step:  200, loss: 117.0951, loss1: 0.000000, loss2: 117.095116, dist: 117.09512, modifier mean: 9.56018e-02
+Step:  300, loss: 137.7040, loss1: 0.000000, loss2: 137.704041, dist: 137.70404, modifier mean: 1.03798e-01
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.079923759093053
+The label after attack 8
+[STATS][L1] total = 87, seq = 8239, time = 24.890, success = True, distortion = 9.43778, avg_step = 147.00000, success_rate = 0.793
+True labels: 8
+Predicted logits tensor([ -1.3827, -16.6993,   7.1155,   0.1534, -27.1004,  -1.8164,  -0.0442,
+        -25.6421,  60.0929,  -3.6221], device='cuda:0') 
+Probability tensor([2.0021e-27, 4.4625e-34, 9.8229e-24, 9.3029e-27, 1.3566e-38, 1.2976e-27,
+        7.6352e-27, 5.8312e-38, 1.0000e+00, 2.1328e-28], device='cuda:0')
+The original label before attack 8
+Batch: 8547, search step: 0
+Step:    0, loss: 26.4887, loss1: 26.488663, loss2: 0.000000, dist:  0.00000, modifier mean: 2.16828e-04
+Step:  100, loss: 92.2294, loss1: 16.701494, loss2: 75.527908, dist: 75.52791, modifier mean: 5.01052e-03
+Step:  200, loss: 129.5138, loss1: 7.915879, loss2: 121.597900, dist: 121.59790, modifier mean: 2.43706e-02
+Step:  300, loss: 151.0788, loss1: 1.927010, loss2: 149.151794, dist: 149.15179, modifier mean: 3.76778e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 8
+[STATS][L1] total = 88, seq = 8547, time = 25.254, success = False, distortion = 9.43778, avg_step = 147.00000, success_rate = 0.784
+True labels: 0
+Predicted logits tensor([ 50.8565, -19.6160,  10.0218, -14.3497, -22.5270, -25.0464,   5.4904,
+         -4.1869,   0.5121,   0.4875], device='cuda:0') 
+Probability tensor([1.0000e+00, 2.4785e-31, 1.8439e-18, 4.8008e-29, 1.3489e-32, 1.0860e-33,
+        1.9851e-20, 1.2444e-24, 1.3669e-22, 1.3336e-22], device='cuda:0')
+The original label before attack 0
+Batch: 8619, search step: 0
+Step:    0, loss: 20.4173, loss1: 20.417328, loss2: 0.000000, dist:  0.00000, modifier mean: 3.01356e-04
+Step:  100, loss: 73.3465, loss1: 8.225417, loss2: 65.121078, dist: 65.12108, modifier mean: 3.11867e-02
+Step:  200, loss: 114.4785, loss1: 6.601799, loss2: 107.876724, dist: 107.87672, modifier mean: 6.16483e-02
+Step:  300, loss: 128.0195, loss1: 2.508028, loss2: 125.511444, dist: 125.51144, modifier mean: 6.81699e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 0
+[STATS][L1] total = 89, seq = 8619, time = 3.136, success = False, distortion = 9.43778, avg_step = 147.00000, success_rate = 0.775
+True labels: 9
+Predicted logits tensor([-15.5743, -20.1492, -13.1533,   7.0748,   9.9826,  -6.7814, -22.0381,
+          5.3258,   7.7939,  51.4616], device='cuda:0') 
+Probability tensor([7.7034e-30, 7.9405e-32, 8.6718e-29, 5.2851e-20, 9.6805e-19, 5.0742e-26,
+        1.2009e-32, 9.1937e-21, 1.0848e-19, 1.0000e+00], device='cuda:0')
+The original label before attack 9
+Batch: 8817, search step: 0
+Step:    0, loss: 20.7395, loss1: 20.739502, loss2: 0.000000, dist:  0.00000, modifier mean: 5.98467e-04
+Step:  100, loss: 83.1544, loss1: 0.000000, loss2: 83.154449, dist: 83.15445, modifier mean: 5.34002e-02
+Step:  200, loss: 125.3142, loss1: 0.000000, loss2: 125.314156, dist: 125.31416, modifier mean: 8.23714e-02
+Step:  300, loss: 146.1094, loss1: 0.000000, loss2: 146.109421, dist: 146.10942, modifier mean: 9.60597e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 7.170787188573413
+The label after attack 5
+[STATS][L1] total = 90, seq = 8817, time = 4.804, success = True, distortion = 9.40539, avg_step = 145.92857, success_rate = 0.778
+True labels: 0
+Predicted logits tensor([ 35.7120, -22.2798,   0.0121, -10.3172,  -8.7821, -19.1406,   4.5316,
+          1.4936,  -5.3382,  10.3707], device='cuda:0') 
+Probability tensor([1.0000e+00, 6.5233e-26, 3.1314e-16, 1.0228e-20, 4.7470e-20, 1.5059e-24,
+        2.8741e-14, 1.3776e-15, 1.4863e-18, 9.8714e-12], device='cuda:0')
+The original label before attack 0
+Batch: 9105, search step: 0
+Step:    0, loss: 12.6707, loss1: 12.670689, loss2: 0.000000, dist:  0.00000, modifier mean: 3.27991e-04
+Step:  100, loss: 75.7868, loss1: 5.518427, loss2: 70.268379, dist: 70.26838, modifier mean: -1.28391e-02
+Step:  200, loss: 133.6631, loss1: 0.000000, loss2: 133.663147, dist: 133.66315, modifier mean: -2.61533e-04
+Step:  300, loss: 156.5394, loss1: 0.000000, loss2: 156.539398, dist: 156.53940, modifier mean: 1.08436e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.735588965485489
+The label after attack 7
+[STATS][L1] total = 91, seq = 9105, time = 11.825, success = True, distortion = 9.41004, avg_step = 145.70423, success_rate = 0.780
+True labels: 4
+Predicted logits tensor([-16.5527,  -2.7472,   4.3511, -20.5487,  53.8832,  -4.5670,   0.7812,
+          4.9193,   3.6348, -15.5156], device='cuda:0') 
+Probability tensor([2.5708e-31, 2.5452e-25, 3.0797e-22, 4.7278e-33, 1.0000e+00, 4.1250e-26,
+        8.6719e-24, 5.4358e-22, 1.5045e-22, 7.2523e-31], device='cuda:0')
+The original label before attack 4
+Batch: 9193, search step: 0
+Step:    0, loss: 24.4819, loss1: 24.481934, loss2: 0.000000, dist:  0.00000, modifier mean: 8.37066e-04
+Step:  100, loss: 81.9650, loss1: 10.242485, loss2: 71.722466, dist: 71.72247, modifier mean: 3.68658e-02
+Step:  200, loss: 127.3262, loss1: 4.295007, loss2: 123.031151, dist: 123.03115, modifier mean: 6.21538e-02
+Step:  300, loss: 160.5059, loss1: 0.000000, loss2: 160.505875, dist: 160.50587, modifier mean: 8.96562e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 11.856731939499866
+The label after attack 5
+[STATS][L1] total = 92, seq = 9193, time = 19.424, success = True, distortion = 9.44402, avg_step = 146.98611, success_rate = 0.783
+True labels: 3
+Predicted logits tensor([-17.5250,  -1.7003, -13.7246,  60.5143, -29.3725,  16.5540, -17.2746,
+        -14.6198,   2.4848,  14.3231], device='cuda:0') 
+Probability tensor([1.2822e-34, 9.5614e-28, 5.7340e-33, 1.0000e+00, 9.1759e-40, 8.0960e-20,
+        1.6469e-34, 2.3424e-33, 6.2819e-26, 8.6975e-21], device='cuda:0')
+The original label before attack 3
+Batch: 9231, search step: 0
+Step:    0, loss: 21.9802, loss1: 21.980165, loss2: 0.000000, dist:  0.00000, modifier mean: 5.13175e-04
+Step:  100, loss: 85.6696, loss1: 4.807238, loss2: 80.862343, dist: 80.86234, modifier mean: 3.27881e-02
+Step:  200, loss: 129.2750, loss1: 3.999674, loss2: 125.275299, dist: 125.27530, modifier mean: 5.45922e-02
+Step:  300, loss: 153.1270, loss1: 0.000000, loss2: 153.127014, dist: 153.12701, modifier mean: 7.27605e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 12.257378049582652
+The label after attack 5
+[STATS][L1] total = 93, seq = 9231, time = 21.559, success = True, distortion = 9.48256, avg_step = 148.89041, success_rate = 0.785
+True labels: 2
+Predicted logits tensor([ -2.7273,  -8.9226,  55.6451,  13.0507, -18.5378, -14.1028,  -5.3706,
+         -1.0869,   8.6124, -23.5294], device='cuda:0') 
+Probability tensor([4.4584e-26, 9.0903e-29, 1.0000e+00, 3.1731e-19, 6.0642e-33, 5.1153e-31,
+        3.1712e-27, 2.2992e-25, 3.7494e-21, 4.1203e-35], device='cuda:0')
+The original label before attack 2
+Batch: 9303, search step: 0
+Step:    0, loss: 21.2972, loss1: 21.297205, loss2: 0.000000, dist:  0.00000, modifier mean: 6.42234e-04
+Step:  100, loss: 84.0009, loss1: 10.274618, loss2: 73.726280, dist: 73.72628, modifier mean: 4.42467e-02
+Step:  200, loss: 125.0651, loss1: 4.433915, loss2: 120.631210, dist: 120.63121, modifier mean: 7.73013e-02
+Step:  300, loss: 148.0128, loss1: 0.000000, loss2: 148.012756, dist: 148.01276, modifier mean: 9.42172e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 12.033395709636059
+The label after attack 5
+[STATS][L1] total = 94, seq = 9303, time = 20.962, success = True, distortion = 9.51703, avg_step = 150.75676, success_rate = 0.787
+True labels: 0
+Predicted logits tensor([ 33.6090, -12.5429,   4.7107,  -6.2315, -15.9578, -13.3035,   3.4683,
+         -0.6356,  -9.6665,   4.2336], device='cuda:0') 
+Probability tensor([1.0000e+00, 9.0465e-21, 2.8159e-13, 4.9827e-18, 2.9745e-22, 4.2281e-21,
+        8.1295e-14, 1.3419e-15, 1.6058e-19, 1.7474e-13], device='cuda:0')
+The original label before attack 0
+Batch: 9310, search step: 0
+Step:    0, loss: 14.4492, loss1: 14.449163, loss2: 0.000000, dist:  0.00000, modifier mean: 5.74208e-04
+Step:  100, loss: 60.8545, loss1: 6.559537, loss2: 54.294960, dist: 54.29496, modifier mean: 2.40306e-02
+Step:  200, loss: 112.4504, loss1: 3.368665, loss2: 109.081757, dist: 109.08176, modifier mean: 5.50536e-02
+Step:  300, loss: 135.0162, loss1: 2.489991, loss2: 132.526184, dist: 132.52618, modifier mean: 7.11684e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 0
+[STATS][L1] total = 95, seq = 9310, time = 19.736, success = False, distortion = 9.51703, avg_step = 150.75676, success_rate = 0.779
+True labels: 5
+Predicted logits tensor([-17.0527, -16.1542, -31.5638,   9.0907, -23.7087,  70.1894,  -3.0398,
+        -20.5924,   6.3251,  22.2332], device='cuda:0') 
+Probability tensor([1.2919e-38, 3.1729e-38, 7.0065e-45, 2.9185e-27, 1.6617e-41, 1.0000e+00,
+        1.5739e-32, 3.7494e-40, 1.8368e-28, 1.4889e-21], device='cuda:0')
+The original label before attack 5
+Batch: 9329, search step: 0
+Step:    0, loss: 23.9781, loss1: 23.978121, loss2: 0.000000, dist:  0.00000, modifier mean: 6.57745e-04
+Step:  100, loss: 80.4835, loss1: 14.122699, loss2: 66.360825, dist: 66.36082, modifier mean: 5.38784e-02
+Step:  200, loss: 120.6023, loss1: 4.464406, loss2: 116.137909, dist: 116.13791, modifier mean: 8.23975e-02
+Step:  300, loss: 147.4915, loss1: 3.269150, loss2: 144.222366, dist: 144.22237, modifier mean: 9.03644e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 5
+[STATS][L1] total = 96, seq = 9329, time = 22.650, success = False, distortion = 9.51703, avg_step = 150.75676, success_rate = 0.771
+True labels: 2
+Predicted logits tensor([ -8.9256,   0.7654,  40.9239,  11.2678,  -6.3634, -16.9523, -14.3992,
+         10.2619,   2.3715, -14.1855], device='cuda:0') 
+Probability tensor([2.2420e-22, 3.6256e-18, 1.0000e+00, 1.3198e-13, 2.9066e-21, 7.3223e-26,
+        9.4076e-25, 4.8265e-14, 1.8067e-17, 1.1648e-24], device='cuda:0')
+The original label before attack 2
+Batch: 9470, search step: 0
+Step:    0, loss: 14.8281, loss1: 14.828058, loss2: 0.000000, dist:  0.00000, modifier mean: 8.29045e-04
+Step:  100, loss: 71.1748, loss1: 9.400577, loss2: 61.774185, dist: 61.77419, modifier mean: 2.25290e-02
+Step:  200, loss: 111.1231, loss1: 3.927980, loss2: 107.195168, dist: 107.19517, modifier mean: 4.74084e-02
+Step:  300, loss: 139.9077, loss1: 2.199917, loss2: 137.707779, dist: 137.70778, modifier mean: 7.03577e-02
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 2
+[STATS][L1] total = 97, seq = 9470, time = 21.217, success = False, distortion = 9.51703, avg_step = 150.75676, success_rate = 0.763
+True labels: 8
+Predicted logits tensor([ -9.6019, -10.8915,  13.3608,  17.2255, -25.0812, -12.6056, -12.0163,
+        -11.1165,  49.1111,  -2.8316], device='cuda:0') 
+Probability tensor([3.1716e-26, 8.7343e-27, 2.9773e-16, 1.4199e-14, 6.0078e-33, 1.5732e-27,
+        2.8361e-27, 6.9744e-27, 1.0000e+00, 2.7644e-23], device='cuda:0')
+The original label before attack 8
+Batch: 9630, search step: 0
+Step:    0, loss: 15.9428, loss1: 15.942797, loss2: 0.000000, dist:  0.00000, modifier mean: 4.60917e-04
+Step:  100, loss: 86.9842, loss1: 0.026365, loss2: 86.957817, dist: 86.95782, modifier mean: 4.41992e-02
+Step:  200, loss: 122.9560, loss1: 0.000000, loss2: 122.955963, dist: 122.95596, modifier mean: 5.41457e-02
+Step:  300, loss: 150.9721, loss1: 0.000000, loss2: 150.972107, dist: 150.97211, modifier mean: 7.37736e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 9.367093426993216
+The label after attack 2
+[STATS][L1] total = 98, seq = 9630, time = 20.862, success = True, distortion = 9.51503, avg_step = 150.09333, success_rate = 0.765
+True labels: 7
+Predicted logits tensor([ -5.5470,  -4.7020,  -3.5017,  -1.5247,   3.5677,   0.2196, -21.2647,
+         39.9374,  -9.7230,   5.0065], device='cuda:0') 
+Probability tensor([1.7635e-20, 4.1054e-20, 1.3635e-19, 9.8459e-19, 1.6026e-16, 5.6336e-18,
+        2.6319e-27, 1.0000e+00, 2.7086e-22, 6.7564e-16], device='cuda:0')
+The original label before attack 7
+Batch: 9979, search step: 0
+Step:    0, loss: 17.4654, loss1: 17.465435, loss2: 0.000000, dist:  0.00000, modifier mean: 5.81208e-04
+Step:  100, loss: 67.4640, loss1: 1.468708, loss2: 65.995285, dist: 65.99529, modifier mean: 3.26161e-02
+Step:  200, loss: 114.4225, loss1: 0.000000, loss2: 114.422485, dist: 114.42249, modifier mean: 5.58905e-02
+Step:  300, loss: 130.0325, loss1: 0.000000, loss2: 130.032471, dist: 130.03247, modifier mean: 6.48747e-02
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 10.670418278254614
+The label after attack 3
+[STATS][L1] total = 99, seq = 9979, time = 21.059, success = True, distortion = 9.53024, avg_step = 150.72368, success_rate = 0.768

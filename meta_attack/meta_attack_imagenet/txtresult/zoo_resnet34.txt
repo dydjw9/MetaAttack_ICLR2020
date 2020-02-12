@@ -1,0 +1,1559 @@
+{'batch_size': 64, 'test_batch_size': 1, 'no_cuda': False, 'attack': 'ours', 'dataset': 'imagenet', 'maxiter': 200, 'attacked_model': 'Net6', 'untargeted': False, 'save': './saved_results', 'numimg': 0, 'print_every': 100, 'firstimg': 0, 'binary_steps': 1, 'init_const': 0.5, 'use_zvalue': False, 'reset_adam': False, 'use_resize': False, 'seed': 1216, 'solver': 'adam', 'save_ckpts': '', 'load_ckpt': '', 'start_iter': 0, 'init_size': 32, 'uniform': False, 'lr': 0.002, 'inception': True, 'use_tanh': True, 'debug': True}
+Loading imagenet model and test data
+class_to_idx:  200
+class_to_idx:  200
+Load attacked model from ../train_mnist_model/checkpoint/imagenet/imagenet_Net6.pt
+Loading checkpoint from /data/home/dujw/attack/imagenet_grad/meta-zoo/checkpoint/resnet34_adam/model_best.pth.tar
+Loading meta model from /data/home/dujw/attack/src_imagenet/checkpoint/meta/0.82605cifar_resnet34.pt
+Done...
+Using adam solver
+The original label before attack 85
+Batch:  34, search step: 0
+Step:    0, loss: 3.3076, loss1: 3.307609, loss2: 0.000000, dist:  0.00000, modifier mean: 6.51042e-06
+Step:  100, loss: 1.2543, loss1: 0.657177, loss2: 0.597131, dist:  0.59713, modifier mean: 9.76567e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9141084708366853
+The label after attack 0
+[STATS][L1] total = 1, seq = 34, time = 217.371, success = True, distortion = 0.91411, avg_step = 130.00000,avg_query = 25130.00000, success_rate = 1.000
+The original label before attack 143
+Skip wrongly classified image no. 50, original class 143, classified as 23
+The original label before attack 8
+Skip wrongly classified image no. 128, original class 8, classified as 149
+The original label before attack 0
+Skip wrongly classified image no. 546, original class 0, classified as 66
+The original label before attack 29
+Batch: 599, search step: 0
+Step:    0, loss: 5.3070, loss1: 5.307038, loss2: 0.000000, dist:  0.00000, modifier mean: 1.87174e-05
+Step:  100, loss: 1.8503, loss1: 0.676350, loss2: 1.173916, dist:  1.17392, modifier mean: -2.68555e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.3072415325790072
+The label after attack 0
+[STATS][L1] total = 2, seq = 599, time = 216.407, success = True, distortion = 1.11068, avg_step = 136.00000,avg_query = 26636.00000, success_rate = 1.000
+The original label before attack 84
+Batch: 1046, search step: 0
+Step:    0, loss: 10.3498, loss1: 10.349833, loss2: 0.000000, dist:  0.00000, modifier mean: -2.19727e-05
+Step:  100, loss: 1.5377, loss1: 0.889368, loss2: 0.648351, dist:  0.64835, modifier mean: -5.72917e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9449106733802287
+The label after attack 0
+[STATS][L1] total = 3, seq = 1046, time = 216.237, success = True, distortion = 1.05542, avg_step = 137.00000,avg_query = 26803.66667, success_rate = 1.000
+The original label before attack 98
+Skip wrongly classified image no. 1056, original class 98, classified as 126
+The original label before attack 31
+Batch: 1134, search step: 0
+Step:    0, loss: 5.8496, loss1: 5.849617, loss2: 0.000000, dist:  0.00000, modifier mean: 1.13932e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8492640703420882
+The label after attack 0
+[STATS][L1] total = 4, seq = 1134, time = 189.335, success = True, distortion = 1.00388, avg_step = 114.25000,avg_query = 22364.25000, success_rate = 1.000
+The original label before attack 127
+Skip wrongly classified image no. 1320, original class 127, classified as 131
+The original label before attack 130
+Batch: 1350, search step: 0
+Step:    0, loss: 5.0378, loss1: 5.037789, loss2: 0.000000, dist:  0.00000, modifier mean: -4.06901e-06
+Step:  100, loss: 0.7179, loss1: 0.000000, loss2: 0.717871, dist:  0.71787, modifier mean: -2.31934e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8472730763777342
+The label after attack 0
+[STATS][L1] total = 5, seq = 1350, time = 178.584, success = True, distortion = 0.97256, avg_step = 104.00000,avg_query = 20304.00000, success_rate = 1.000
+The original label before attack 25
+Batch: 1414, search step: 0
+Step:    0, loss: 11.4638, loss1: 11.463757, loss2: 0.000000, dist:  0.00000, modifier mean: 1.70898e-05
+Step:  100, loss: 3.8746, loss1: 2.685724, loss2: 1.188888, dist:  1.18889, modifier mean: -7.89389e-05
+Step:  199, loss: 3.3384, loss1: 0.926575, loss2: 2.411858, dist:  2.41186, modifier mean: 6.51041e-05
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 25
+[STATS][L1] total = 6, seq = 1414, time = 178.584, success = False, distortion = 0.97256, avg_step = 104.00000,avg_query = 20304.00000, success_rate = 0.833
+The original label before attack 126
+Skip wrongly classified image no. 1448, original class 126, classified as 9
+The original label before attack 17
+Batch: 1471, search step: 0
+Step:    0, loss: 7.6201, loss1: 7.620146, loss2: 0.000000, dist:  0.00000, modifier mean: 2.19727e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8495272892727557
+The label after attack 0
+[STATS][L1] total = 7, seq = 1471, time = 166.967, success = True, distortion = 0.95205, avg_step = 94.50000,avg_query = 18427.83333, success_rate = 0.857
+The original label before attack 115
+Batch: 1477, search step: 0
+Step:    0, loss: 10.4460, loss1: 10.446005, loss2: 0.000000, dist:  0.00000, modifier mean: -4.23177e-05
+Step:  100, loss: 1.3383, loss1: 0.000000, loss2: 1.338288, dist:  1.33829, modifier mean: -2.63672e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1568439607665646
+The label after attack 0
+[STATS][L1] total = 8, seq = 1477, time = 166.311, success = True, distortion = 0.98131, avg_step = 94.85714,avg_query = 18523.42857, success_rate = 0.875
+The original label before attack 102
+Batch: 1533, search step: 0
+Step:    0, loss: 5.7596, loss1: 5.759552, loss2: 0.000000, dist:  0.00000, modifier mean: -1.54622e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.7892048018149431
+The label after attack 0
+[STATS][L1] total = 9, seq = 1533, time = 155.727, success = True, distortion = 0.95730, avg_step = 87.12500,avg_query = 16962.12500, success_rate = 0.889
+The original label before attack 188
+Skip wrongly classified image no. 1601, original class 188, classified as 170
+The original label before attack 143
+Batch: 1671, search step: 0
+Step:    0, loss: 9.8783, loss1: 9.878312, loss2: 0.000000, dist:  0.00000, modifier mean: 3.66211e-05
+Step:  100, loss: 1.8759, loss1: 0.498490, loss2: 1.377407, dist:  1.37741, modifier mean: 1.96126e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2424047028283685
+The label after attack 0
+[STATS][L1] total = 10, seq = 1671, time = 159.401, success = True, distortion = 0.98898, avg_step = 89.77778,avg_query = 17534.22222, success_rate = 0.900
+The original label before attack 148
+Batch: 1716, search step: 0
+Step:    0, loss: 10.8372, loss1: 10.837198, loss2: 0.000000, dist:  0.00000, modifier mean: -1.22070e-05
+Step:  100, loss: 2.6729, loss1: 0.619314, loss2: 2.053614, dist:  2.05361, modifier mean: -1.53809e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.4886502186529524
+The label after attack 0
+[STATS][L1] total = 11, seq = 1716, time = 162.305, success = True, distortion = 1.03894, avg_step = 91.50000,avg_query = 17891.50000, success_rate = 0.909
+The original label before attack 96
+Batch: 1766, search step: 0
+Step:    0, loss: 8.3703, loss1: 8.370253, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 0.9201, loss1: 0.000000, loss2: 0.920099, dist:  0.92010, modifier mean: 1.33464e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9592186045456257
+The label after attack 0
+[STATS][L1] total = 12, seq = 1766, time = 159.863, success = True, distortion = 1.03170, avg_step = 89.00000,avg_query = 17361.72727, success_rate = 0.917
+The original label before attack 53
+Batch: 2044, search step: 0
+Step:    0, loss: 6.4309, loss1: 6.430873, loss2: 0.000000, dist:  0.00000, modifier mean: -2.52279e-05
+Step:  100, loss: 3.2633, loss1: 1.930104, loss2: 1.333222, dist:  1.33322, modifier mean: 4.54915e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 53
+[STATS][L1] total = 13, seq = 2044, time = 159.863, success = False, distortion = 1.03170, avg_step = 89.00000,avg_query = 17361.72727, success_rate = 0.846
+The original label before attack 115
+Skip wrongly classified image no. 2069, original class 115, classified as 68
+The original label before attack 114
+Batch: 2218, search step: 0
+Step:    0, loss: 4.0670, loss1: 4.067043, loss2: 0.000000, dist:  0.00000, modifier mean: -8.95183e-06
+Step:  100, loss: 1.6246, loss1: 0.712726, loss2: 0.911835, dist:  0.91184, modifier mean: 1.27767e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1962125294396388
+The label after attack 0
+[STATS][L1] total = 14, seq = 2218, time = 166.692, success = True, distortion = 1.04540, avg_step = 93.91667,avg_query = 18343.91667, success_rate = 0.857
+The original label before attack 109
+Batch: 2252, search step: 0
+Step:    0, loss: 5.9885, loss1: 5.988475, loss2: 0.000000, dist:  0.00000, modifier mean: 7.32422e-06
+Step:  100, loss: 2.1824, loss1: 1.075380, loss2: 1.107000, dist:  1.10700, modifier mean: 4.39453e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.352246194248412
+The label after attack 0
+[STATS][L1] total = 15, seq = 2252, time = 172.484, success = True, distortion = 1.06901, avg_step = 98.76923,avg_query = 19329.53846, success_rate = 0.867
+The original label before attack 192
+Skip wrongly classified image no. 2284, original class 192, classified as 16
+The original label before attack 183
+Batch: 2357, search step: 0
+Step:    0, loss: 4.4131, loss1: 4.413082, loss2: 0.000000, dist:  0.00000, modifier mean: 3.98763e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.5362337222440882
+The label after attack 0
+[STATS][L1] total = 16, seq = 2357, time = 165.991, success = True, distortion = 1.03095, avg_step = 93.35714,avg_query = 18236.21429, success_rate = 0.875
+The original label before attack 81
+Batch: 2364, search step: 0
+Step:    0, loss: 9.5919, loss1: 9.591913, loss2: 0.000000, dist:  0.00000, modifier mean: -8.13804e-07
+Step:  100, loss: 3.0675, loss1: 2.523878, loss2: 0.543592, dist:  0.54359, modifier mean: -6.46973e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.0079388206626088
+The label after attack 0
+[STATS][L1] total = 17, seq = 2364, time = 171.025, success = True, distortion = 1.02942, avg_step = 97.60000,avg_query = 19097.60000, success_rate = 0.882
+The original label before attack 18
+Batch: 2390, search step: 0
+Step:    0, loss: 7.3661, loss1: 7.366117, loss2: 0.000000, dist:  0.00000, modifier mean: -4.88281e-06
+Step:  100, loss: 1.4381, loss1: 0.331890, loss2: 1.106163, dist:  1.10616, modifier mean: 3.33659e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1037982949980714
+The label after attack 0
+[STATS][L1] total = 18, seq = 2390, time = 172.120, success = True, distortion = 1.03407, avg_step = 98.25000,avg_query = 19223.25000, success_rate = 0.889
+The original label before attack 170
+Batch: 2542, search step: 0
+Step:    0, loss: 11.9427, loss1: 11.942678, loss2: 0.000000, dist:  0.00000, modifier mean: 1.54622e-05
+Step:  100, loss: 5.4527, loss1: 3.099862, loss2: 2.352887, dist:  2.35289, modifier mean: 1.50553e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 170
+[STATS][L1] total = 19, seq = 2542, time = 172.120, success = False, distortion = 1.03407, avg_step = 98.25000,avg_query = 19223.25000, success_rate = 0.842
+The original label before attack 20
+Batch: 2600, search step: 0
+Step:    0, loss: 7.8551, loss1: 7.855132, loss2: 0.000000, dist:  0.00000, modifier mean: 1.70898e-05
+Step:  100, loss: 0.8898, loss1: 0.000000, loss2: 0.889808, dist:  0.88981, modifier mean: 2.98665e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9432969161497718
+The label after attack 0
+[STATS][L1] total = 20, seq = 2600, time = 171.507, success = True, distortion = 1.02873, avg_step = 97.88235,avg_query = 19156.70588, success_rate = 0.850
+The original label before attack 116
+Batch: 2777, search step: 0
+Step:    0, loss: 9.2132, loss1: 9.213206, loss2: 0.000000, dist:  0.00000, modifier mean: 2.44141e-05
+Step:  100, loss: 2.3343, loss1: 0.655054, loss2: 1.679239, dist:  1.67924, modifier mean: 1.25326e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.4651385608283427
+The label after attack 0
+[STATS][L1] total = 21, seq = 2777, time = 173.913, success = True, distortion = 1.05297, avg_step = 99.61111,avg_query = 19488.50000, success_rate = 0.857
+The original label before attack 180
+Batch: 2935, search step: 0
+Step:    0, loss: 6.6014, loss1: 6.601406, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 2.7258, loss1: 1.757871, loss2: 0.967907, dist:  0.96791, modifier mean: -1.24512e-04
+Step:  199, loss: 2.0767, loss1: 0.000000, loss2: 2.076693, dist:  2.07669, modifier mean: 3.25521e-05
+Num failures:  0, num successes:  1
+
+L2 distortion 1.4410742400593208
+The label after attack 0
+[STATS][L1] total = 22, seq = 2935, time = 178.768, success = True, distortion = 1.07340, avg_step = 104.52632,avg_query = 20472.94737, success_rate = 0.864
+The original label before attack 101
+Batch: 3051, search step: 0
+Step:    0, loss: 3.8569, loss1: 3.856860, loss2: 0.000000, dist:  0.00000, modifier mean: -2.44140e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.34139626049729604
+The label after attack 0
+[STATS][L1] total = 23, seq = 3051, time = 173.892, success = True, distortion = 1.03680, avg_step = 100.40000,avg_query = 19650.40000, success_rate = 0.870
+The original label before attack 169
+Batch: 3141, search step: 0
+Step:    0, loss: 5.1915, loss1: 5.191478, loss2: 0.000000, dist:  0.00000, modifier mean: -2.44141e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.657407285151025
+The label after attack 0
+[STATS][L1] total = 24, seq = 3141, time = 169.479, success = True, distortion = 1.01873, avg_step = 97.23810,avg_query = 19002.00000, success_rate = 0.875
+The original label before attack 153
+Skip wrongly classified image no. 3340, original class 153, classified as 126
+The original label before attack 60
+Skip wrongly classified image no. 3370, original class 60, classified as 119
+The original label before attack 109
+Batch: 3375, search step: 0
+Step:    0, loss: 9.8730, loss1: 9.872968, loss2: 0.000000, dist:  0.00000, modifier mean: 1.62760e-06
+Step:  100, loss: 1.9168, loss1: 0.210316, loss2: 1.706488, dist:  1.70649, modifier mean: 3.23893e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.3427173727642254
+The label after attack 0
+[STATS][L1] total = 25, seq = 3375, time = 170.349, success = True, distortion = 1.03346, avg_step = 97.59091,avg_query = 19052.13636, success_rate = 0.880
+The original label before attack 94
+Batch: 3625, search step: 0
+Step:    0, loss: 8.5367, loss1: 8.536698, loss2: 0.000000, dist:  0.00000, modifier mean: 2.03451e-05
+Step:  100, loss: 0.3011, loss1: 0.000000, loss2: 0.301137, dist:  0.30114, modifier mean: 5.04557e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.5487613026404281
+The label after attack 0
+[STATS][L1] total = 26, seq = 3625, time = 168.799, success = True, distortion = 1.01239, avg_step = 96.65217,avg_query = 18879.26087, success_rate = 0.885
+The original label before attack 78
+Batch: 3727, search step: 0
+Step:    0, loss: 10.1301, loss1: 10.130076, loss2: 0.000000, dist:  0.00000, modifier mean: 6.06330e-13
+Step:  100, loss: 1.2771, loss1: 0.000000, loss2: 1.277054, dist:  1.27705, modifier mean: 4.28874e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1300684876068923
+The label after attack 0
+[STATS][L1] total = 27, seq = 3727, time = 167.385, success = True, distortion = 1.01729, avg_step = 95.20833,avg_query = 18595.20833, success_rate = 0.889
+The original label before attack 37
+Batch: 3822, search step: 0
+Step:    0, loss: 7.3808, loss1: 7.380844, loss2: 0.000000, dist:  0.00000, modifier mean: -4.54747e-13
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.6903162624313586
+The label after attack 0
+[STATS][L1] total = 28, seq = 3822, time = 165.021, success = True, distortion = 1.00421, avg_step = 93.64000,avg_query = 18293.64000, success_rate = 0.893
+The original label before attack 55
+Batch: 3839, search step: 0
+Step:    0, loss: 4.4167, loss1: 4.416725, loss2: 0.000000, dist:  0.00000, modifier mean: 8.95182e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8491949364096584
+The label after attack 0
+[STATS][L1] total = 29, seq = 3839, time = 162.840, success = True, distortion = 0.99825, avg_step = 92.15385,avg_query = 17976.76923, success_rate = 0.897
+The original label before attack 94
+Batch: 3853, search step: 0
+Step:    0, loss: 7.7416, loss1: 7.741624, loss2: 0.000000, dist:  0.00000, modifier mean: -1.38346e-05
+Step:  100, loss: 3.1901, loss1: 1.689039, loss2: 1.501041, dist:  1.50104, modifier mean: 2.65299e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.5806968053011643
+The label after attack 0
+[STATS][L1] total = 30, seq = 3853, time = 165.757, success = True, distortion = 1.01982, avg_step = 94.59259,avg_query = 18464.96296, success_rate = 0.900
+The original label before attack 167
+Skip wrongly classified image no. 4346, original class 167, classified as 192
+The original label before attack 98
+Batch: 4609, search step: 0
+Step:    0, loss: 9.2751, loss1: 9.275071, loss2: 0.000000, dist:  0.00000, modifier mean: -1.05794e-05
+Step:  100, loss: 2.9216, loss1: 1.324331, loss2: 1.597266, dist:  1.59727, modifier mean: -7.81250e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.6427877067914043
+The label after attack 0
+[STATS][L1] total = 31, seq = 4609, time = 168.452, success = True, distortion = 1.04207, avg_step = 96.85714,avg_query = 18918.28571, success_rate = 0.903
+The original label before attack 58
+Batch: 4615, search step: 0
+Step:    0, loss: 6.8032, loss1: 6.803242, loss2: 0.000000, dist:  0.00000, modifier mean: -2.11589e-05
+Step:  100, loss: 0.9666, loss1: 0.000000, loss2: 0.966637, dist:  0.96664, modifier mean: -4.80143e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9831774860202144
+The label after attack 0
+[STATS][L1] total = 32, seq = 4615, time = 167.286, success = True, distortion = 1.04004, avg_step = 95.89655,avg_query = 18716.58621, success_rate = 0.906
+The original label before attack 124
+Skip wrongly classified image no. 4631, original class 124, classified as 26
+The original label before attack 116
+Skip wrongly classified image no. 4692, original class 116, classified as 111
+The original label before attack 74
+Batch: 4891, search step: 0
+Step:    0, loss: 5.9506, loss1: 5.950587, loss2: 0.000000, dist:  0.00000, modifier mean: 9.76563e-06
+Step:  100, loss: 1.0589, loss1: 0.000000, loss2: 1.058947, dist:  1.05895, modifier mean: -5.81869e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.0290522420391022
+The label after attack 0
+[STATS][L1] total = 33, seq = 4891, time = 167.098, success = True, distortion = 1.03967, avg_step = 95.63333,avg_query = 18662.30000, success_rate = 0.909
+The original label before attack 17
+Batch: 4892, search step: 0
+Step:    0, loss: 7.6624, loss1: 7.662446, loss2: 0.000000, dist:  0.00000, modifier mean: -4.88281e-06
+Step:  100, loss: 3.5276, loss1: 2.628267, loss2: 0.899342, dist:  0.89934, modifier mean: 6.59994e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 17
+[STATS][L1] total = 34, seq = 4892, time = 167.098, success = False, distortion = 1.03967, avg_step = 95.63333,avg_query = 18662.30000, success_rate = 0.882
+The original label before attack 31
+Batch: 5227, search step: 0
+Step:    0, loss: 12.3693, loss1: 12.369307, loss2: 0.000000, dist:  0.00000, modifier mean: 7.32422e-06
+Step:  100, loss: 2.8830, loss1: 1.012364, loss2: 1.870663, dist:  1.87066, modifier mean: -4.96419e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.5572400632067545
+The label after attack 0
+[STATS][L1] total = 35, seq = 5227, time = 168.641, success = True, distortion = 1.05637, avg_step = 96.80645,avg_query = 18903.25806, success_rate = 0.886
+The original label before attack 66
+Skip wrongly classified image no. 5337, original class 66, classified as 0
+The original label before attack 141
+Batch: 5442, search step: 0
+Step:    0, loss: 9.5748, loss1: 9.574811, loss2: 0.000000, dist:  0.00000, modifier mean: 1.13932e-05
+Step:  100, loss: 1.5004, loss1: 0.000000, loss2: 1.500356, dist:  1.50036, modifier mean: -1.13932e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2248901823994667
+The label after attack 0
+[STATS][L1] total = 36, seq = 5442, time = 168.455, success = True, distortion = 1.06163, avg_step = 96.71875,avg_query = 18877.96875, success_rate = 0.889
+The original label before attack 9
+Batch: 5530, search step: 0
+Step:    0, loss: 9.5258, loss1: 9.525824, loss2: 0.000000, dist:  0.00000, modifier mean: -8.13801e-07
+Step:  100, loss: 3.5544, loss1: 1.827979, loss2: 1.726384, dist:  1.72638, modifier mean: 2.92969e-04
+Step:  199, loss: 2.7462, loss1: 0.000000, loss2: 2.746230, dist:  2.74623, modifier mean: 2.78320e-04
+Num failures:  0, num successes:  1
+
+L2 distortion 1.6571760647598786
+The label after attack 0
+[STATS][L1] total = 37, seq = 5530, time = 171.447, success = True, distortion = 1.07968, avg_step = 98.81818,avg_query = 19310.93939, success_rate = 0.892
+The original label before attack 76
+Batch: 5554, search step: 0
+Step:    0, loss: 8.1137, loss1: 8.113682, loss2: 0.000000, dist:  0.00000, modifier mean: 3.58073e-05
+Step:  100, loss: 0.7654, loss1: 0.000000, loss2: 0.765352, dist:  0.76535, modifier mean: 1.62760e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8748438559585073
+The label after attack 0
+[STATS][L1] total = 38, seq = 5554, time = 170.375, success = True, distortion = 1.07366, avg_step = 97.91176,avg_query = 19127.32353, success_rate = 0.895
+The original label before attack 150
+Skip wrongly classified image no. 5570, original class 150, classified as 176
+The original label before attack 3
+Batch: 5798, search step: 0
+Step:    0, loss: 7.9828, loss1: 7.982823, loss2: 0.000000, dist:  0.00000, modifier mean: 2.84831e-05
+Step:  100, loss: 3.7253, loss1: 3.049616, loss2: 0.675676, dist:  0.67568, modifier mean: 4.19922e-04
+Step:  199, loss: 3.3288, loss1: 1.800596, loss2: 1.528208, dist:  1.52821, modifier mean: 4.76888e-04
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 3
+[STATS][L1] total = 39, seq = 5798, time = 170.375, success = False, distortion = 1.07366, avg_step = 97.91176,avg_query = 19127.32353, success_rate = 0.872
+The original label before attack 6
+Skip wrongly classified image no. 5877, original class 6, classified as 2
+The original label before attack 149
+Batch: 5881, search step: 0
+Step:    0, loss: 11.1010, loss1: 11.101046, loss2: 0.000000, dist:  0.00000, modifier mean: -8.95182e-06
+Step:  100, loss: 4.6357, loss1: 3.034239, loss2: 1.601454, dist:  1.60145, modifier mean: 4.45150e-04
+Step:  199, loss: 3.5764, loss1: 0.303060, loss2: 3.273348, dist:  3.27335, modifier mean: 8.50423e-04
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 149
+[STATS][L1] total = 40, seq = 5881, time = 170.375, success = False, distortion = 1.07366, avg_step = 97.91176,avg_query = 19127.32353, success_rate = 0.850
+The original label before attack 51
+Batch: 5993, search step: 0
+Step:    0, loss: 8.4251, loss1: 8.425094, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 1.5537, loss1: 0.787717, loss2: 0.765998, dist:  0.76600, modifier mean: -7.88574e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.0434858204820021
+The label after attack 0
+[STATS][L1] total = 41, seq = 5993, time = 172.443, success = True, distortion = 1.07279, avg_step = 99.31429,avg_query = 19413.60000, success_rate = 0.854
+The original label before attack 55
+Batch: 6064, search step: 0
+Step:    0, loss: 4.1399, loss1: 4.139913, loss2: 0.000000, dist:  0.00000, modifier mean: 2.92969e-05
+Step:  100, loss: 0.8351, loss1: 0.000000, loss2: 0.835103, dist:  0.83510, modifier mean: 3.78418e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9138397858390901
+The label after attack 0
+[STATS][L1] total = 42, seq = 6064, time = 171.416, success = True, distortion = 1.06838, avg_step = 98.36111,avg_query = 19209.47222, success_rate = 0.857
+The original label before attack 180
+Batch: 6171, search step: 0
+Step:    0, loss: 10.6172, loss1: 10.617152, loss2: 0.000000, dist:  0.00000, modifier mean: 2.19727e-05
+Step:  100, loss: 0.6891, loss1: 0.000000, loss2: 0.689084, dist:  0.68908, modifier mean: 4.19922e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8301110833300682
+The label after attack 0
+[STATS][L1] total = 43, seq = 6171, time = 170.443, success = True, distortion = 1.06194, avg_step = 97.81081,avg_query = 19097.81081, success_rate = 0.860
+The original label before attack 128
+Batch: 6318, search step: 0
+Step:    0, loss: 8.3021, loss1: 8.302109, loss2: 0.000000, dist:  0.00000, modifier mean: -3.25521e-06
+Step:  100, loss: 1.8937, loss1: 0.537475, loss2: 1.356248, dist:  1.35625, modifier mean: 6.51855e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.268610411984558
+The label after attack 0
+[STATS][L1] total = 44, seq = 6318, time = 170.933, success = True, distortion = 1.06738, avg_step = 98.28947,avg_query = 19203.55263, success_rate = 0.864
+The original label before attack 191
+Batch: 6344, search step: 0
+Step:    0, loss: 4.3244, loss1: 4.324418, loss2: 0.000000, dist:  0.00000, modifier mean: -7.32422e-06
+Step:  100, loss: 2.7337, loss1: 2.306128, loss2: 0.427571, dist:  0.42757, modifier mean: -1.74967e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 191
+[STATS][L1] total = 45, seq = 6344, time = 170.933, success = False, distortion = 1.06738, avg_step = 98.28947,avg_query = 19203.55263, success_rate = 0.844
+The original label before attack 192
+Batch: 6401, search step: 0
+Step:    0, loss: 10.0857, loss1: 10.085721, loss2: 0.000000, dist:  0.00000, modifier mean: 4.88281e-06
+Step:  100, loss: 2.9426, loss1: 1.325441, loss2: 1.617181, dist:  1.61718, modifier mean: -2.76693e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.4593081440611233
+The label after attack 0
+[STATS][L1] total = 46, seq = 6401, time = 172.109, success = True, distortion = 1.07743, avg_step = 99.10256,avg_query = 19355.51282, success_rate = 0.848
+The original label before attack 182
+Batch: 6415, search step: 0
+Step:    0, loss: 3.2708, loss1: 3.270759, loss2: 0.000000, dist:  0.00000, modifier mean: -1.62761e-06
+Step:  100, loss: 1.5360, loss1: 0.168251, loss2: 1.367710, dist:  1.36771, modifier mean: 1.74154e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2020919129557455
+The label after attack 0
+[STATS][L1] total = 47, seq = 6415, time = 172.523, success = True, distortion = 1.08054, avg_step = 99.22500,avg_query = 19374.22500, success_rate = 0.851
+The original label before attack 135
+Batch: 6517, search step: 0
+Step:    0, loss: 7.2469, loss1: 7.246920, loss2: 0.000000, dist:  0.00000, modifier mean: -2.60417e-05
+Step:  100, loss: 3.7769, loss1: 1.717242, loss2: 2.059706, dist:  2.05971, modifier mean: 4.10156e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.7196378322154977
+The label after attack 0
+[STATS][L1] total = 48, seq = 6517, time = 173.565, success = True, distortion = 1.09613, avg_step = 100.17073,avg_query = 19563.58537, success_rate = 0.854
+The original label before attack 29
+Skip wrongly classified image no. 6531, original class 29, classified as 126
+The original label before attack 19
+Batch: 6828, search step: 0
+Step:    0, loss: 1.2607, loss1: 1.260728, loss2: 0.000000, dist:  0.00000, modifier mean: -7.32422e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.17339205425705007
+The label after attack 0
+[STATS][L1] total = 49, seq = 6828, time = 170.740, success = True, distortion = 1.07416, avg_step = 97.92857,avg_query = 19121.73810, success_rate = 0.857
+The original label before attack 164
+Skip wrongly classified image no. 7014, original class 164, classified as 34
+The original label before attack 87
+Batch: 7030, search step: 0
+Step:    0, loss: 8.7930, loss1: 8.792991, loss2: 0.000000, dist:  0.00000, modifier mean: -2.11589e-05
+Step:  100, loss: 4.1180, loss1: 1.895706, loss2: 2.222255, dist:  2.22225, modifier mean: -4.88283e-06
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 87
+[STATS][L1] total = 50, seq = 7030, time = 170.740, success = False, distortion = 1.07416, avg_step = 97.92857,avg_query = 19121.73810, success_rate = 0.840
+The original label before attack 110
+Skip wrongly classified image no. 7328, original class 110, classified as 54
+The original label before attack 171
+Skip wrongly classified image no. 7435, original class 171, classified as 137
+The original label before attack 150
+Skip wrongly classified image no. 7499, original class 150, classified as 176
+The original label before attack 89
+Skip wrongly classified image no. 7503, original class 89, classified as 178
+The original label before attack 28
+Batch: 7539, search step: 0
+Step:    0, loss: 9.0342, loss1: 9.034202, loss2: 0.000000, dist:  0.00000, modifier mean: -5.69661e-06
+Step:  100, loss: 2.9553, loss1: 1.808011, loss2: 1.147275, dist:  1.14727, modifier mean: -6.59180e-05
+Step:  199, loss: 2.7420, loss1: 0.350761, loss2: 2.391275, dist:  2.39128, modifier mean: -7.32421e-05
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 28
+[STATS][L1] total = 51, seq = 7539, time = 170.740, success = False, distortion = 1.07416, avg_step = 97.92857,avg_query = 19121.73810, success_rate = 0.824
+The original label before attack 55
+Batch: 7561, search step: 0
+Step:    0, loss: 8.4002, loss1: 8.400207, loss2: 0.000000, dist:  0.00000, modifier mean: 2.92969e-05
+Step:  100, loss: 2.1790, loss1: 0.000000, loss2: 2.178991, dist:  2.17899, modifier mean: 4.14225e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.4761411681341652
+The label after attack 0
+[STATS][L1] total = 52, seq = 7561, time = 170.534, success = True, distortion = 1.08351, avg_step = 97.67442,avg_query = 19074.41860, success_rate = 0.827
+The original label before attack 54
+Batch: 7617, search step: 0
+Step:    0, loss: 7.3389, loss1: 7.338946, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 1.8274, loss1: 0.998104, loss2: 0.829340, dist:  0.82934, modifier mean: 2.39258e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.069443398567338
+The label after attack 0
+[STATS][L1] total = 53, seq = 7617, time = 171.543, success = True, distortion = 1.08319, avg_step = 98.43182,avg_query = 19234.79545, success_rate = 0.830
+The original label before attack 140
+Batch: 7623, search step: 0
+Step:    0, loss: 5.5952, loss1: 5.595151, loss2: 0.000000, dist:  0.00000, modifier mean: -1.22070e-05
+Step:  100, loss: 0.6638, loss1: 0.000000, loss2: 0.663807, dist:  0.66381, modifier mean: 9.68425e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8147441609311808
+The label after attack 0
+[STATS][L1] total = 54, seq = 7623, time = 170.753, success = True, distortion = 1.07722, avg_step = 97.82222,avg_query = 19120.04444, success_rate = 0.833
+The original label before attack 10
+Batch: 7685, search step: 0
+Step:    0, loss: 10.7357, loss1: 10.735681, loss2: 0.000000, dist:  0.00000, modifier mean: -3.09245e-05
+Step:  100, loss: 1.1101, loss1: 0.000000, loss2: 1.110111, dist:  1.11011, modifier mean: -3.35286e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.053618503932046
+The label after attack 0
+[STATS][L1] total = 55, seq = 7685, time = 170.558, success = True, distortion = 1.07671, avg_step = 97.56522,avg_query = 19075.82609, success_rate = 0.836
+The original label before attack 66
+Skip wrongly classified image no. 7708, original class 66, classified as 161
+The original label before attack 184
+Batch: 7916, search step: 0
+Step:    0, loss: 6.9156, loss1: 6.915569, loss2: 0.000000, dist:  0.00000, modifier mean: 1.22070e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.7945978877537092
+The label after attack 0
+[STATS][L1] total = 56, seq = 7916, time = 169.236, success = True, distortion = 1.07071, avg_step = 96.44681,avg_query = 18841.12766, success_rate = 0.839
+The original label before attack 99
+Skip wrongly classified image no. 8074, original class 99, classified as 181
+The original label before attack 21
+Batch: 8142, search step: 0
+Step:    0, loss: 8.6473, loss1: 8.647264, loss2: 0.000000, dist:  0.00000, modifier mean: -2.03451e-05
+Step:  100, loss: 1.6642, loss1: 0.123418, loss2: 1.540754, dist:  1.54075, modifier mean: 1.87175e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.272905905761852
+The label after attack 0
+[STATS][L1] total = 57, seq = 8142, time = 169.644, success = True, distortion = 1.07492, avg_step = 96.60417,avg_query = 18867.43750, success_rate = 0.842
+The original label before attack 135
+Batch: 8197, search step: 0
+Step:    0, loss: 6.8952, loss1: 6.895190, loss2: 0.000000, dist:  0.00000, modifier mean: -1.54622e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.870969070612442
+The label after attack 0
+[STATS][L1] total = 58, seq = 8197, time = 168.391, success = True, distortion = 1.07076, avg_step = 95.75510,avg_query = 18687.59184, success_rate = 0.845
+The original label before attack 101
+Batch: 8239, search step: 0
+Step:    0, loss: 7.5181, loss1: 7.518066, loss2: 0.000000, dist:  0.00000, modifier mean: 1.38346e-05
+Step:  100, loss: 0.7304, loss1: 0.000000, loss2: 0.730435, dist:  0.73044, modifier mean: -2.84831e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8546553276185637
+The label after attack 0
+[STATS][L1] total = 59, seq = 8239, time = 167.733, success = True, distortion = 1.06644, avg_step = 95.10000,avg_query = 18555.10000, success_rate = 0.847
+The original label before attack 105
+Batch: 8284, search step: 0
+Step:    0, loss: 6.2501, loss1: 6.250115, loss2: 0.000000, dist:  0.00000, modifier mean: 2.68555e-05
+Step:  100, loss: 2.3186, loss1: 1.098425, loss2: 1.220177, dist:  1.22018, modifier mean: 2.48210e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.3718044254163189
+The label after attack 0
+[STATS][L1] total = 60, seq = 8284, time = 169.195, success = True, distortion = 1.07242, avg_step = 96.15686,avg_query = 18762.82353, success_rate = 0.850
+The original label before attack 8
+Batch: 8364, search step: 0
+Step:    0, loss: 6.5671, loss1: 6.567145, loss2: 0.000000, dist:  0.00000, modifier mean: 8.13802e-06
+Step:  100, loss: 2.4023, loss1: 0.937072, loss2: 1.465238, dist:  1.46524, modifier mean: -1.39974e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 8
+[STATS][L1] total = 61, seq = 8364, time = 169.195, success = False, distortion = 1.07242, avg_step = 96.15686,avg_query = 18762.82353, success_rate = 0.836
+The original label before attack 95
+Batch: 8547, search step: 0
+Step:    0, loss: 8.2230, loss1: 8.222960, loss2: 0.000000, dist:  0.00000, modifier mean: 6.51042e-06
+Step:  100, loss: 0.9366, loss1: 0.000000, loss2: 0.936584, dist:  0.93658, modifier mean: -1.87175e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9677731295526439
+The label after attack 0
+[STATS][L1] total = 62, seq = 8547, time = 168.546, success = True, distortion = 1.07041, avg_step = 95.67308,avg_query = 18672.59615, success_rate = 0.839
+The original label before attack 109
+Batch: 8619, search step: 0
+Step:    0, loss: 7.8888, loss1: 7.888823, loss2: 0.000000, dist:  0.00000, modifier mean: 1.13932e-05
+Step:  100, loss: 1.1653, loss1: 0.000000, loss2: 1.165326, dist:  1.16533, modifier mean: 1.50553e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.0795033255027162
+The label after attack 0
+[STATS][L1] total = 63, seq = 8619, time = 167.925, success = True, distortion = 1.07058, avg_step = 95.32075,avg_query = 18604.75472, success_rate = 0.841
+The original label before attack 141
+Batch: 8817, search step: 0
+Step:    0, loss: 5.4695, loss1: 5.469515, loss2: 0.000000, dist:  0.00000, modifier mean: -1.13932e-05
+Step:  100, loss: 2.5420, loss1: 1.251470, loss2: 1.290549, dist:  1.29055, modifier mean: -4.72005e-05
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 141
+[STATS][L1] total = 64, seq = 8817, time = 167.925, success = False, distortion = 1.07058, avg_step = 95.32075,avg_query = 18604.75472, success_rate = 0.828
+The original label before attack 103
+Batch: 8961, search step: 0
+Step:    0, loss: 8.8368, loss1: 8.836817, loss2: 0.000000, dist:  0.00000, modifier mean: -1.79036e-05
+Step:  100, loss: 1.2513, loss1: 0.000000, loss2: 1.251264, dist:  1.25126, modifier mean: -1.19629e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1185995927858694
+The label after attack 0
+[STATS][L1] total = 65, seq = 8961, time = 167.815, success = True, distortion = 1.07147, avg_step = 95.29630,avg_query = 18595.29630, success_rate = 0.831
+The original label before attack 193
+Skip wrongly classified image no. 9105, original class 193, classified as 108
+The original label before attack 181
+Skip wrongly classified image no. 9186, original class 181, classified as 180
+The original label before attack 122
+Batch: 9193, search step: 0
+Step:    0, loss: 6.5715, loss1: 6.571515, loss2: 0.000000, dist:  0.00000, modifier mean: -1.70898e-05
+Step:  100, loss: 2.7332, loss1: 1.769792, loss2: 0.963370, dist:  0.96337, modifier mean: 4.60612e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 122
+[STATS][L1] total = 66, seq = 9193, time = 167.815, success = False, distortion = 1.07147, avg_step = 95.29630,avg_query = 18595.29630, success_rate = 0.818
+The original label before attack 69
+Batch: 9231, search step: 0
+Step:    0, loss: 6.5641, loss1: 6.564050, loss2: 0.000000, dist:  0.00000, modifier mean: 1.54622e-05
+Step:  100, loss: 1.0169, loss1: 0.000000, loss2: 1.016858, dist:  1.01686, modifier mean: -2.52279e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.008393763210495
+The label after attack 0
+[STATS][L1] total = 67, seq = 9231, time = 167.699, success = True, distortion = 1.07033, avg_step = 95.12727,avg_query = 18567.85455, success_rate = 0.821
+The original label before attack 109
+Batch: 9303, search step: 0
+Step:    0, loss: 9.7253, loss1: 9.725303, loss2: 0.000000, dist:  0.00000, modifier mean: -8.13804e-07
+Step:  100, loss: 5.3125, loss1: 3.712599, loss2: 1.599927, dist:  1.59993, modifier mean: -6.89290e-04
+Step:  199, loss: 4.4798, loss1: 0.886877, loss2: 3.592894, dist:  3.59289, modifier mean: -8.55306e-04
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 109
+[STATS][L1] total = 68, seq = 9303, time = 167.699, success = False, distortion = 1.07033, avg_step = 95.12727,avg_query = 18567.85455, success_rate = 0.809
+The original label before attack 81
+Batch: 9310, search step: 0
+Step:    0, loss: 6.7766, loss1: 6.776607, loss2: 0.000000, dist:  0.00000, modifier mean: 8.13802e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.7573109176126829
+The label after attack 0
+[STATS][L1] total = 69, seq = 9310, time = 166.631, success = True, distortion = 1.06474, avg_step = 94.42857,avg_query = 18433.71429, success_rate = 0.812
+The original label before attack 19
+Batch: 9329, search step: 0
+Step:    0, loss: 9.6901, loss1: 9.690116, loss2: 0.000000, dist:  0.00000, modifier mean: 2.19727e-05
+Step:  100, loss: 3.9904, loss1: 2.710455, loss2: 1.279930, dist:  1.27993, modifier mean: 4.17480e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 19
+[STATS][L1] total = 70, seq = 9329, time = 166.631, success = False, distortion = 1.06474, avg_step = 94.42857,avg_query = 18433.71429, success_rate = 0.800
+The original label before attack 54
+Batch: 9381, search step: 0
+Step:    0, loss: 12.7169, loss1: 12.716892, loss2: 0.000000, dist:  0.00000, modifier mean: 3.01107e-05
+Step:  100, loss: 3.5927, loss1: 1.940124, loss2: 1.652531, dist:  1.65253, modifier mean: 2.00195e-04
+Step:  199, loss: 3.2267, loss1: 0.000000, loss2: 3.226727, dist:  3.22673, modifier mean: 1.69271e-04
+Num failures:  0, num successes:  1
+
+L2 distortion 1.7963097388116656
+The label after attack 0
+[STATS][L1] total = 71, seq = 9381, time = 168.387, success = True, distortion = 1.07757, avg_step = 95.96491,avg_query = 18745.08772, success_rate = 0.803
+The original label before attack 138
+Batch: 9470, search step: 0
+Step:    0, loss: 12.9429, loss1: 12.942860, loss2: 0.000000, dist:  0.00000, modifier mean: -8.13802e-06
+Step:  100, loss: 1.6579, loss1: 0.067535, loss2: 1.590414, dist:  1.59041, modifier mean: 1.66829e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2803298623507156
+The label after attack 0
+[STATS][L1] total = 72, seq = 9470, time = 168.710, success = True, distortion = 1.08107, avg_step = 96.08621,avg_query = 18768.50000, success_rate = 0.806
+The original label before attack 69
+Batch: 9630, search step: 0
+Step:    0, loss: 13.4352, loss1: 13.435192, loss2: 0.000000, dist:  0.00000, modifier mean: -1.54622e-05
+Step:  100, loss: 3.2382, loss1: 1.998966, loss2: 1.239201, dist:  1.23920, modifier mean: -3.01921e-04
+Step:  199, loss: 2.4632, loss1: 0.000000, loss2: 2.463221, dist:  2.46322, modifier mean: -4.92350e-04
+Num failures:  0, num successes:  1
+
+L2 distortion 1.5694653707513884
+The label after attack 0
+[STATS][L1] total = 73, seq = 9630, time = 170.343, success = True, distortion = 1.08935, avg_step = 97.66102,avg_query = 19080.71186, success_rate = 0.808
+{'batch_size': 64, 'test_batch_size': 1, 'no_cuda': False, 'attack': 'ours', 'dataset': 'imagenet', 'maxiter': 200, 'attacked_model': 'Net6', 'untargeted': False, 'save': './saved_results', 'numimg': 0, 'print_every': 100, 'firstimg': 0, 'binary_steps': 1, 'init_const': 0.5, 'use_zvalue': False, 'reset_adam': False, 'use_resize': False, 'seed': 1216, 'solver': 'adam', 'save_ckpts': '', 'load_ckpt': '', 'start_iter': 0, 'init_size': 32, 'uniform': False, 'lr': 0.002, 'inception': True, 'use_tanh': True, 'debug': True}
+Loading imagenet model and test data
+class_to_idx:  200
+class_to_idx:  200
+Load attacked model from ../train_mnist_model/checkpoint/imagenet/imagenet_Net6.pt
+Loading checkpoint from /data/home/dujw/attack/imagenet_grad/meta-zoo/checkpoint/resnet34_adam/model_best.pth.tar
+Loading meta model from /data/home/dujw/attack/src_imagenet/checkpoint/meta/0.82605cifar_resnet34.pt
+Done...
+Using adam solver
+The original label before attack 85
+Batch:  34, search step: 0
+Step:    0, loss: 3.3076, loss1: 3.307609, loss2: 0.000000, dist:  0.00000, modifier mean: 6.51036e-06
+Step:  100, loss: 1.2379, loss1: 0.546114, loss2: 0.691818, dist:  0.69182, modifier mean: 2.36697e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9716864044110648
+The label after attack 0
+[STATS][L1] total = 1, seq = 34, time = 189.851, success = True, distortion = 0.97169, avg_step = 127.00000,avg_query = 25127.00000, success_rate = 1.000
+The original label before attack 143
+Skip wrongly classified image no. 50, original class 143, classified as 23
+The original label before attack 8
+Skip wrongly classified image no. 128, original class 8, classified as 149
+The original label before attack 0
+Skip wrongly classified image no. 546, original class 0, classified as 66
+The original label before attack 29
+Batch: 599, search step: 0
+Step:    0, loss: 5.3070, loss1: 5.307038, loss2: 0.000000, dist:  0.00000, modifier mean: -1.62760e-06
+Step:  100, loss: 2.0113, loss1: 0.627051, loss2: 1.384273, dist:  1.38427, modifier mean: -2.43316e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 29
+[STATS][L1] total = 2, seq = 599, time = 189.851, success = False, distortion = 0.97169, avg_step = 127.00000,avg_query = 25127.00000, success_rate = 0.500
+The original label before attack 84
+Batch: 1046, search step: 0
+Step:    0, loss: 10.3498, loss1: 10.349833, loss2: 0.000000, dist:  0.00000, modifier mean: -3.25518e-06
+Step:  100, loss: 1.9418, loss1: 1.168184, loss2: 0.773620, dist:  0.77362, modifier mean: -2.13271e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1674192022428185
+The label after attack 0
+[STATS][L1] total = 3, seq = 1046, time = 217.070, success = True, distortion = 1.06955, avg_step = 145.00000,avg_query = 28645.00000, success_rate = 0.667
+The original label before attack 98
+Skip wrongly classified image no. 1056, original class 98, classified as 126
+The original label before attack 31
+Batch: 1134, search step: 0
+Step:    0, loss: 5.8496, loss1: 5.849617, loss2: 0.000000, dist:  0.00000, modifier mean: 2.44139e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8737088622967655
+The label after attack 0
+[STATS][L1] total = 4, seq = 1134, time = 181.261, success = True, distortion = 1.00427, avg_step = 112.00000,avg_query = 22112.00000, success_rate = 0.750
+The original label before attack 127
+Skip wrongly classified image no. 1320, original class 127, classified as 131
+The original label before attack 130
+Batch: 1350, search step: 0
+Step:    0, loss: 5.0378, loss1: 5.037789, loss2: 0.000000, dist:  0.00000, modifier mean: 1.38345e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9431823185212228
+The label after attack 0
+[STATS][L1] total = 5, seq = 1350, time = 163.330, success = True, distortion = 0.98900, avg_step = 101.00000,avg_query = 19851.00000, success_rate = 0.800
+The original label before attack 25
+Batch: 1414, search step: 0
+Step:    0, loss: 11.4638, loss1: 11.463757, loss2: 0.000000, dist:  0.00000, modifier mean: -1.13932e-05
+Step:  100, loss: 4.4255, loss1: 2.974360, loss2: 1.451110, dist:  1.45111, modifier mean: 5.70203e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 25
+[STATS][L1] total = 6, seq = 1414, time = 163.330, success = False, distortion = 0.98900, avg_step = 101.00000,avg_query = 19851.00000, success_rate = 0.667
+The original label before attack 126
+Skip wrongly classified image no. 1448, original class 126, classified as 9
+The original label before attack 17
+Batch: 1471, search step: 0
+Step:    0, loss: 7.6201, loss1: 7.620146, loss2: 0.000000, dist:  0.00000, modifier mean: 8.13804e-07
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9899301456602358
+The label after attack 0
+[STATS][L1] total = 7, seq = 1471, time = 152.548, success = True, distortion = 0.98919, avg_step = 91.80000,avg_query = 17891.80000, success_rate = 0.714
+The original label before attack 115
+Batch: 1477, search step: 0
+Step:    0, loss: 10.4460, loss1: 10.446005, loss2: 0.000000, dist:  0.00000, modifier mean: -3.90622e-05
+Step:  100, loss: 1.8631, loss1: 0.159738, loss2: 1.703362, dist:  1.70336, modifier mean: -3.79742e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.3507358029311536
+The label after attack 0
+[STATS][L1] total = 8, seq = 1477, time = 154.368, success = True, distortion = 1.04944, avg_step = 94.16667,avg_query = 18427.50000, success_rate = 0.750
+The original label before attack 102
+Batch: 1533, search step: 0
+Step:    0, loss: 5.7596, loss1: 5.759552, loss2: 0.000000, dist:  0.00000, modifier mean: 4.88277e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.8277922267598624
+The label after attack 0
+[STATS][L1] total = 9, seq = 1533, time = 144.102, success = True, distortion = 1.01778, avg_step = 85.71429,avg_query = 16657.14286, success_rate = 0.778
+The original label before attack 188
+Skip wrongly classified image no. 1601, original class 188, classified as 170
+The original label before attack 143
+Batch: 1671, search step: 0
+Step:    0, loss: 9.8783, loss1: 9.878312, loss2: 0.000000, dist:  0.00000, modifier mean: -4.88278e-06
+Step:  100, loss: 2.8997, loss1: 1.261668, loss2: 1.638080, dist:  1.63808, modifier mean: -1.07294e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 143
+[STATS][L1] total = 10, seq = 1671, time = 144.102, success = False, distortion = 1.01778, avg_step = 85.71429,avg_query = 16657.14286, success_rate = 0.700
+The original label before attack 148
+Batch: 1716, search step: 0
+Step:    0, loss: 10.8372, loss1: 10.837198, loss2: 0.000000, dist:  0.00000, modifier mean: 6.51038e-06
+Step:  100, loss: 4.0761, loss1: 1.797747, loss2: 2.278402, dist:  2.27840, modifier mean: -2.80653e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 148
+[STATS][L1] total = 11, seq = 1716, time = 144.102, success = False, distortion = 1.01778, avg_step = 85.71429,avg_query = 16657.14286, success_rate = 0.636
+The original label before attack 96
+Batch: 1766, search step: 0
+Step:    0, loss: 8.3703, loss1: 8.370253, loss2: 0.000000, dist:  0.00000, modifier mean: 1.13931e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.030058663929028
+The label after attack 0
+[STATS][L1] total = 12, seq = 1766, time = 139.801, success = True, distortion = 1.01931, avg_step = 83.12500,avg_query = 16083.12500, success_rate = 0.667
+The original label before attack 53
+Batch: 2044, search step: 0
+Step:    0, loss: 6.4309, loss1: 6.430873, loss2: 0.000000, dist:  0.00000, modifier mean: -3.25518e-06
+Step:  100, loss: 3.4716, loss1: 1.934226, loss2: 1.537388, dist:  1.53739, modifier mean: 1.25161e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 53
+[STATS][L1] total = 13, seq = 2044, time = 139.801, success = False, distortion = 1.01931, avg_step = 83.12500,avg_query = 16083.12500, success_rate = 0.615
+The original label before attack 115
+Skip wrongly classified image no. 2069, original class 115, classified as 68
+The original label before attack 114
+Batch: 2218, search step: 0
+Step:    0, loss: 4.0670, loss1: 4.067043, loss2: 0.000000, dist:  0.00000, modifier mean: 1.62758e-06
+Step:  100, loss: 1.8625, loss1: 0.724994, loss2: 1.137488, dist:  1.13749, modifier mean: 2.38352e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 114
+[STATS][L1] total = 14, seq = 2218, time = 139.801, success = False, distortion = 1.01931, avg_step = 83.12500,avg_query = 16083.12500, success_rate = 0.571
+The original label before attack 109
+Batch: 2252, search step: 0
+Step:    0, loss: 5.9885, loss1: 5.988475, loss2: 0.000000, dist:  0.00000, modifier mean: 6.51037e-06
+Step:  100, loss: 2.4151, loss1: 1.084878, loss2: 1.330258, dist:  1.33026, modifier mean: 1.00857e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 109
+[STATS][L1] total = 15, seq = 2252, time = 139.801, success = False, distortion = 1.01931, avg_step = 83.12500,avg_query = 16083.12500, success_rate = 0.533
+The original label before attack 192
+Skip wrongly classified image no. 2284, original class 192, classified as 16
+The original label before attack 183
+Batch: 2357, search step: 0
+Step:    0, loss: 4.4131, loss1: 4.413082, loss2: 0.000000, dist:  0.00000, modifier mean: 1.46483e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.5685970687664528
+The label after attack 0
+[STATS][L1] total = 16, seq = 2357, time = 133.420, success = True, distortion = 0.96923, avg_step = 76.66667,avg_query = 14743.33333, success_rate = 0.562
+The original label before attack 81
+Batch: 2364, search step: 0
+Step:    0, loss: 9.5919, loss1: 9.591913, loss2: 0.000000, dist:  0.00000, modifier mean: -8.13797e-06
+Step:  100, loss: 3.4007, loss1: 2.831953, loss2: 0.568758, dist:  0.56876, modifier mean: -1.00191e-03
+Step:  199, loss: 1.4889, loss1: 0.000000, loss2: 1.488923, dist:  1.48892, modifier mean: -1.83222e-03
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1754755275358018
+The label after attack 0
+[STATS][L1] total = 17, seq = 2364, time = 147.093, success = True, distortion = 0.98986, avg_step = 87.80000,avg_query = 16987.80000, success_rate = 0.588
+The original label before attack 18
+Batch: 2390, search step: 0
+Step:    0, loss: 7.3661, loss1: 7.366117, loss2: 0.000000, dist:  0.00000, modifier mean: 3.74346e-05
+Step:  100, loss: 1.9076, loss1: 0.697060, loss2: 1.210583, dist:  1.21058, modifier mean: 4.40457e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.250252793499458
+The label after attack 0
+[STATS][L1] total = 18, seq = 2390, time = 151.063, success = True, distortion = 1.01353, avg_step = 91.00000,avg_query = 17636.45455, success_rate = 0.611
+The original label before attack 170
+Batch: 2542, search step: 0
+Step:    0, loss: 11.9427, loss1: 11.942678, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 5.7588, loss1: 3.377792, loss2: 2.381027, dist:  2.38103, modifier mean: 3.69824e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 170
+[STATS][L1] total = 19, seq = 2542, time = 151.063, success = False, distortion = 1.01353, avg_step = 91.00000,avg_query = 17636.45455, success_rate = 0.579
+The original label before attack 20
+Batch: 2600, search step: 0
+Step:    0, loss: 7.8551, loss1: 7.855132, loss2: 0.000000, dist:  0.00000, modifier mean: -3.17381e-05
+Step:  100, loss: 1.3604, loss1: 0.206973, loss2: 1.153437, dist:  1.15344, modifier mean: 5.41825e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1239841961411419
+The label after attack 0
+[STATS][L1] total = 20, seq = 2600, time = 152.077, success = True, distortion = 1.02274, avg_step = 92.41667,avg_query = 17925.75000, success_rate = 0.600
+The original label before attack 116
+Batch: 2777, search step: 0
+Step:    0, loss: 9.2132, loss1: 9.213206, loss2: 0.000000, dist:  0.00000, modifier mean: -2.68553e-05
+Step:  100, loss: 3.1379, loss1: 0.969962, loss2: 2.167931, dist:  2.16793, modifier mean: 3.24093e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 116
+[STATS][L1] total = 21, seq = 2777, time = 152.077, success = False, distortion = 1.02274, avg_step = 92.41667,avg_query = 17925.75000, success_rate = 0.571
+The original label before attack 180
+Batch: 2935, search step: 0
+Step:    0, loss: 6.6014, loss1: 6.601406, loss2: 0.000000, dist:  0.00000, modifier mean: -3.98760e-05
+Step:  100, loss: 2.9875, loss1: 1.844511, loss2: 1.142942, dist:  1.14294, modifier mean: -3.02082e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 180
+[STATS][L1] total = 22, seq = 2935, time = 152.077, success = False, distortion = 1.02274, avg_step = 92.41667,avg_query = 17925.75000, success_rate = 0.545
+The original label before attack 101
+Batch: 3051, search step: 0
+Step:    0, loss: 3.8569, loss1: 3.856860, loss2: 0.000000, dist:  0.00000, modifier mean: -2.68554e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.3407715158589594
+The label after attack 0
+[STATS][L1] total = 23, seq = 3051, time = 146.708, success = True, distortion = 0.97028, avg_step = 87.00000,avg_query = 16856.23077, success_rate = 0.565
+The original label before attack 169
+Batch: 3141, search step: 0
+Step:    0, loss: 5.1915, loss1: 5.191478, loss2: 0.000000, dist:  0.00000, modifier mean: -3.01105e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.6861953928332208
+The label after attack 0
+[STATS][L1] total = 24, seq = 3141, time = 142.104, success = True, distortion = 0.94999, avg_step = 83.28571,avg_query = 16083.28571, success_rate = 0.583
+The original label before attack 153
+Skip wrongly classified image no. 3340, original class 153, classified as 126
+The original label before attack 60
+Skip wrongly classified image no. 3370, original class 60, classified as 119
+The original label before attack 109
+Batch: 3375, search step: 0
+Step:    0, loss: 9.8730, loss1: 9.872968, loss2: 0.000000, dist:  0.00000, modifier mean: 1.62759e-06
+Step:  100, loss: 2.7800, loss1: 0.997650, loss2: 1.782334, dist:  1.78233, modifier mean: 1.13721e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.5653507929082218
+The label after attack 0
+[STATS][L1] total = 25, seq = 3375, time = 145.320, success = True, distortion = 0.99101, avg_step = 86.26667,avg_query = 16686.26667, success_rate = 0.600
+The original label before attack 94
+Batch: 3625, search step: 0
+Step:    0, loss: 8.5367, loss1: 8.536698, loss2: 0.000000, dist:  0.00000, modifier mean: -1.95311e-05
+Step:  100, loss: 0.4735, loss1: 0.000000, loss2: 0.473483, dist:  0.47348, modifier mean: 7.87008e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.6266037154495125
+The label after attack 0
+[STATS][L1] total = 26, seq = 3625, time = 146.432, success = True, distortion = 0.96823, avg_step = 86.18750,avg_query = 16648.68750, success_rate = 0.615
+The original label before attack 78
+Batch: 3727, search step: 0
+Step:    0, loss: 10.1301, loss1: 10.130076, loss2: 0.000000, dist:  0.00000, modifier mean: -2.44140e-06
+Step:  100, loss: 2.4890, loss1: 0.000000, loss2: 2.488956, dist:  2.48896, modifier mean: 3.15994e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2565211900107554
+The label after attack 0
+[STATS][L1] total = 27, seq = 3727, time = 145.835, success = True, distortion = 0.98519, avg_step = 85.17647,avg_query = 16438.11765, success_rate = 0.630
+The original label before attack 37
+Batch: 3822, search step: 0
+Step:    0, loss: 7.3808, loss1: 7.380844, loss2: 0.000000, dist:  0.00000, modifier mean: 2.52277e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.7622238440800654
+The label after attack 0
+[STATS][L1] total = 28, seq = 3822, time = 143.878, success = True, distortion = 0.97280, avg_step = 83.83333,avg_query = 16194.94444, success_rate = 0.643
+The original label before attack 55
+Batch: 3839, search step: 0
+Step:    0, loss: 4.4167, loss1: 4.416725, loss2: 0.000000, dist:  0.00000, modifier mean: 2.76691e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9221759886687293
+The label after attack 0
+[STATS][L1] total = 29, seq = 3839, time = 142.039, success = True, distortion = 0.97014, avg_step = 82.52632,avg_query = 15924.63158, success_rate = 0.655
+The original label before attack 94
+Batch: 3853, search step: 0
+Step:    0, loss: 7.7416, loss1: 7.741624, loss2: 0.000000, dist:  0.00000, modifier mean: 1.13931e-05
+Step:  100, loss: 3.5576, loss1: 1.784865, loss2: 1.772696, dist:  1.77270, modifier mean: 3.92097e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 94
+[STATS][L1] total = 30, seq = 3853, time = 142.039, success = False, distortion = 0.97014, avg_step = 82.52632,avg_query = 15924.63158, success_rate = 0.633
+The original label before attack 167
+Skip wrongly classified image no. 4346, original class 167, classified as 192
+The original label before attack 98
+Batch: 4609, search step: 0
+Step:    0, loss: 9.2751, loss1: 9.275071, loss2: 0.000000, dist:  0.00000, modifier mean: 1.79035e-05
+Step:  100, loss: 3.1871, loss1: 1.220692, loss2: 1.966440, dist:  1.96644, modifier mean: -1.11028e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 98
+[STATS][L1] total = 31, seq = 4609, time = 142.039, success = False, distortion = 0.97014, avg_step = 82.52632,avg_query = 15924.63158, success_rate = 0.613
+The original label before attack 58
+Batch: 4615, search step: 0
+Step:    0, loss: 6.8032, loss1: 6.803242, loss2: 0.000000, dist:  0.00000, modifier mean: -2.44139e-05
+Step:  100, loss: 1.7410, loss1: 0.000000, loss2: 1.740981, dist:  1.74098, modifier mean: -2.30868e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1333698874543694
+The label after attack 0
+[STATS][L1] total = 32, seq = 4615, time = 141.718, success = True, distortion = 0.97830, avg_step = 82.30000,avg_query = 15882.30000, success_rate = 0.625
+The original label before attack 124
+Skip wrongly classified image no. 4631, original class 124, classified as 26
+The original label before attack 116
+Skip wrongly classified image no. 4692, original class 116, classified as 111
+The original label before attack 74
+Batch: 4891, search step: 0
+Step:    0, loss: 5.9506, loss1: 5.950587, loss2: 0.000000, dist:  0.00000, modifier mean: -7.32417e-06
+Step:  100, loss: 1.3229, loss1: 0.000000, loss2: 1.322861, dist:  1.32286, modifier mean: -5.50998e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1293956923159294
+The label after attack 0
+[STATS][L1] total = 33, seq = 4891, time = 142.701, success = True, distortion = 0.98550, avg_step = 83.00000,avg_query = 16035.38095, success_rate = 0.636
+The original label before attack 17
+Batch: 4892, search step: 0
+Step:    0, loss: 7.6624, loss1: 7.662446, loss2: 0.000000, dist:  0.00000, modifier mean: -5.69657e-06
+Step:  100, loss: 3.6859, loss1: 2.648458, loss2: 1.037412, dist:  1.03741, modifier mean: 3.75865e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 17
+[STATS][L1] total = 34, seq = 4892, time = 142.701, success = False, distortion = 0.98550, avg_step = 83.00000,avg_query = 16035.38095, success_rate = 0.618
+The original label before attack 31
+Batch: 5227, search step: 0
+Step:    0, loss: 12.3693, loss1: 12.369307, loss2: 0.000000, dist:  0.00000, modifier mean: -1.87173e-05
+Step:  100, loss: 3.5764, loss1: 1.361510, loss2: 2.214918, dist:  2.21492, modifier mean: -1.00216e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 31
+[STATS][L1] total = 35, seq = 5227, time = 142.701, success = False, distortion = 0.98550, avg_step = 83.00000,avg_query = 16035.38095, success_rate = 0.600
+The original label before attack 66
+Skip wrongly classified image no. 5337, original class 66, classified as 0
+The original label before attack 141
+Batch: 5442, search step: 0
+Step:    0, loss: 9.5748, loss1: 9.574811, loss2: 0.000000, dist:  0.00000, modifier mean: -1.38345e-05
+Step:  100, loss: 2.2630, loss1: 0.436938, loss2: 1.826056, dist:  1.82606, modifier mean: -4.97699e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.4392417638667934
+The label after attack 0
+[STATS][L1] total = 36, seq = 5442, time = 143.646, success = True, distortion = 1.00612, avg_step = 84.27273,avg_query = 16311.54545, success_rate = 0.611
+The original label before attack 9
+Batch: 5530, search step: 0
+Step:    0, loss: 9.5258, loss1: 9.525824, loss2: 0.000000, dist:  0.00000, modifier mean: -1.05793e-05
+Step:  100, loss: 3.9989, loss1: 2.008989, loss2: 1.989892, dist:  1.98989, modifier mean: 2.32858e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 9
+[STATS][L1] total = 37, seq = 5530, time = 143.646, success = False, distortion = 1.00612, avg_step = 84.27273,avg_query = 16311.54545, success_rate = 0.595
+The original label before attack 76
+Batch: 5554, search step: 0
+Step:    0, loss: 8.1137, loss1: 8.113682, loss2: 0.000000, dist:  0.00000, modifier mean: 8.13801e-07
+Step:  100, loss: 1.3929, loss1: 0.000000, loss2: 1.392921, dist:  1.39292, modifier mean: 2.64253e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.0202734573161538
+The label after attack 0
+[STATS][L1] total = 38, seq = 5554, time = 143.332, success = True, distortion = 1.00674, avg_step = 84.04348,avg_query = 16257.95652, success_rate = 0.605
+The original label before attack 150
+Skip wrongly classified image no. 5570, original class 150, classified as 176
+The original label before attack 3
+Batch: 5798, search step: 0
+Step:    0, loss: 7.9828, loss1: 7.982823, loss2: 0.000000, dist:  0.00000, modifier mean: -5.69656e-06
+Step:  100, loss: 3.8256, loss1: 3.091136, loss2: 0.734424, dist:  0.73442, modifier mean: 5.12725e-04
+Step:  199, loss: 3.4525, loss1: 1.743443, loss2: 1.709094, dist:  1.70909, modifier mean: 3.53560e-04
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 3
+[STATS][L1] total = 39, seq = 5798, time = 143.332, success = False, distortion = 1.00674, avg_step = 84.04348,avg_query = 16257.95652, success_rate = 0.590
+The original label before attack 6
+Skip wrongly classified image no. 5877, original class 6, classified as 2
+The original label before attack 149
+Batch: 5881, search step: 0
+Step:    0, loss: 11.1010, loss1: 11.101046, loss2: 0.000000, dist:  0.00000, modifier mean: 1.87173e-05
+Step:  100, loss: 5.3410, loss1: 3.627481, loss2: 1.713472, dist:  1.71347, modifier mean: 2.00050e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 149
+[STATS][L1] total = 40, seq = 5881, time = 143.332, success = False, distortion = 1.00674, avg_step = 84.04348,avg_query = 16257.95652, success_rate = 0.575
+The original label before attack 51
+Batch: 5993, search step: 0
+Step:    0, loss: 8.4251, loss1: 8.425094, loss2: 0.000000, dist:  0.00000, modifier mean: 1.62759e-06
+Step:  100, loss: 1.7898, loss1: 0.985577, loss2: 0.804249, dist:  0.80425, modifier mean: -3.33080e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2000934008171258
+The label after attack 0
+[STATS][L1] total = 41, seq = 5993, time = 147.576, success = True, distortion = 1.01479, avg_step = 87.45833,avg_query = 16962.45833, success_rate = 0.585
+The original label before attack 55
+Batch: 6064, search step: 0
+Step:    0, loss: 4.1399, loss1: 4.139913, loss2: 0.000000, dist:  0.00000, modifier mean: -5.69656e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9769231206716578
+The label after attack 0
+[STATS][L1] total = 42, seq = 6064, time = 146.077, success = True, distortion = 1.01328, avg_step = 86.68000,avg_query = 16806.68000, success_rate = 0.595
+The original label before attack 180
+Batch: 6171, search step: 0
+Step:    0, loss: 10.6172, loss1: 10.617152, loss2: 0.000000, dist:  0.00000, modifier mean: 1.70897e-05
+Step:  100, loss: 1.0410, loss1: 0.000000, loss2: 1.040977, dist:  1.04098, modifier mean: 5.23994e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9537306877870779
+The label after attack 0
+[STATS][L1] total = 43, seq = 6171, time = 146.785, success = True, distortion = 1.01099, avg_step = 86.76923,avg_query = 16817.53846, success_rate = 0.605
+The original label before attack 128
+Batch: 6318, search step: 0
+Step:    0, loss: 8.3021, loss1: 8.302109, loss2: 0.000000, dist:  0.00000, modifier mean: 2.44139e-06
+Step:  100, loss: 2.4517, loss1: 0.926310, loss2: 1.525359, dist:  1.52536, modifier mean: 3.32549e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.488185288747271
+The label after attack 0
+[STATS][L1] total = 44, seq = 6318, time = 148.411, success = True, distortion = 1.02866, avg_step = 88.59259,avg_query = 17199.70370, success_rate = 0.614
+The original label before attack 191
+Batch: 6344, search step: 0
+Step:    0, loss: 4.3244, loss1: 4.324418, loss2: 0.000000, dist:  0.00000, modifier mean: 2.44138e-06
+Step:  100, loss: 2.8056, loss1: 2.301857, loss2: 0.503765, dist:  0.50376, modifier mean: -4.34626e-05
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 191
+[STATS][L1] total = 45, seq = 6344, time = 148.411, success = False, distortion = 1.02866, avg_step = 88.59259,avg_query = 17199.70370, success_rate = 0.600
+The original label before attack 192
+Batch: 6401, search step: 0
+Step:    0, loss: 10.0857, loss1: 10.085721, loss2: 0.000000, dist:  0.00000, modifier mean: 8.95176e-06
+Step:  100, loss: 3.5099, loss1: 1.665275, loss2: 1.844629, dist:  1.84463, modifier mean: 5.06340e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.78464826372073
+The label after attack 0
+[STATS][L1] total = 46, seq = 6401, time = 151.860, success = True, distortion = 1.05566, avg_step = 91.10714,avg_query = 17698.25000, success_rate = 0.609
+The original label before attack 182
+Batch: 6415, search step: 0
+Step:    0, loss: 3.2708, loss1: 3.270759, loss2: 0.000000, dist:  0.00000, modifier mean: -8.13784e-07
+Step:  100, loss: 1.8718, loss1: 0.309306, loss2: 1.562493, dist:  1.56249, modifier mean: -1.20183e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.3499699730536092
+The label after attack 0
+[STATS][L1] total = 47, seq = 6415, time = 152.271, success = True, distortion = 1.06581, avg_step = 91.82759,avg_query = 17850.44828, success_rate = 0.617
+The original label before attack 135
+Batch: 6517, search step: 0
+Step:    0, loss: 7.2469, loss1: 7.246920, loss2: 0.000000, dist:  0.00000, modifier mean: -2.11587e-05
+Step:  100, loss: 4.5227, loss1: 2.103041, loss2: 2.419614, dist:  2.41961, modifier mean: 2.43523e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 135
+[STATS][L1] total = 48, seq = 6517, time = 152.271, success = False, distortion = 1.06581, avg_step = 91.82759,avg_query = 17850.44828, success_rate = 0.604
+The original label before attack 29
+Skip wrongly classified image no. 6531, original class 29, classified as 126
+The original label before attack 19
+Batch: 6828, search step: 0
+Step:    0, loss: 1.2607, loss1: 1.260728, loss2: 0.000000, dist:  0.00000, modifier mean: -2.76690e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.1732509868842802
+The label after attack 0
+[STATS][L1] total = 49, seq = 6828, time = 149.045, success = True, distortion = 1.03606, avg_step = 88.96667,avg_query = 17288.96667, success_rate = 0.612
+The original label before attack 164
+Skip wrongly classified image no. 7014, original class 164, classified as 34
+The original label before attack 87
+Batch: 7030, search step: 0
+Step:    0, loss: 8.7930, loss1: 8.792991, loss2: 0.000000, dist:  0.00000, modifier mean: -1.62759e-05
+Step:  100, loss: 4.5117, loss1: 2.135988, loss2: 2.375721, dist:  2.37572, modifier mean: 9.34718e-07
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 87
+[STATS][L1] total = 50, seq = 7030, time = 149.045, success = False, distortion = 1.03606, avg_step = 88.96667,avg_query = 17288.96667, success_rate = 0.600
+The original label before attack 110
+Skip wrongly classified image no. 7328, original class 110, classified as 54
+The original label before attack 171
+Skip wrongly classified image no. 7435, original class 171, classified as 137
+The original label before attack 150
+Skip wrongly classified image no. 7499, original class 150, classified as 176
+The original label before attack 89
+Skip wrongly classified image no. 7503, original class 89, classified as 178
+The original label before attack 28
+Batch: 7539, search step: 0
+Step:    0, loss: 9.0342, loss1: 9.034202, loss2: 0.000000, dist:  0.00000, modifier mean: -1.30207e-05
+Step:  100, loss: 3.0909, loss1: 1.801383, loss2: 1.289567, dist:  1.28957, modifier mean: 3.87824e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 28
+[STATS][L1] total = 51, seq = 7539, time = 149.045, success = False, distortion = 1.03606, avg_step = 88.96667,avg_query = 17288.96667, success_rate = 0.588
+The original label before attack 55
+Batch: 7561, search step: 0
+Step:    0, loss: 8.4002, loss1: 8.400207, loss2: 0.000000, dist:  0.00000, modifier mean: -1.30207e-05
+Step:  100, loss: 2.8839, loss1: 0.083654, loss2: 2.800271, dist:  2.80027, modifier mean: 2.09375e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.6976864976641584
+The label after attack 0
+[STATS][L1] total = 52, seq = 7561, time = 149.549, success = True, distortion = 1.05740, avg_step = 89.38710,avg_query = 17379.70968, success_rate = 0.596
+The original label before attack 54
+Batch: 7617, search step: 0
+Step:    0, loss: 7.3389, loss1: 7.338946, loss2: 0.000000, dist:  0.00000, modifier mean: 1.13931e-05
+Step:  100, loss: 2.1277, loss1: 1.171980, loss2: 0.955746, dist:  0.95575, modifier mean: 1.86262e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2441584467547144
+The label after attack 0
+[STATS][L1] total = 53, seq = 7617, time = 151.680, success = True, distortion = 1.06324, avg_step = 91.28125,avg_query = 17747.53125, success_rate = 0.604
+The original label before attack 140
+Batch: 7623, search step: 0
+Step:    0, loss: 5.5952, loss1: 5.595151, loss2: 0.000000, dist:  0.00000, modifier mean: -9.76553e-06
+Step:  100, loss: 1.1850, loss1: 0.000000, loss2: 1.185019, dist:  1.18502, modifier mean: -1.05282e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9291056888112597
+The label after attack 0
+[STATS][L1] total = 54, seq = 7623, time = 151.212, success = True, distortion = 1.05917, avg_step = 90.84848,avg_query = 17666.60606, success_rate = 0.611
+The original label before attack 10
+Batch: 7685, search step: 0
+Step:    0, loss: 10.7357, loss1: 10.735681, loss2: 0.000000, dist:  0.00000, modifier mean: -9.76554e-06
+Step:  100, loss: 1.5224, loss1: 0.000000, loss2: 1.522394, dist:  1.52239, modifier mean: -3.65947e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1806004004593935
+The label after attack 0
+[STATS][L1] total = 55, seq = 7685, time = 151.575, success = True, distortion = 1.06274, avg_step = 90.91176,avg_query = 17679.14706, success_rate = 0.618
+The original label before attack 66
+Skip wrongly classified image no. 7708, original class 66, classified as 161
+The original label before attack 184
+Batch: 7916, search step: 0
+Step:    0, loss: 6.9156, loss1: 6.915569, loss2: 0.000000, dist:  0.00000, modifier mean: 9.76556e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.846284168967901
+The label after attack 0
+[STATS][L1] total = 56, seq = 7916, time = 150.379, success = True, distortion = 1.05656, avg_step = 89.65714,avg_query = 17432.51429, success_rate = 0.625
+The original label before attack 99
+Skip wrongly classified image no. 8074, original class 99, classified as 181
+The original label before attack 21
+Batch: 8142, search step: 0
+Step:    0, loss: 8.6473, loss1: 8.647264, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 2.4829, loss1: 0.721609, loss2: 1.761287, dist:  1.76129, modifier mean: -1.07735e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.529485970958108
+The label after attack 0
+[STATS][L1] total = 57, seq = 8142, time = 151.486, success = True, distortion = 1.06970, avg_step = 90.66667,avg_query = 17646.22222, success_rate = 0.632
+The original label before attack 135
+Batch: 8197, search step: 0
+Step:    0, loss: 6.8952, loss1: 6.895190, loss2: 0.000000, dist:  0.00000, modifier mean: -1.22070e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9866783200254539
+The label after attack 0
+[STATS][L1] total = 58, seq = 8197, time = 150.347, success = True, distortion = 1.06745, avg_step = 89.94595,avg_query = 17495.35135, success_rate = 0.638
+The original label before attack 101
+Batch: 8239, search step: 0
+Step:    0, loss: 7.5181, loss1: 7.518066, loss2: 0.000000, dist:  0.00000, modifier mean: 4.06898e-05
+Step:  100, loss: 1.4734, loss1: 0.000000, loss2: 1.473423, dist:  1.47342, modifier mean: 3.01954e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.9487059035878191
+The label after attack 0
+[STATS][L1] total = 59, seq = 8239, time = 149.977, success = True, distortion = 1.06433, avg_step = 89.34211,avg_query = 17378.81579, success_rate = 0.644
+The original label before attack 105
+Batch: 8284, search step: 0
+Step:    0, loss: 6.2501, loss1: 6.250115, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 2.6116, loss1: 1.152233, loss2: 1.459373, dist:  1.45937, modifier mean: 7.18094e-05
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 105
+[STATS][L1] total = 60, seq = 8284, time = 149.977, success = False, distortion = 1.06433, avg_step = 89.34211,avg_query = 17378.81579, success_rate = 0.633
+The original label before attack 8
+Batch: 8364, search step: 0
+Step:    0, loss: 6.5671, loss1: 6.567145, loss2: 0.000000, dist:  0.00000, modifier mean: -1.13932e-05
+Step:  100, loss: 2.8739, loss1: 1.089944, loss2: 1.783931, dist:  1.78393, modifier mean: -2.15662e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 8
+[STATS][L1] total = 61, seq = 8364, time = 149.977, success = False, distortion = 1.06433, avg_step = 89.34211,avg_query = 17378.81579, success_rate = 0.623
+The original label before attack 95
+Batch: 8547, search step: 0
+Step:    0, loss: 8.2230, loss1: 8.222960, loss2: 0.000000, dist:  0.00000, modifier mean: 2.92967e-05
+Step:  100, loss: 1.6793, loss1: 0.000000, loss2: 1.679255, dist:  1.67926, modifier mean: 9.17077e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1083967166836861
+The label after attack 0
+[STATS][L1] total = 62, seq = 8547, time = 149.627, success = True, distortion = 1.06546, avg_step = 89.02564,avg_query = 17319.79487, success_rate = 0.629
+The original label before attack 109
+Batch: 8619, search step: 0
+Step:    0, loss: 7.8888, loss1: 7.888823, loss2: 0.000000, dist:  0.00000, modifier mean: 2.92967e-05
+Step:  100, loss: 1.8849, loss1: 0.000000, loss2: 1.884920, dist:  1.88492, modifier mean: -4.09554e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.3487110819606454
+The label after attack 0
+[STATS][L1] total = 63, seq = 8619, time = 149.296, success = True, distortion = 1.07254, avg_step = 89.22500,avg_query = 17364.22500, success_rate = 0.635
+The original label before attack 141
+Batch: 8817, search step: 0
+Step:    0, loss: 5.4695, loss1: 5.469515, loss2: 0.000000, dist:  0.00000, modifier mean: -1.70897e-05
+Step:  100, loss: 2.9077, loss1: 1.538261, loss2: 1.369433, dist:  1.36943, modifier mean: 2.28689e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 141
+[STATS][L1] total = 64, seq = 8817, time = 149.296, success = False, distortion = 1.07254, avg_step = 89.22500,avg_query = 17364.22500, success_rate = 0.625
+The original label before attack 103
+Batch: 8961, search step: 0
+Step:    0, loss: 8.8368, loss1: 8.836817, loss2: 0.000000, dist:  0.00000, modifier mean: 1.05794e-05
+Step:  100, loss: 1.6304, loss1: 0.032595, loss2: 1.597766, dist:  1.59777, modifier mean: -2.03031e-04
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.2850685901370447
+The label after attack 0
+[STATS][L1] total = 65, seq = 8961, time = 149.648, success = True, distortion = 1.07772, avg_step = 89.56098,avg_query = 17431.02439, success_rate = 0.631
+The original label before attack 193
+Skip wrongly classified image no. 9105, original class 193, classified as 108
+The original label before attack 181
+Skip wrongly classified image no. 9186, original class 181, classified as 180
+The original label before attack 122
+Batch: 9193, search step: 0
+Step:    0, loss: 6.5715, loss1: 6.571515, loss2: 0.000000, dist:  0.00000, modifier mean: 1.62759e-05
+Step:  100, loss: 2.7912, loss1: 1.626900, loss2: 1.164267, dist:  1.16427, modifier mean: 4.14264e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 122
+[STATS][L1] total = 66, seq = 9193, time = 149.648, success = False, distortion = 1.07772, avg_step = 89.56098,avg_query = 17431.02439, success_rate = 0.621
+The original label before attack 69
+Batch: 9231, search step: 0
+Step:    0, loss: 6.5641, loss1: 6.564050, loss2: 0.000000, dist:  0.00000, modifier mean: -2.44139e-06
+Step:  100, loss: 1.3760, loss1: 0.000000, loss2: 1.375952, dist:  1.37595, modifier mean: 6.97034e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.1585988081283405
+The label after attack 0
+[STATS][L1] total = 67, seq = 9231, time = 150.011, success = True, distortion = 1.07965, avg_step = 89.76190,avg_query = 17470.71429, success_rate = 0.627
+The original label before attack 109
+Batch: 9303, search step: 0
+Step:    0, loss: 9.7253, loss1: 9.725303, loss2: 0.000000, dist:  0.00000, modifier mean: -3.82484e-05
+Step:  100, loss: 5.9290, loss1: 4.225631, loss2: 1.703413, dist:  1.70341, modifier mean: -1.16618e-03
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 109
+[STATS][L1] total = 68, seq = 9303, time = 150.011, success = False, distortion = 1.07965, avg_step = 89.76190,avg_query = 17470.71429, success_rate = 0.618
+The original label before attack 81
+Batch: 9310, search step: 0
+Step:    0, loss: 6.7766, loss1: 6.776607, loss2: 0.000000, dist:  0.00000, modifier mean: 1.38345e-05
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 0.814813913620184
+The label after attack 0
+[STATS][L1] total = 69, seq = 9310, time = 149.073, success = True, distortion = 1.07349, avg_step = 89.04651,avg_query = 17321.60465, success_rate = 0.623
+The original label before attack 19
+Batch: 9329, search step: 0
+Step:    0, loss: 9.6901, loss1: 9.690116, loss2: 0.000000, dist:  0.00000, modifier mean: -4.88279e-06
+Step:  100, loss: 4.2127, loss1: 2.748947, loss2: 1.463792, dist:  1.46379, modifier mean: 3.92537e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 19
+[STATS][L1] total = 70, seq = 9329, time = 149.073, success = False, distortion = 1.07349, avg_step = 89.04651,avg_query = 17321.60465, success_rate = 0.614
+The original label before attack 54
+Batch: 9381, search step: 0
+Step:    0, loss: 12.7169, loss1: 12.716892, loss2: 0.000000, dist:  0.00000, modifier mean: 4.06898e-06
+Step:  100, loss: 4.0641, loss1: 2.166658, loss2: 1.897470, dist:  1.89747, modifier mean: 3.87910e-04
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 54
+[STATS][L1] total = 71, seq = 9381, time = 149.073, success = False, distortion = 1.07349, avg_step = 89.04651,avg_query = 17321.60465, success_rate = 0.606
+The original label before attack 138
+Batch: 9470, search step: 0
+Step:    0, loss: 12.9429, loss1: 12.942860, loss2: 0.000000, dist:  0.00000, modifier mean: 1.87173e-05
+Step:  100, loss: 2.2927, loss1: 0.392959, loss2: 1.899707, dist:  1.89971, modifier mean: 9.22967e-06
+Aborting early...
+Num failures:  0, num successes:  1
+
+L2 distortion 1.5191149300648221
+The label after attack 0
+[STATS][L1] total = 72, seq = 9470, time = 149.416, success = True, distortion = 1.08362, avg_step = 89.70455,avg_query = 17453.34091, success_rate = 0.611
+The original label before attack 69
+Batch: 9630, search step: 0
+Step:    0, loss: 13.4352, loss1: 13.435192, loss2: 0.000000, dist:  0.00000, modifier mean: 2.44138e-06
+Step:  100, loss: 3.6661, loss1: 2.200304, loss2: 1.465821, dist:  1.46582, modifier mean: -5.54808e-06
+Aborting early...
+Num failures:  1, num successes:  0
+
+L2 distortion 0.0
+The label after attack 69
+[STATS][L1] total = 73, seq = 9630, time = 149.416, success = False, distortion = 1.08362, avg_step = 89.70455,avg_query = 17453.34091, success_rate = 0.603

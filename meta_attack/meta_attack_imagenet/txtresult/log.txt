@@ -1,0 +1,4 @@
+{'batch_size': 100, 'test_batch_size': 1, 'no_cuda': False, 'attack': 'ours', 'dataset': 'cifar10', 'maxiter': 1000, 'attacked_model': 'Net6', 'untargeted': True, 'save': './saved_results', 'numimg': 0, 'print_every': 100, 'firstimg': 0, 'binary_steps': 1, 'init_const': 0.5, 'use_zvalue': False, 'reset_adam': False, 'use_resize': False, 'seed': 1216, 'solver': 'adam', 'save_ckpts': '', 'load_ckpt': '', 'start_iter': 0, 'init_size': 32, 'uniform': False, 'lr': 0.01, 'inception': False, 'use_tanh': True, 'debug': True}
+> /data/home/dujw/attack/meta_attack_zoo_cifar/test_all.py(106)main()
+-> print('Loading %s model and test data' % args.dataset)
+(Pdb) 
