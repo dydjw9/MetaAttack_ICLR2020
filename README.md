@@ -14,6 +14,11 @@ url={https://openreview.net/forum?id=Skxd6gSYDS}
 ## Reproducing the results
 ### Requirements
 * Pytorch (`torch`, `torchvision`) packages
-
+#### For generating gradients for meta model training
+`cd `
+python
+#### For training meta model to attack
+`cd `
+#### For query-efficient attack
 The results can be reproduced (with the default hyperparameters) with the following command:
 `python xx.py`
