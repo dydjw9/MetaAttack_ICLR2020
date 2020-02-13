@@ -15,8 +15,8 @@ url={https://openreview.net/forum?id=Skxd6gSYDS}
 ### Requirements
 * Pytorch (`torch`, `torchvision`) packages
 #### For generating gradients for meta model training
-`cd `
-python
+`cd gen_grad/xx_grad_gen`
+`python `
 #### For training meta model to attack
 `cd `
 #### For query-efficient attack
