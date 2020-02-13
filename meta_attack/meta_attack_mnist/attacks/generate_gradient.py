@@ -93,7 +93,7 @@ class generate_gradient:
         #print('indice', indice)
         for i in range(self.batch_size):
             img_var[i*2 + 1].reshape(-1)[indice[i]] += 0.0001
-            img_var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0001
+            img_var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0000
         
         output = F.softmax(model(img_var), dim = 1)
         # output = model(img_var)
@@ -101,7 +101,7 @@ class generate_gradient:
         # dist = 0
         loss, loss1, loss2 = self._loss(output.data, target_var, dist, self.constant)
         for i in range(self.batch_size):
-            grad[i] = (loss[i * 2 + 1] - loss[i * 2 + 2]) / 0.0002
+            grad[i] = (loss[i * 2 + 1] - loss[i * 2 + 2]) / 0.0001
         
         modifier.reshape(-1)[indice] = grad.to(self.device)
         # pdb.set_trace()

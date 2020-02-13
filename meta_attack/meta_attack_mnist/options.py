@@ -64,23 +64,15 @@ parser.add_argument('--use_tanh', action = 'store_true', default = True)
 parser.add_argument('--debug', action = 'store_true', default = True)
 
 args = parser.parse_args()
+args.use_tanh = False  # for mnist, tanh will cause gradient to vanish, so set False
 # True False process
 vars(args)['istransfer'] = str2bool(args.istransfer)
 vars(args)['untargeted'] = str2bool(args.untargeted)
 #max iteration process
-if args.dataset == "imagenet": # set up and update some parameters based on datasets
-    if args.untargeted:
-        args.maxiter = 100
-    else:
-        args.maxiter = 300
-    args.inception = True
-    args.lr = 2e-3
-elif args.dataset == "mnist":
+if args.untargeted:
     args.maxiter = 300
-    args.use_tanh = False  # for mnist, tanh will cause gradient to vanish, so set False
 else:
-    args.maxiter = 1000
-
+    args.maxiter = 300
 if args.binary_steps != 0:
     args.init_const = 0.01
 else:

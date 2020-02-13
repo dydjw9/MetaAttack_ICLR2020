@@ -74,9 +74,7 @@ def simba_optimizer(meta_model, model, input_var,target, modifier_var, up, down,
     default_real = get_prob(input_adv)
 
     meta_output = meta_model(input_adv.detach())
-    # indice = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-simba_pixel:]
     indice = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-update_pixels:]
-    # indice = np.random.choice(indice,simba_pixel,replace = False,p = softmax(-mp_count[indice]))
     indice = np.random.choice(indice,simba_pixel,replace = False)
     mp_count[indice] += 1 
     # print(np.sort(indice))

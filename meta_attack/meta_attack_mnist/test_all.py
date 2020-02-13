@@ -134,7 +134,8 @@ def main( device):
             total_success += 1
             l2_total += l2_distortion
             avg_step += first_step
-            avg_que += (first_step-1)//args.finetune_interval * args.update_pixels * 2 + first_step
+            ## calculate the number of queries, since grad = f(x+eh)-f(x)/eh, hence each pixel gradient only query once 
+            avg_que += (first_step-1)//args.finetune_interval * args.update_pixels * 1 + first_step
             avg_time += timeend - timestart
         if total_success == 0:
             pass
