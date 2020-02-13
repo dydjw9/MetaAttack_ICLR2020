@@ -16,11 +16,15 @@ url={https://openreview.net/forum?id=Skxd6gSYDS}
 * Pytorch (`torch`, `torchvision`) packages
 #### For generating gradients for meta model training
 `cd gen_grad/xx_gen_grad_for_meta`
+
 `python xx_main.py`
 #### For training meta model to attack
 `cd meta_training/xx_meta_training`
+
 `python xx_train.py`
 #### For query-efficient attack
 The results can be reproduced (with the default hyperparameters) with the following command:
+
 `cd meta_attack`
+
 `python xx.py`
