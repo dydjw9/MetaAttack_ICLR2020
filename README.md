@@ -19,7 +19,7 @@ url={https://openreview.net/forum?id=Skxd6gSYDS}
 `python xx_main.py`
 #### For training meta model to attack
 `cd meta_training/xx_meta_training`
-'python xx_.py'
+`python xx_train.py`
 #### For query-efficient attack
 The results can be reproduced (with the default hyperparameters) with the following command:
 `cd meta_attack`
