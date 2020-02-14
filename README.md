@@ -25,6 +25,6 @@ url={https://openreview.net/forum?id=Skxd6gSYDS}
 ### For query-efficient attack
 The results can be reproduced (with the default hyperparameters) with the following command:
 
-`cd meta_attack`
+`cd meta_attack/meta_attack_cifar`
 
-`python xx.py`
+`python test_all.py`
