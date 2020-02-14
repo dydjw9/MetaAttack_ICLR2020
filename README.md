@@ -11,10 +11,10 @@ url={https://openreview.net/forum?id=Skxd6gSYDS}
 }
 ```
 
-## Reproducing the results
+## Reproducing the results (take cifar10 for example)
 ### Requirements
 * Pytorch (`torch`, `torchvision`) packages
-### For generating gradients for meta model training (take cifar10 for example)
+### For generating gradients for meta model training
 `cd gen_grad/cifar_gen_grad_for_meta`
 
 `python cifar_main.py`
