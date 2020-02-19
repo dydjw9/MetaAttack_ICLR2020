@@ -29,4 +29,4 @@ The results can be reproduced (with the default hyperparameters) with the follow
 
 `python test_all.py`
 
-The models we used for meta attacker training and final attack can be found [here](https://drive.google.com/drive/folders/1HbhwnQoDLd6zkwB-Umee350RUCymm53z?usp=sharing):
+The models we used for meta attacker training and final attack can be found [here](https://drive.google.com/drive/folders/1HbhwnQoDLd6zkwB-Umee350RUCymm53z?usp=sharing).
