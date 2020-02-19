@@ -21,18 +21,11 @@ from scipy.special import softmax
 from options import args
 update_pixels = args.update_pixels
 guided = False
-GRDSTORE = 0
 simba_pixel = args.update_pixels
 every_iter =  int(float(update_pixels) / float(simba_pixel))* args.finetune_interval
 max_iter = args.maxiter * every_iter
 mp_count = np.zeros(784)
-#@jit(nopython=True)
 def coordinate_ADAM(losses, indice, grad, hess, batch_size, mt_arr, vt_arr, real_modifier, up, down, lr, adam_epoch, beta1, beta2, proj):
-    #for i in range(batch_size):
-    #   grad[i] = (losses[i*2+1] - losses[i*2+2]) / 0.0002
-   
-    #grad = torch.from_numpy(grad).cuda()
-    #pdb.set_trace()
     
     mt = mt_arr[indice]
     mt = beta1 * mt + (1 - beta1) * grad
@@ -42,7 +35,6 @@ def coordinate_ADAM(losses, indice, grad, hess, batch_size, mt_arr, vt_arr, real
     vt_arr[indice] = vt
     epoch = adam_epoch[indice]
     corr = (torch.sqrt(1 - torch.pow(beta2, epoch))) / (1 - torch.pow(beta1, epoch))
-    #if self.cuda:
     corr = corr.cuda()
     m = real_modifier.reshape(-1)
     old_val = m[indice]
@@ -51,6 +43,7 @@ def coordinate_ADAM(losses, indice, grad, hess, batch_size, mt_arr, vt_arr, real
         old_val = torch.max(torch.min(old_val, up[indice]), down[indice])
     m[indice] = old_val
     adam_epoch[indice] = epoch + 1.
+
 def simba_optimizer(meta_model, model, input_var,target, modifier_var, up, down, lr, is_target,use_tanh):
     lr = lr 
     proj = not use_tanh
@@ -65,10 +58,7 @@ def simba_optimizer(meta_model, model, input_var,target, modifier_var, up, down,
     def get_prob(x):
         output = F.softmax(model(x), dim = 1)
         output = torch.log(output + 1e-30)
-        # sort = torch.argsort(output)
-        # result = output[0,target] - output[0,sort[0,-2]]
         result = output[0,target]
-        # result = output.data[0][0]
         result = target_coff * result
         return result
     default_real = get_prob(input_adv)
@@ -174,11 +164,9 @@ class BlackBoxL2:
         if not isinstance(output, (float, int, np.int64)):
             output = np.copy(output)
             if self.targeted:
-                # target = (target + 1) % 10
                 output[target] -= self.confidence
             else:
                 output[target] += self.confidence
-            # print(output)
             output = np.argmax(output)
         if self.targeted:
             return output == target
@@ -201,8 +189,6 @@ class BlackBoxL2:
         real = (target * output).sum(1)
         other = ((1. - target) * output - target * 10000.).max(1)[0]
         if self.targeted:
-            # target_label = self.shift_target(target)
-            # other = (target_label * output).sum(1)
   
             if self.use_log:
                 loss1 = torch.clamp(torch.log(other + 1e-30) - torch.log(real + 1e-30), min = 0.)
@@ -222,29 +208,6 @@ class BlackBoxL2:
         return loss, loss1, loss2
 
     def _optimize(self, model, meta_model, step, input_var, modifier_var, target_var, scale_const_var, target, batch_idx, indice, input_orig = None):
-        global GRDSTORE
-        # apply modifier and clamp resulting image to keep bounded from clip_min to clip_max
-        # pdb.set_trace()
-        '''
-        var = modifier_var.repeat(self.batch_size * 2 + 1, 1, 1, 1)
-        if self.use_importance:
-            var_indice = np.random.choice(self.var_list.size, self.batch_size, replace = False, p = self.sample_prob)
-        else:
-            var_indice = np.random.choice(self.var_list.size, self.batch_size, replace = False)
-        
-        indice = self.var_list[var_indice]
-        '''
-        '''
-        for i in range(self.batch_size):
-            var[i*2 + 1].reshape(-1)[indice[i]] += 0.0001
-            var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0001
-        '''
-        '''
-        if self.clamp_fn == 'tanh':
-            input_adv = tanh_rescale(modifier_var + input_var, self.clip_min, self.clip_max) / 2
-        else:
-            input_adv = torch.clamp(modifier_var + input_var, self.clip_min, self.clip_max)
-        '''
 
         if self.use_tanh:
             input_adv = tanh_rescale(modifier_var + input_var, self.clip_min, self.clip_max) / 2
@@ -259,12 +222,6 @@ class BlackBoxL2:
 
         loss, loss1, loss2 = self._loss(output.data, target_var, dist, scale_const_var)
 
-
-
-
-
-
-
         meta_optimizer = optim.Adam(meta_model.parameters(), lr = 0.01)
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         input_adv_copy = copy.deepcopy(input_adv.detach())
@@ -276,8 +233,6 @@ class BlackBoxL2:
 
 
         if (step + 1) % every_iter  == 0 and step < max_iter:
-        # if True:
-            # target = model(input_adv).argmax(dim=1)
             zoo_gradients = []
             generate_grad = generate_gradient(device, targeted = self.targeted)
             
@@ -289,61 +244,22 @@ class BlackBoxL2:
             std = zoo_gradients.cpu().numpy().std(axis = (1, 2, 3))
             std = std.reshape((-1, 1, 1, 1))
             zoo_gradients = zoo_gradients / torch.from_numpy(std).cuda()
-            # GRDSTORE = zoo_gradients
             
             for i in range(20):
                 meta_optimizer.zero_grad()
                 meta_grads = meta_model(input_adv_copy)
                 meta_loss = F.mse_loss(meta_grads.reshape(-1)[select_indice], zoo_gradients.reshape(-1)[select_indice])
-                #print('metaloss', meta_loss)
                 meta_loss.backward()
                 meta_optimizer.step()
                
-  
-
-
-
-
- 
-    
-    
- 
-
-
         meta_output = meta_model(input_adv.detach())
         
-        # indice = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-update_pixels:]
         indice = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-update_pixels:]
         indice2 = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-update_pixels:]
-        # if not guided:
-            # indice = select_indice
-        # indice2 = select_indice
-
-
-
-
-
-        # '''
         if (step + 1) % every_iter == 0 and step < max_iter:
-        # if True:
-        # if False:
             grad = zoo_gradients.reshape(-1)[indice2]
         else:
             grad = meta_output.reshape(-1)[indice2]
-        # '''
-        # zoo_gradients = GRDSTORE
-        # grad = zoo_gradients.reshape(-1)[indice2]
-
-
-
-
-        # grad -= 10 * modifier_var.reshape(-1)[indice2]
-        #if step == 0:
-            #modifier_var = meta_output
-        
-        
-        
-       # if (step + 1) % every_iter == 0 and step < max_iter:
         if True:
             self.solver(loss, indice2, grad, self.hess, self.batch_size, self.mt, self.vt, modifier_var, 
                     self.modifier_up, self.modifier_down, self.LEARNING_RATE, self.adam_epoch, self.beta1, self.beta2, not self.use_tanh)
@@ -351,24 +267,16 @@ class BlackBoxL2:
             self.solver_v2(meta_model, model,input_var,target,modifier_var,
                     self.modifier_up, self.modifier_down, self.LEARNING_RATE,self.targeted, self.use_tanh)
 
-
-
-
-
-
         loss_np = loss[0].item()
         loss1 = loss1[0].item()
         loss2 = loss2[0].item()
         dist_np = dist[0].data.cpu().numpy()
         output_np = output[0].unsqueeze(0).data.cpu().numpy()
         input_adv_np = input_adv[0].unsqueeze(0).data.permute(0, 2, 3, 1).cpu().numpy()  # back to BHWC for numpy consumption
-        #input_adv_np = input_adv.cpu()
         return loss_np, loss1, loss2, dist_np, output_np, input_adv_np, indice
 
     def run(self, model, meta_model, input, target, batch_idx = 0):
         batch_size, c, h, w = input.size()
-        
-        #pdb.set_trace() 
         
         var_size = c * h * w
         # set the lower and upper bounds accordingly
@@ -379,7 +287,6 @@ class BlackBoxL2:
         if not self.use_tanh:
             self.modifier_up = 1 - input.reshape(-1)
             self.modifier_down = 0 - input.reshape(-1)
-        
         # python/numpy placeholders for the overall best l2, label score, and adversarial image
         o_best_l2 = [1e10] * batch_size
         o_best_score = [-1] * batch_size
@@ -425,11 +332,10 @@ class BlackBoxL2:
             self.grad = self.grad.cuda()
             self.hess = self.hess.cuda()
 
-        #modifier_var = autograd.Variable(modifier, requires_grad=True)
         modifier_var = modifier
        
+        #the first successful attack 
         first_step = 0
-        #optimizer = optim.Adam([modifier_var], lr = 0.01, betas = (0.9, 0.999))
 
         for search_step in range(self.binary_search_steps):
             print('Batch: {0:>3}, search step: {1}'.format(batch_idx, search_step))
@@ -454,7 +360,6 @@ class BlackBoxL2:
             
             last_loss1 = 1.0
             indice = np.arange(update_pixels)
-            #pdb.set_trace()
             mp_count = np.zeros(784)
             
             for step in range(self.max_steps):
@@ -484,8 +389,6 @@ class BlackBoxL2:
                     stage = 1
                 last_loss1 = loss1
 
-                #print(adv_img.shape, input.shape)
-                #print(torch.sum((adv_img-input.cpu())**2)**0.5)
                 if step % 100 == 0 or step == self.max_steps - 1:
                     print('Step: {0:>4}, loss: {1:6.4f}, loss1: {2:5f}, loss2: {3:5f}, dist: {4:8.5f}, modifier mean: {5:.5e}'.format(
                         step, loss, loss1, loss2, dist.mean(), modifier_var.data.mean()))
@@ -523,11 +426,9 @@ class BlackBoxL2:
                         o_best_attack[i] = adv_img[i]
                         first_step = step
                         first_attack_flag = True
-                        #modifier_var = torch.zeros(input_var.size()).float().cuda()
 
                 sys.stdout.flush()
                 # end inner step loop
-
             # adjust the constants
             batch_failure = 0
             batch_success = 0

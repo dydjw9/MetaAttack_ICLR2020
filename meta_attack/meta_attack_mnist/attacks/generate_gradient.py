@@ -44,8 +44,6 @@ class generate_gradient:
         real = (target * output).sum(1)
         other = ((1. - target) * output - target * 10000.).max(1)[0]
         if self.targeted:
-            # target_label = self.shift_target(target)
-            # other = (target_label * output).sum(1)
             if self.use_log:
                 loss1 = torch.clamp(torch.log(other + 1e-30) - torch.log(real + 1e-30), min = 0.)
             else:
@@ -57,10 +55,6 @@ class generate_gradient:
                 loss1 = torch.clamp(real - other + self.confidence, min = 0.)  # equiv to max(..., 0.)
         loss1 = constant * loss1
 
-        # loss2 = dist.squeeze(1)
-        # print('loss1 and loss2 is:', loss1, loss2)
-        # loss = loss1 + loss2
-        # pdb.set_trace()
         loss = loss1
         loss2 = dist
         return loss, loss1, loss2
@@ -89,21 +83,17 @@ class generate_gradient:
         else:
             var_indice = np.random.choice(var_list.size, self.batch_size, replace = False)
         
-        # indice = var_list[var_indice]
-        #print('indice', indice)
         for i in range(self.batch_size):
             img_var[i*2 + 1].reshape(-1)[indice[i]] += 0.0001
+            #No need for two queries for one gradient
             img_var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0000
         
         output = F.softmax(model(img_var), dim = 1)
-        # output = model(img_var)
         dist = l2_dist(img_var, ori_img, keepdim = True).squeeze(2).squeeze(2)
-        # dist = 0
         loss, loss1, loss2 = self._loss(output.data, target_var, dist, self.constant)
         for i in range(self.batch_size):
             grad[i] = (loss[i * 2 + 1] - loss[i * 2 + 2]) / 0.0001
         
         modifier.reshape(-1)[indice] = grad.to(self.device)
-        # pdb.set_trace()
         return modifier.cpu().numpy()[0], indice
     

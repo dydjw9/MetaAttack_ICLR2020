@@ -14,7 +14,6 @@ import pdb
 from torch.utils.data import DataLoader
 from attacks.cw_black import BlackBoxL2
 from data import load_data
-from mnist_model import Net6
 from PIL import Image
 from learner import Learner
 from attacks.generate_gradient import generate_gradient
@@ -33,25 +32,15 @@ def main( device):
     _, test_loader = load_data(args)
     assert test_loader is not None
     
-    attacked_model_path = '../train_mnist_model/checkpoint/'+ args.dataset + '/' + args.dataset + '_Net6.pt'
-    # assert os.path.exists(attacked_model_path)
-    print('Load attacked model from %s' % attacked_model_path)
     model = load_attacked_model(args, 4, device)
 
-    if not args.istransfer:
-        meta_model_path = '../src_cifar/checkpoint/meta/good_sample/0.7234403cifar_VGG("VGG11").pt'
-    else:
 
-        meta_model_path = '/data/home/dujw/attack/src_imagenet/checkpoint/meta/0.82605cifar_resnet34.pt'
+    meta_model_path = args.load_ckpt
     assert os.path.exists(meta_model_path)
     print('Loading meta model from %s' % meta_model_path)
     meta_model = load_meta_model(args, meta_model_path, device)
     print('Done...')
-    ''' 
-    if args.numimg == 0:
-        args.numimg = len(test_loader.dataset) - args.firstimg
-    print('Using', args.numimg, 'test images')
-    '''
+
     if args.attack == 'ours':
         generate_grad = generate_gradient(
                 device,
@@ -98,7 +87,6 @@ def main( device):
         meta_model_copy = copy.deepcopy(meta_model)
     
         if not args.untargeted:
-            # target = torch.tensor([0]).long().cuda()
             if target ==9 :
                 target = torch.tensor([0]).long().cuda()
             else:
@@ -147,81 +135,6 @@ def main( device):
         sys.stdout.flush()
 
 if __name__ == "__main__":
-    '''
-    parser = argparse.ArgumentParser()
-    
-    parser.add_argument('--batch_size', type = int, default = 100)
-    parser.add_argument('--test_batch_size', type = int, default = 1)
-    parser.add_argument('--no_cuda', action = 'store_true')
-
-    parser.add_argument("--attack", choices = ["ours"], default = "ours")
-    parser.add_argument("--dataset", choices=["mnist", "cifar10", "imagenet"], default = "cifar10")
-    parser.add_argument("--maxiter", type = int, default = 0, help = "set 0 to use default value")
-    parser.add_argument("--attacked_model", type = str, default = 'Net6', help = 'the model selected to be attaked')
-    parser.add_argument("--untargeted", action = 'store_true', default = True)
-   
-    parser.add_argument("-s", "--save", default = "./saved_results")
-    parser.add_argument("-n", "--numimg", type = int, default = 0, help = "number of test images to attack")
-    parser.add_argument("-p", "--print_every", type = int, default = 100, help = "print objs every PRINT_EVERY iterations")
-    parser.add_argument("-f", "--firstimg", type = int, default = 0)
-    parser.add_argument("-b", "--binary_steps", type = int, default = 0)
-    parser.add_argument("-c", "--init_const", type = float, default = 0.0)
-    parser.add_argument("-z", "--use_zvalue", action = 'store_true')
-    parser.add_argument("-r", "--reset_adam", action = 'store_true', help = "reset adam after an initial solution is found")
-    parser.add_argument("--use_resize", action = 'store_true', help = "resize image (only works on imagenet!)")
-    parser.add_argument("--seed", type = int, default = 1216)
-    parser.add_argument("--solver", choices = ["adam", "newton", "adam_newton", "fake_zero"], default = "adam")
-    parser.add_argument("--save_ckpts", default = "", help = "path to save checkpoint file")
-    parser.add_argument("--load_ckpt", default = "", help = "path to numpy checkpoint file")
-    parser.add_argument("--start_iter", default = 0, type = int, help = "iteration number for start, useful when loading a checkpoint")
-    parser.add_argument("--init_size", default = 32, type = int, help = "starting with this size when --use_resize")
-    parser.add_argument("--uniform", action = 'store_true', help = "disable importance sampling")
-    
-    parser.add_argument('--lr', default = 1e-2, type = int, help = 'learning rate')
-    parser.add_argument('--inception', action = 'store_true', default = False)
-    parser.add_argument('--use_tanh', action = 'store_true', default = True)
-    
-    parser.add_argument('--debug', action = 'store_true', default = True)
-
-    args = parser.parse_args()
-
-
-    if args.dataset == "imagenet": # set up and update some parameters based on datasets
-        if args.untargeted:
-            args.maxiter = 1500
-        else:
-            args.maxiter = 50000
-        args.inception = True
-        args.lr = 2e-3
-    elif args.dataset == "mnist":
-        args.maxiter = 3000
-        args.use_tanh = False  # for mnist, tanh will cause gradient to vanish, so set False
-    else:
-        if args.untargeted:
-            args.maxiter = 6620
-        else:
-            args.maxiter = 6300
-
-    if args.binary_steps != 0:
-        args.init_const = 0.01
-    else:
-        args.init_const = 0.5
-    
-    if args.binary_steps == 0:
-        args.binary_steps = 1
-    
-    random.seed(args.seed)
-    np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
-
-    log_path = './log.txt'
-    stdout_backup = sys.stdout
-    # sys.stdout = Logger(log_path, 'w', stdout_backup)
-
-    print(vars(args))
-
-    '''
-
     USE_DEVICE = torch.cuda.is_available()
     device = torch.device('cuda' if USE_DEVICE else 'cpu')
     main( device)

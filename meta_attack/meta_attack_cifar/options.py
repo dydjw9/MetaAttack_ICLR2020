@@ -34,6 +34,12 @@ parser.add_argument('--total_number', default = 1000, type = int, help = 'maxxim
 parser.add_argument("--untargeted", type = str, default = 'True')
 parser.add_argument("--istransfer", type = str, default = 'False')
 
+parser.add_argument("--load_ckpt", default = "../../checkpoints/meta_attacker/cifar/0.7234403cifar_VGG.pt", help = "path to meta attacker model")
+
+
+
+# the following is default setting, no need to modify to normal testing
+
 parser.add_argument('--batch_size', type = int, default = 64)
 parser.add_argument('--test_batch_size', type = int, default = 1)
 parser.add_argument('--no_cuda', action = 'store_true')
@@ -53,7 +59,6 @@ parser.add_argument("--use_resize", action = 'store_true', help = "resize image 
 parser.add_argument("--seed", type = int, default = 1216)
 parser.add_argument("--solver", choices = ["adam", "newton", "adam_newton", "fake_zero"], default = "adam")
 parser.add_argument("--save_ckpts", default = "", help = "path to save checkpoint file")
-parser.add_argument("--load_ckpt", default = "", help = "path to numpy checkpoint file")
 parser.add_argument("--start_iter", default = 0, type = int, help = "iteration number for start, useful when loading a checkpoint")
 parser.add_argument("--init_size", default = 32, type = int, help = "starting with this size when --use_resize")
 parser.add_argument("--uniform", action = 'store_true', help = "disable importance sampling")

@@ -2,7 +2,6 @@ import torch
 import mnist_model
 from learner import Learner
 import torch.nn as nn
-# '''
 # v1 config
 config = [
         ('conv2d', [16, 1, 3, 3, 1, 1]),
@@ -33,11 +32,10 @@ MODELS  = ['LeNet5', 'Net1', 'Net2', 'Net3', 'Net4', 'Net5','Net6']
 def load_attacked_model(args, device):
     return get_target_model(args.attacked_model).to(device)
 
-
 def get_target_model(index):
     i = index
     models = MODELS
-    model_checkpoint_path = '/data/home/dujw/attack/reference/meta_mnist_baseline_models/checkpoint/mnist/' + 'mnist_' + models[i] + '.pt'
+    model_checkpoint_path = '../../checkpoints/targeted_model/mnist/' + 'mnist_' + models[i] + '.pt'
     model = mnist_model.__dict__[models[i]]()
     model.load_state_dict(torch.load(model_checkpoint_path)) 
     model.eval()
@@ -50,8 +48,6 @@ class Meta(nn.Module):
     def forward(self,x):
         x = self.net(x)
         return x
-
-
 
 def load_meta_model(args, meta_model_path, device):
     # the function to load the meta attacker 

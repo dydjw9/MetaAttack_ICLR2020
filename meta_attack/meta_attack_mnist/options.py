@@ -30,7 +30,7 @@ parser.add_argument("--attacked_model", type = int, default = 4, help = 'the mod
 parser.add_argument('--learning_rate', default = 1e-2, type = float, help = 'learning rate')
 parser.add_argument('--update_pixels', default = 128, type = int, help = 'updated pixels every iteration')
 parser.add_argument('--total_number', default = 1000, type = int, help = 'maxximum attack numbers')
-parser.add_argument("--untargeted", type = str, default = 'False')
+parser.add_argument("--untargeted", type = str, default = 'True')
 parser.add_argument("--istransfer", type = str, default = 'False')
 
 parser.add_argument('--batch_size', type = int, default = 64)
@@ -39,7 +39,9 @@ parser.add_argument('--no_cuda', action = 'store_true')
 
 parser.add_argument("--attack", choices = ["ours"], default = "ours")
 parser.add_argument("--dataset", choices=["mnist", "cifar10", "imagenet"], default = "mnist")
+parser.add_argument("--load_ckpt", default = "../../checkpoints/meta_attacker/mnist/0.7231071mnist_Net4.pt", help = "path to numpy checkpoint file")
 
+# the following is default setting, no need to modify to normal testing
 parser.add_argument("-s", "--save", default = "./saved_results")
 parser.add_argument("-n", "--numimg", type = int, default = 0, help = "number of test images to attack")
 parser.add_argument("-p", "--print_every", type = int, default = 100, help = "print objs every PRINT_EVERY iterations")
@@ -52,7 +54,6 @@ parser.add_argument("--use_resize", action = 'store_true', help = "resize image 
 parser.add_argument("--seed", type = int, default = 1216)
 parser.add_argument("--solver", choices = ["adam", "newton", "adam_newton", "fake_zero"], default = "adam")
 parser.add_argument("--save_ckpts", default = "", help = "path to save checkpoint file")
-parser.add_argument("--load_ckpt", default = "", help = "path to numpy checkpoint file")
 parser.add_argument("--start_iter", default = 0, type = int, help = "iteration number for start, useful when loading a checkpoint")
 parser.add_argument("--init_size", default = 32, type = int, help = "starting with this size when --use_resize")
 parser.add_argument("--uniform", action = 'store_true', help = "disable importance sampling")

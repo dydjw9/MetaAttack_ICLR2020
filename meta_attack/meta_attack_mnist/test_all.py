@@ -23,7 +23,7 @@ from load_attacked_and_meta_model import load_attacked_model, load_meta_model
 from utils import Logger
 from options import args
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 def main( device):
     use_log = not args.use_zvalue
     is_inception = args.dataset == "imagenet"
@@ -35,9 +35,8 @@ def main( device):
     
     model = load_attacked_model(args, device)
 
-
     # load meta model
-    meta_model_path = args.meta_attacker_path
+    meta_model_path = args.load_ckpt
     assert os.path.exists(meta_model_path)
     print('Loading meta model from %s' % meta_model_path)
     meta_model = load_meta_model(args, meta_model_path, device)
@@ -56,13 +55,7 @@ def main( device):
     
     os.system("mkdir -p {}/{}".format(args.save, args.dataset))
 
-
     meta_optimizer = optim.Adam(meta_model.parameters(), lr = 0.01)
-    
-    
-    
-    
-    
     
     #perform attack on another 100 images
     img_no = 0
@@ -86,17 +79,9 @@ def main( device):
         img_no += 1
         timestart = time.time()
         
-        
         if img_no > args.total_number:
             break
-        #######################################################################
-
         meta_model_copy = copy.deepcopy(meta_model)
-    
-
-
-        #######################################################################
-        
         
         #randomly get targeted label
         if not args.untargeted:
@@ -104,7 +89,6 @@ def main( device):
                 target = torch.tensor([0]).long().cuda()
             else:
                 target = torch.tensor([1]).long().cuda() + target
-            
         
         queries = 0
         adv, const, first_step = attack.run(model, meta_model_copy, img, target, i)
