@@ -48,7 +48,6 @@ class imagenet(Dataset):
         images = {}
         grads = {}
         labels = {}
-        logits = {}
 
         #load the data
         path = osp.join(root)
@@ -64,7 +63,6 @@ class imagenet(Dataset):
             images = np.concatenate((images,data[()][bz][0]),axis=0)
             grads = np.concatenate((grads,data[()][bz][1]),axis=0)
             labels = np.concatenate((labels,data[()][bz][2]),axis=0)
-            logits = np.concatenate((logits,data[()][bz][3].detach().cpu().numpy()),axis=0)
 
         #shuffle the order 
         if shuffle:
@@ -74,7 +72,6 @@ class imagenet(Dataset):
             images = images[order]
             grads = grads[order]
             labels = labels[order]
-            logits = logits[order]
 
         std = grads.std(axis=(1,2,3))
         std =std.reshape((-1,1,1,1))
@@ -83,7 +80,6 @@ class imagenet(Dataset):
         self.images = images
         self.grads = grads
         self.labels = labels
-        self.logits = logits
 
         #cutoff is the index to divide support and query 
         self.cutoff = self.k_shot/(self.k_shot+self.k_query) * self.images.shape[0]
@@ -104,22 +100,18 @@ class imagenet(Dataset):
         support_label  = torch.FloatTensor(self.k_shot)
         query_label = torch.FloatTensor(self.k_query)
 
-        support_logits  = torch.FloatTensor(self.k_shot,200)
-        query_logits = torch.FloatTensor(self.k_query,200)
-
         bias = self.cutoff
         for i in range(self.k_shot):
             support_x[i] = self.transform(self.images[i+index * self.k_shot])
             support_y[i] = self.transform(self.grads[i+index * self.k_shot])
             support_label[i] = torch.tensor(self.labels[i+index * self.k_shot]).long()
-            support_logits[i] = torch.tensor(self.logits[i+index * self.k_shot]).float()
+
         for i in range(self.k_query):
             query_x[i] = self.transform(self.images[i+bias+index* self.k_query])
             query_y[i] = self.transform(self.grads[i+bias+index* self.k_query])
             query_label[i] = torch.tensor(self.labels[i+bias+index* self.k_query]).long()
-            query_logits[i] = torch.tensor(self.logits[i+bias+index* self.k_query]).float()
 
-        return support_x, support_y, support_logits, support_label, query_x, query_y, query_logits, query_label
+        return support_x, support_y, support_label, query_x, query_y, query_label
 
     def __len__(self):
         # as we have built up to batchsz of sets, you can sample some small batch size of sets.
