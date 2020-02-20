@@ -70,25 +70,9 @@ class Meta(nn.Module):
         self.meta_optim = optim.Adam(self.net.parameters(), lr=self.meta_lr)
 
     def loss_function(self,logits,target,label):
-        """
-        #mse loss
-        if not mask is None:
-            input = input * mask
-            target = target * mask
-        return F.mse_loss(input,target)
-        """
         loss = F.mse_loss(logits, target)
         return loss
-        l_t,l_t_posi = target.topk(1,dim=1)
-        l_p = torch.gather(logits,1,l_t_posi)
-        loss1 = F.mse_loss(l_p,l_t)
-
-        l_t, l_t_posi = target.topk(9,dim=1,largest=False)
-        l_p = torch.gather(logits,1,l_t_posi)
-        loss2 = F.mse_loss(l_p,l_t)
-        loss = loss1*0.05 + loss2*0.95
-        return loss
-
+        
     def forward(self, batch_data, device):
         """
         :param x_spt:   [b, setsz, c_, h, w]
