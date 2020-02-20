@@ -40,9 +40,6 @@ class Meta(nn.Module):
         """
         task_num = len(batch_data)
         _,__, c_, h, w = batch_data[0][0].size()
-        _,__, n_logits =  batch_data[0][2].size()
-        setsz = _ * __
-
         losses_q = [0 for _ in range(self.update_step + 1)]  # losses_q[i] is the loss on step i
         corrects = [0 for _ in range(self.update_step + 2)]
         querysz = 1 
@@ -295,7 +292,6 @@ class Meta(nn.Module):
             print("avrg query times:%f, avrg l2 loss %f,zero_count:%d"%(count_sum.sum()/effctive_count,loss_sum.sum()/effctive_count,zero_count))
             save_csv("adam_attack",{"count":item_count,"l2":item_l2})
         _,__, c_, h, w = test_data[0].size()
-        _,__, n_logits = test_data[2].size()
         x_spt, y_spt, label_spt,x_qry, y_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 3 <=1 else  x.reshape([-1]).to(device).long() for i,x in enumerate(test_data)]
         assert len(x_spt.shape) == 4
         """

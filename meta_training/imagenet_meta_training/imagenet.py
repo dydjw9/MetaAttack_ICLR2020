@@ -56,7 +56,6 @@ class imagenet(Dataset):
         images = data[()]['0'][0]
         grads = data[()]['0'][1]
         labels = data[()]['0'][2]
-        logits =  data[()]['0'][3].detach().cpu().numpy()
 
         for batch in range(1,batchsz):
             bz = str(batch)
