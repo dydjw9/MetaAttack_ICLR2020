@@ -68,7 +68,7 @@ class Meta(nn.Module):
 
         task_diff_weights = []   # task diff weights is the list to store all weights diiffs in all tasks
         for i in range(task_num):
-            x_spt, y_spt, l_spt, label_spt, x_qry, y_qry, l_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 4 <=1 else x.reshape([-1,n_logits]).to(device) if i % 4 ==2 else  x.reshape([-1]).to(device) for i,x in enumerate(batch_data[i])]
+            x_spt, y_spt, label_spt, x_qry, y_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 3 <=1 else x.reshape([-1]).to(device) for i,x in enumerate(batch_data[i])]
 
             fast_weights = []
             for each in self.net.parameters():
@@ -278,7 +278,7 @@ class Meta(nn.Module):
             save_csv("adam_attack",{"count":item_count,"l2":item_l2})
         _,__, c_, h, w = test_data[0].size()
         _,__, n_logits = test_data[2].size()
-        x_spt, y_spt, l_spt, label_spt, x_qry, y_qry, l_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 4 <=1 else x.reshape([-1,n_logits]).to(device) if i % 4 == 2 else  x.reshape([-1]).to(device).long() for i,x in enumerate(test_data)]
+        x_spt, y_spt, label_spt, x_qry, y_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 3 <=1 else x.reshape([-1]).to(device).long() for i, x in enumerate(test_data)]
         assert len(x_spt.shape) == 4
 
         #initiallize an random mask for the optimization
