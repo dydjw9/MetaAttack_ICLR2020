@@ -19,7 +19,7 @@ torch.manual_seed(222)
 torch.cuda.manual_seed_all(222)
 np.random.seed(222)
  
-MODELS  = ['LeNet5', 'Net1', 'Net2', 'Net3', 'Net4', 'Net5']
+MODELS  = ['LeNet5', 'Net2', 'Net3', 'Net4']
 
 np_load_old = np.load
 np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
@@ -47,7 +47,7 @@ def swapaxis(*input):
 
 def main():
     #print(args)
-    TARGET_MODEL = 5
+    TARGET_MODEL = 3
 
     config = [
         ('conv2d', [16, 1, 3, 3, 1, 1]),
@@ -166,7 +166,7 @@ if __name__ == '__main__':
     argparser.add_argument('--imgc', type=int, help='imgc', default=1)
     argparser.add_argument('--batchsize', type=int, help='batchsize', default=32)
     argparser.add_argument('--task_num', type=int, 
-                            help='meta batch size, namely task num', default=1)
+                            help='meta batch size, namely task num', default=3)
     argparser.add_argument('--meta_lr', type=float, 
                             help='meta-level outer learning rate', default=1e-2)
     argparser.add_argument('--update_lr', type=float, 
