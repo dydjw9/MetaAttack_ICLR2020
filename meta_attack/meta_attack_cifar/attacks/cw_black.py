@@ -22,17 +22,10 @@ update_pixels = args.update_pixels
 GRAD_STORE = 0
 guided = False
 device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
-simba_pixel = args.simba_update_pixels
-every_iter =  int(float(update_pixels) / float(simba_pixel) ) * args.finetune_interval
+every_iter =  args.finetune_interval
 max_iter = args.maxiter * every_iter
-mp_count = np.zeros(3072)
 #@jit(nopython=True)
 def coordinate_ADAM(losses, indice, grad, hess, batch_size, mt_arr, vt_arr, real_modifier, up, down, lr, adam_epoch, beta1, beta2, proj):
-    #for i in range(batch_size):
-    #   grad[i] = (losses[i*2+1] - losses[i*2+2]) / 0.0002
-   
-    #grad = torch.from_numpy(grad).cuda()
-    #pdb.set_trace()
     
     mt = mt_arr[indice]
     mt = beta1 * mt + (1 - beta1) * grad
@@ -51,73 +44,7 @@ def coordinate_ADAM(losses, indice, grad, hess, batch_size, mt_arr, vt_arr, real
         old_val = torch.max(torch.min(old_val, up[indice]), down[indice])
     m[indice] = old_val
     adam_epoch[indice] = epoch + 1.
-def simba_optimizer(meta_model, model, input_var,target, modifier_var, up, down, lr, is_target,use_tanh):
-    proj = not use_tanh
-    return_bias = 0
-    if use_tanh:
-        input_adv = (tanh_rescale(modifier_var + input_var, 0,0) + 1) / 2
- 
-    else:
-        input_adv = modifier_var + input_var
-    target_coff = 1
-    if is_target:
-        target_coff = -1
-    def get_prob(x):
-        output = F.softmax(model(x), dim = 1)
-        output = torch.log(output + 1e-30)
-        # sort = torch.argsort(output)
-        # result = output[0,target] - output[0,sort[0,-2]]
-        result = output[0,target]
-        # result = output.data[0][0]
-        result = target_coff * result
-        return result
-    default_real = get_prob(input_adv)
-
-    meta_output = meta_model(input_adv.detach())
-    # indice = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-simba_pixel:]
-    indice = torch.abs(meta_output.data).cpu().numpy().reshape(-1).argsort()[-update_pixels:]
-    indice = np.random.choice(indice,simba_pixel,replace = False,p = softmax(-mp_count[indice]))
-    mp_count[indice] += 1 
-    # print(np.sort(indice))
-
-    x = input_adv.reshape(-1)
-    m = meta_output.reshape(-1)
-    modifier_var_copy = modifier_var.clone()
-    m_copy = modifier_var_copy.reshape(-1)
-    m_copy[indice] -= lr * torch.sign(m[indice])
-    if use_tanh:
-        input_adv = (tanh_rescale(modifier_var_copy + input_var, 0,0) + 1)/ 2
-    else:
-        input_adv = modifier_var_copy + input_var
-    real_v2 = get_prob(input_adv)
-    #calculate v3 
-    m_copy[indice] += 2 * lr * torch.sign(m[indice])
-    if use_tanh:
-        input_adv = (tanh_rescale(modifier_var_copy + input_var, 0,0) + 1)/ 2
-    else:
-        input_adv = modifier_var_copy + input_var
-    real_v3 = get_prob(input_adv)
- 
-
-    xx = modifier_var.reshape(-1)
-    old_val = xx[indice]
-    if real_v2 <= default_real :
-        # print("default_real,%f,v- %f"%(default_real,real_v2))
-        old_val -= lr * torch.sign(m[indice])
-    # else:
-        # print("AAdefault_real,%f,real %f"%(default_real,real_v2))
-        # old_val += lr * torch.sign(m[indice])
-
-    elif real_v3 <= default_real :
-        # print("default_real,%f,v+ %f"%(default_real,real_v3))
-        old_val += lr * torch.sign(m[indice])
-        return_bias = 1
- 
-    if proj:
-        old_val = torch.max(torch.min(old_val, up[indice]), down[indice])
-    xx[indice] = old_val
-    return return_bias 
-
+    
 def check_optimizer(indice,grad, model, input_var,target, modifier_var, up, down, lr, is_target,use_tanh):
     proj = not use_tanh
     if use_tanh:
@@ -218,8 +145,6 @@ class BlackBoxL2:
 
         if self.solver_name == 'adam':
             self.solver = coordinate_ADAM
-            # self.solver = check_optimizer
-            self.solver_v2 = simba_optimizer
         elif solver != 'fake_zero':
             print('unknown solver', self.solver_name)
             self.solver = coordinate_ADAM
@@ -378,15 +303,9 @@ class BlackBoxL2:
         # grad = zoo_gradients.reshape(-1)[indice]
         #grad -= 0.5 * modifier_var.reshape(-1)[indice]
         # if (step + 1) % every_iter == 0 and step < max_iter:
-        if True:
-            self.solver(loss, indice2, grad, self.hess, self.batch_size, self.mt, self.vt, modifier_var, 
+        self.solver(loss, indice2, grad, self.hess, self.batch_size, self.mt, self.vt, modifier_var, 
                     self.modifier_up, self.modifier_down, self.LEARNING_RATE, self.adam_epoch, self.beta1, self.beta2, not self.use_tanh)
-            # self.solver(indice2,grad, model,input_var,target,modifier_var,
-                    # self.modifier_up, self.modifier_down, self.LEARNING_RATE,self.targeted, self.use_tanh)
-            step_query_bias = 0
-        else:
-            step_query_bias = self.solver_v2(meta_model, model,input_var,target,modifier_var,
-                    self.modifier_up, self.modifier_down, self.LEARNING_RATE,self.targeted, self.use_tanh)
+        step_query_bias = 0
 
         loss_np = loss[0].item()
         loss1 = loss1[0].item()
@@ -488,8 +407,6 @@ class BlackBoxL2:
             last_loss1 = 1.0
             best_query_bias = 0
 
-            mp_count = np.zeros(3072)
-            # pdb.set_trace()
             for step in range(self.max_steps):
                 # perform the attack
                 

@@ -80,8 +80,7 @@ class generate_gradient:
         #print('indice', indice)
         for i in range(self.batch_size):
             img_var[i*2 + 1].reshape(-1)[indice[i]] += 0.0001
-            img_var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0001
-            # img_var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0000
+            img_var[i*2 + 2].reshape(-1)[indice[i]] -= 0.0000
         
         output = F.softmax(model(img_var), dim = 1)
         dist = l2_dist(img_var, ori_img, keepdim = True).squeeze(2).squeeze(2)

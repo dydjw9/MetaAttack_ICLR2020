@@ -127,7 +127,8 @@ def main( device):
             l2_total += l2_distortion
             avg_step += first_step
             avg_time += timeend - timestart
-            avg_qry += (first_step-1)//args.finetune_interval*args.update_pixels*2+first_step 
+            #only 1 query for i pixle, because the estimated function is f(x+h)-f(x)/h 
+            avg_qry += (first_step-1)//args.finetune_interval*args.update_pixels*1+first_step 
         if total_success == 0:
             pass
         else:
