@@ -21,6 +21,7 @@ np.random.seed(222)
 
 MODELS= ['VGG("VGG13")', 'VGG("VGG16")', 'GoogLeNet()', 'VGG("VGG11")', 'ResNet18()', 'MobileNetV2()', 'SENet18()', 'GoogLeNet()', 'PreActResNet18()', 'MobileNet()']
 cifar_grads = ["VGG13", "VGG16", "VGG19", "VGG11", "ResNet", "MobileNetV2", "SENet", "GoogLeNet", "PreActResNet", "MobileNet"]
+
 def get_target_model(index):
     i = index
     net = eval(MODELS[i])
@@ -72,9 +73,7 @@ def main():
 
     tmp = filter(lambda x: x.requires_grad, maml.parameters())
     num = sum(map(lambda x: np.prod(x.shape), tmp))
-    #print(maml)
-    #print('Total trainable tensors:', num)
-
+    
     # initiate different datasets 
     minis = []
     for i in range(args.task_num):
@@ -98,19 +97,19 @@ def main():
                     batchsz=100, 
                     resize=args.imgsz)
 
-    mini_test = DataLoader(mini_test,10, shuffle=True, num_workers=0, pin_memory=True)
+    mini_test = DataLoader(mini_test, 10, shuffle=True, num_workers=0, pin_memory=True)
     
     # start training
     step_number = len(minis[0])
     test_step_number = len(mini_test)
     BEST_ACC = 1.5
     target_model = get_target_model(TARGET_MODEL).to(device)
-    def save_model(model,acc):
+    def save_model(model, acc):
         model_file_path = './checkpoint/meta'
         if not os.path.exists(model_file_path):
             os.makedirs(model_file_path)
     
-        file_name = str(acc)+'cifar_'+ MODELS[TARGET_MODEL] + '.pt'
+        file_name = str(acc) + 'cifar_' + MODELS[TARGET_MODEL] + '.pt'
         save_model_path = os.path.join(model_file_path, file_name)
         torch.save(model.state_dict(), save_model_path)
     def load_model(model,acc):
@@ -134,10 +133,10 @@ def main():
 
             accs = maml(batch_data, device)
             if (step + 1) % step_number  == 0:
-                print('step:', step, '\ttraining acc:', accs)
-                if accs[0].cpu().detach().numpy() < BEST_ACC:
-                    BEST_ACC = accs[0].cpu().detach().numpy() 
-                    save_model(maml,BEST_ACC)
+                print('Training acc:', accs)
+                if accs[0] < BEST_ACC:
+                    BEST_ACC = accs[0]
+                    save_model(maml, BEST_ACC)
 
             if (epoch  + 1) % 15 == 0 and step ==0:  # evaluation
                 accs_all_test = []

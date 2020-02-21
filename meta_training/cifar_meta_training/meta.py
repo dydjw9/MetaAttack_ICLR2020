@@ -60,7 +60,6 @@ class Meta(nn.Module):
                 for j in range(task_num):
                     diff += weights[j][i]
                 diff /= task_num
-                # dic[keys[i]] -= self.update_lr * diff
                 dic[keys[i]] -=  diff
             self.net.load_state_dict(dic)
 
@@ -76,10 +75,10 @@ class Meta(nn.Module):
                 fast_weights.append(pp)
             #the optimizer for each sub-task
             if self.meta_optim_choose == "reptile":
-                cur_task_optim = optim.Adam(fast_weights, lr=self.update_lr)
+                cur_task_optim = optim.Adam(fast_weights, lr = self.update_lr)
 
             if self.meta_optim_choose == "maml":
-                cur_task_optim = optim.SGD(fast_weights, lr=self.update_lr)
+                cur_task_optim = optim.SGD(fast_weights, lr = self.update_lr)
 
             logits = self.net(x_spt, fast_weights, bn_training=True)
             loss = self.loss_function(logits, y_spt,label_spt)
@@ -89,7 +88,7 @@ class Meta(nn.Module):
             # this is the loss and accuracy before first update
             with torch.no_grad():
                 logits_q = self.net(x_spt, self.net.parameters(), bn_training=True)
-                loss_q = self.loss_function(logits_q, y_spt,label_spt)
+                loss_q = self.loss_function(logits_q, y_spt, label_spt)
                 losses_q[0] += loss_q
                 correct = loss_q.sum()
                 corrects[0] = corrects[0] + correct
@@ -97,20 +96,20 @@ class Meta(nn.Module):
             # this is the loss and accuracy after the first update
             with torch.no_grad():
                 logits_q = self.net(x_qry, fast_weights, bn_training=True)
-                loss_q = self.loss_function(logits_q, y_qry,label_qry)
+                loss_q = self.loss_function(logits_q, y_qry, label_qry)
                 losses_q[1] += loss_q
                 correct = loss_q.sum()
                 corrects[1] = corrects[1] + correct
             for k in range(1, self.update_step):
                 logits = self.net(x_spt, fast_weights, bn_training=True)
-                loss = self.loss_function(logits, y_spt,label_spt)
+                loss = self.loss_function(logits, y_spt, label_spt)
                 cur_task_optim.zero_grad()
                 loss.backward()
                 cur_task_optim.step()
 
                 with torch.no_grad():
                     logits_q = self.net(x_spt, fast_weights, bn_training=True)
-                    loss_q = self.loss_function(logits_q, y_spt,label_spt)
+                    loss_q = self.loss_function(logits_q, y_spt, label_spt)
                     correct = loss_q.sum()
                     corrects[k + 1] = corrects[k + 1] + correct
 
@@ -121,7 +120,7 @@ class Meta(nn.Module):
                 fast_weights = list(map(lambda p: p[1] - p[0], zip(current_task_diff, self.net.parameters())))
 
                 logits_q = self.net(x_qry, fast_weights, bn_training=True)
-                loss_q = self.loss_function(logits_q, l_qry,label_qry)
+                loss_q = self.loss_function(logits_q, y_qry, label_qry)
                 losses_q[k + 1] += loss_q
         # end of all tasks
         # sum over all losses on query set across all tasks
@@ -136,9 +135,13 @@ class Meta(nn.Module):
             computer_meta_weight(task_diff_weights)
 
         logits_q = self.net(x_spt, bn_training=True)
-        loss_q = self.loss_function(logits_q, y_spt,label_spt)
+        loss_q = self.loss_function(logits_q, y_spt, label_spt)
         correct = loss_q.sum()
         corrects[k + 2] = correct
+        
+        for i in range(len(corrects)):
+            corrects[i] = corrects[i].item()
+
         accs = np.array(corrects) / (querysz * task_num)
         return accs
 
@@ -149,131 +152,8 @@ class Meta(nn.Module):
             x_fool = x + torch.sign(y)*step_size
             x_fool = torch.clamp(x_fool,0,1)
             fool_label = model(x_fool).argmax(dim=1)
-            acc =(orilabel==fool_label).cpu().numpy().sum()/len(orilabel)
+            acc = (orilabel==fool_label).cpu().numpy().sum()/len(orilabel)
             return acc
-
-        def save_csv(name,dic):
-            save_file = pd.DataFrame(data=dic)
-            save_file.to_csv("../csv/"+name+".csv")
-        def issuccess(model,data,label):
-
-            logits = model(data)
-            pred = logits.argmax(dim=1)
-            max = logits.max(dim=1)
-            if pred !=label:
-                return True
-            else:
-                print(max)
-                return False
-
-        def gradients(model,data,label,logits_true,isCWloss=False):
-            data.requires_grad_()
-            model.zero_grad()
-            output = model(data)
-            if isCWloss:
-                lt,l_posi = logits_true.topk(2,dim=1)
-                lt = torch.gather(output,1,l_posi)
-                loss1 = lt[:,0]
-                loss2 = lt[:,1]
-                loss = loss1 
-                loss = loss.sum() *-1
-            else:
-                loss = output.max(dim=1)
-                loss = loss[0].sum() * -1
-            loss.backward()
-            grad = data.grad
-            return grad.clone().detach()
-
-        def attacking_fintune(model,x,y,optim):
-            model.train()
-            print("training loss")
-            for i in range(1):
-                y_pred = model(x)
-                loss = self.loss_function(y_pred,y,y)
-                yy = torch.argmax(y,dim=1)
-                yy_pred = torch.argmax(y_pred,dim=1)
-                acc = (yy==yy_pred).sum().float()/yy.size(0)
-                print("acc:%f"%(acc))
-                optim.zero_grad()
-                loss.backward(retain_graph=True)
-                print(loss)
-                optim.step()
-            print("training loss")
-            model.eval()
-        def adam_attack(data,target,meta_model,targeted_model,lr,step_size = 0.3):
-            '''
-            the iterative attack process like zoo-attack.
-            for each test sample, the meta model will generate the gradients map
-            and feed it in to the adam to generate noise.
-            '''
-            from adam import Adam
-            count_sum = np.zeros(data.shape[0])
-            loss_sum = np.zeros(data.shape[0])
-            zero_count = 0
-
-            mask = torch.tensor(np.load("di.npy")).float().cuda()
-            mask[mask<0.11] = 0
-            mask[mask>0.11] = 1
-            item_l2 = []
-            item_count = []
-            training_x = torch.FloatTensor(3,1,28,28).cuda()
-            training_y = torch.FloatTensor(3,10).cuda()
-            training_count = 0
-            for i in range(len(data)): 
-                model = deepcopy(meta_model)
-                training_count = 0
-                if self.meta_optim_choose == "reptile":
-                    cur_task_optim = optim.Adam(model.parameters(), lr=self.update_lr)
-                if self.meta_optim_choose == "maml":
-                    cur_task_optim = optim.SGD(model.parameters(), lr=self.update_lr)
-
-                opt = Adam(0.01,data[0].size(),beta1=0.9,beta2=0.99)
-                x = data[i]
-                label = target[i]
-                count = 0
-                original_sample = x.clone().detach()
-                x = x.view(1,1,28,28)
-                x = x.clone().detach()
-                update = torch.zeros_like(x)
-                label = label.view(1)
-                adv_sample = (x + update).clone().detach()
-                while True:
-                    count +=1
-                    logits_true = targeted_model(adv_sample)
-                    grad = gradients(model,adv_sample,label,logits_true,isCWloss=True)
-                    update += opt.update(grad)
-                    update = torch.clamp(update,-1*step_size,step_size)
-                    update = update * mask
-                    adv_sample = (x+update).clone().detach()
-                    adv_sample = torch.clamp(adv_sample,0,1)
-
-                    if issuccess(targeted_model,adv_sample,label):
-                        if count <1000:
-                            count_sum[i] = count
-                            loss_sum[i] =np.sum((adv_sample.view(1,28,28)-x).detach().cpu().numpy()**2)**0.5
-                            item_l2.append(loss_sum[i])
-                            item_count.append(count)
-                            print("queries:%d,l2:%f"%(count_sum[i],loss_sum[i]))
-                        else:
-                            zero_count += 1
-                        break
-                    else:
-                        if training_count <3:
-                            training_x[training_count] = adv_sample.view(1,28,28)
-                            training_y[training_count] = targeted_model(adv_sample).view(-1)
-                        training_count += 1
-                        if training_count >=3 and count <300:
-                            training_count = 0
-                            attacking_fintune(model,training_x,training_y,cur_task_optim)
-                        if count >1000:
-                            zero_count += 1
-                            item_l2.append(loss_sum[i])
-                            item_count.append(count)
-                            print("failed")
-                            break
-            effctive_count = len(loss_sum) - zero_count
-            print("avrg query times:%f, avrg l2 loss %f,zero_count:%d"%(count_sum.sum()/effctive_count,loss_sum.sum()/effctive_count,zero_count))
-            save_csv("adam_attack",{"count":item_count,"l2":item_l2})
         _,__, c_, h, w = test_data[0].size()
         x_spt, y_spt, label_spt, x_qry, y_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 3 <=1 else x.reshape([-1]).to(device).long() for i, x in enumerate(test_data)]
         assert len(x_spt.shape) == 4
@@ -281,9 +161,9 @@ class Meta(nn.Module):
         #initiallize an random mask for the optimization
         random_point_number = 256
         weight_mask = np.zeros((784))
-        picked_points = np.random.choice(728,random_point_number)
+        picked_points = np.random.choice(728, random_point_number)
         weight_mask[picked_points] = 1
-        weight_mask = weight_mask.reshape((28,28))
+        weight_mask = weight_mask.reshape((28, 28))
         weight_mask = torch.tensor(weight_mask).float().to(device)
         querysz = x_qry.size(0)
 
@@ -299,35 +179,34 @@ class Meta(nn.Module):
         if self.meta_optim_choose == "maml":
             cur_task_optim = optim.SGD(net.parameters(), lr=self.update_lr)
         logits_q = net(x_qry,bn_training=True)
-        correct = [attack(x_qry,logits_q,label_qry,model,step_size),attack(x_qry,y_qry,label_qry,model,step_size)]
+        correct = [attack(x_qry, logits_q, label_qry, model, step_size), attack(x_qry, y_qry, label_qry, model, step_size)]
         corrects[0] = correct
         
         cur_task_optim.zero_grad()
         logits = net(x_spt)
-        loss = self.loss_function(logits, y_spt,label_spt)
+        loss = self.loss_function(logits, y_spt, label_spt)
         loss.backward()
         cur_task_optim.step()
         
         logits_q = net(x_qry,bn_training=True)
         logits_q = net(x_qry,bn_training=True)
-        correct = [attack(x_qry,logits_q,label_qry,model,step_size),attack(x_qry,y_qry,label_qry,model,step_size)]
+        correct = [attack(x_qry, logits_q, label_qry, model, step_size), attack(x_qry, y_qry, label_qry, model, step_size)]
         corrects[1] = correct
 
         for k in range(1, self.update_step_test):
             logits = net(x_spt, bn_training=True)
-            loss = self.loss_function(logits, y_spt,label_spt)
+            loss = self.loss_function(logits, y_spt, label_spt)
             cur_task_optim.zero_grad()
             loss.backward()
             cur_task_optim.step()
             
             logits_q = net(x_qry, bn_training=True)
-            loss_q = self.loss_function(logits_q, y_qry,label_qry)
+            loss_q = self.loss_function(logits_q, y_qry, label_qry)
             
             logits_q = net(x_qry,bn_training=True)
-            correct = [attack(x_qry,logits_q,label_qry,model,step_size),attack(x_qry,y_qry,label_qry,model,step_size)]
+            correct = [attack(x_qry, logits_q, label_qry, model, step_size), attack(x_qry, y_qry, label_qry, model, step_size)]
             corrects[k + 1] = correct
 
-        print(loss_q.detach().cpu().numpy())
         del net
         accs = np.array(corrects) 
         return accs

@@ -14,7 +14,6 @@ from PIL import Image
 import csv
 import random
 
-
 class cifar(Dataset):
     def __init__(self, root, mode, batchsz, n_way, k_shot, k_query, resize, target_class =0,startidx=0,shuffle=True):
         """
@@ -63,10 +62,9 @@ class cifar(Dataset):
 
         for batch in range(1,batchsz):
             bz = str(batch)
-
-            images = np.concatenate((images,data[()][bz][0]),axis=0)
-            grads = np.concatenate((grads,data[()][bz][1]),axis=0)
-            labels = np.concatenate((labels,data[()][bz][2]),axis=0)
+            images = np.concatenate((images,data[()][bz][0]), axis=0)
+            grads = np.concatenate((grads,data[()][bz][1]), axis=0)
+            labels = np.concatenate((labels,data[()][bz][2]), axis=0)
 
         #shuffle the order 
         if shuffle:
@@ -77,9 +75,9 @@ class cifar(Dataset):
             grads = grads[order]
             labels = labels[order]
 
-        std = grads.std(axis=(1,2,3))
-        std =std.reshape((-1,1,1,1))
-        grads = grads/(std+1e-23)
+        std = grads.std(axis=(1, 2, 3))
+        std = std.reshape((-1, 1, 1, 1))
+        grads = grads/(std + 1e-23)
 
         self.images = images
         self.grads = grads
@@ -91,15 +89,10 @@ class cifar(Dataset):
         self.maximum_index = self.cutoff // self.k_shot
 
     def __getitem__(self, index):
-        """
-        index means index of sets, 0<= index <= batchsz-1
-        :param index:
-        :return:
-        """
-        support_x = torch.FloatTensor(self.k_shot,3,  self.resize, self.resize)
-        support_y = torch.FloatTensor(self.k_shot,3,  self.resize, self.resize)
+        support_x = torch.FloatTensor(self.k_shot, 3, self.resize, self.resize)
+        support_y = torch.FloatTensor(self.k_shot, 3, self.resize, self.resize)
 
-        query_x = torch.FloatTensor(self.k_query,3,  self.resize, self.resize)
+        query_x = torch.FloatTensor(self.k_query, 3, self.resize, self.resize)
         query_y = torch.FloatTensor(self.k_query, 3, self.resize, self.resize)
 
         support_label  = torch.FloatTensor(self.k_shot)
@@ -112,35 +105,12 @@ class cifar(Dataset):
             support_label[i] = torch.tensor(self.labels[i+index * self.k_shot]).long()
 
         for i in range(self.k_query):
-            query_x[i] = self.transform(self.images[i+bias+index* self.k_query])
-            query_y[i] = self.transform(self.grads[i+bias+index* self.k_query])
-            query_label[i] = torch.tensor(self.labels[i+bias+index* self.k_query]).long()
+            query_x[i] = self.transform(self.images[i+bias+index * self.k_query])
+            query_y[i] = self.transform(self.grads[i+bias+index * self.k_query])
+            query_label[i] = torch.tensor(self.labels[i+bias+index * self.k_query]).long()
 
-        return support_x,support_y,support_label,query_x,query_y,query_label
+        return support_x, support_y, support_label, query_x, query_y, query_label
 
     def __len__(self):
         # as we have built up to batchsz of sets, you can sample some small batch size of sets.
         return self.maximum_index
-
-if __name__ == '__main__':
-    # the following episode is to view one set of images via tensorboard.
-    from torchvision.utils import make_grid
-    from matplotlib import pyplot as plt
-    from tensorboardX import SummaryWriter
-    import time
-    from    torch.utils.data import DataLoader
-
-    plt.ion()
-
-    tb = SummaryWriter('runs', 'mini-imagenet')
-    mini = mnist('../grad_mnist/Net5_mnist.npy', mode='test', n_way=5, k_shot=5, k_query=15, batchsz=100, resize=28)
-    db = DataLoader(mini,batch_size=64, shuffle=True, num_workers=1, pin_memory=True)
-
-    aa = []
-    for i, set_ in enumerate(db):
-        # support_x: [k_shot*n_way, 3, 84, 84]
-        # print(i)
-        import pdb
-        pdb.set_trace()
-
-    tb.close()
