@@ -95,18 +95,15 @@ class mnist(Dataset):
         :param index:
         :return:
         """
-        # [setsz,  resize, resize]
-        support_x = torch.FloatTensor(self.k_shot,1,  self.resize, self.resize)
-        # [setsz]
-        support_y = torch.FloatTensor(self.k_shot,1,  self.resize, self.resize)
-        # [querysz,  resize, resize]
+        support_x = torch.FloatTensor(self.k_shot,1, self.resize, self.resize)
+        support_y = torch.FloatTensor(self.k_shot,1, self.resize, self.resize)
 
-        query_x = torch.FloatTensor(self.k_query,1,  self.resize, self.resize)
-        # [querysz]
+        query_x = torch.FloatTensor(self.k_query, 1, self.resize, self.resize)
         query_y = torch.FloatTensor(self.k_query, 1, self.resize, self.resize)
 
         support_label  = torch.FloatTensor(self.k_shot)
         query_label = torch.FloatTensor(self.k_query)
+        
         bias = self.cutoff
         for i in range(self.k_shot):
             support_x[i] = self.transform(self.images[i+index * self.k_shot])
@@ -117,7 +114,7 @@ class mnist(Dataset):
             query_y[i] = self.transform(self.grads[i+bias+index* self.k_query])
             query_label[i] = torch.tensor(self.labels[i+bias+index* self.k_query]).long()
 
-        return support_x,support_y,support_label.unsqueeze(-1),support_label,query_x,query_y,query_label.unsqueeze(-1),query_label
+        return support_x, support_y, support_label, query_x, query_y, query_label
 
     def __len__(self):
         return self.maximum_index

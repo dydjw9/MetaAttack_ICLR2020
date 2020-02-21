@@ -85,7 +85,7 @@ def main():
     # initiate different datasets 
     minis = []
     for i in range(args.task_num):
-        path = osp.join("./grad_mnist/", MODELS[i] + "_mnist.npy")
+        path = osp.join("./zoo_cw_grad_mnist/train", MODELS[i] + "_mnist.npy")
         mini = mnist(path,
                     mode='train', 
                     n_way=args.n_way, 
@@ -96,7 +96,7 @@ def main():
         db = DataLoader(mini, args.batchsize, shuffle=True, num_workers=0, pin_memory=True)
         minis.append(db)
 
-    path_test = osp.join("./grad_mnist/", MODELS[TARGET_MODEL] + "_mnist.npy")
+    path_test = osp.join("./zoo_cw_grad_mnist/test", MODELS[TARGET_MODEL] + "_mnist.npy")
     mini_test = mnist(path_test, 
                     mode='test', 
                     n_way=1, 
@@ -140,12 +140,12 @@ def main():
             accs = maml(batch_data, device)
 
             if (step + 1) % step_number == 0:
-                print('step:', step, '\ttraining acc:', accs)
-                if accs[0].cpu().detach().numpy() < BEST_ACC:
-                    BEST_ACC = accs[0].cpu().detach().numpy() 
-                    save_model(maml,BEST_ACC)
+                print('Training acc:', accs)
+                if accs[0] < BEST_ACC:
+                    BEST_ACC = accs[0]
+                    save_model(maml, BEST_ACC)
 
-            if (epoch  + 1) % 15 == 0 and step ==0:  # evaluation
+            if (epoch + 1) % 15 == 0 and step ==0:  # evaluation
                 accs_all_test = []
                 for i in range(3):
                     test_data = mini_test_iter.next()
