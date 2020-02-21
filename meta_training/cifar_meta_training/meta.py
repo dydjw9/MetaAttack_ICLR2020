@@ -158,15 +158,6 @@ class Meta(nn.Module):
         x_spt, y_spt, label_spt, x_qry, y_qry, label_qry = [x.reshape([-1,c_,h,w]).to(device) if i % 3 <=1 else x.reshape([-1]).to(device).long() for i, x in enumerate(test_data)]
         assert len(x_spt.shape) == 4
 
-        #initiallize an random mask for the optimization
-        random_point_number = 256
-        weight_mask = np.zeros((784))
-        picked_points = np.random.choice(728, random_point_number)
-        weight_mask[picked_points] = 1
-        weight_mask = weight_mask.reshape((28, 28))
-        weight_mask = torch.tensor(weight_mask).float().to(device)
-        querysz = x_qry.size(0)
-
         corrects = [[0,0] for _ in range(self.update_step_test + 1)]
 
         # in order to not ruin the state of running_mean/variance and bn_weight/bias
