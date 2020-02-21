@@ -19,7 +19,11 @@ torch.manual_seed(222)
 torch.cuda.manual_seed_all(222)
 np.random.seed(222)
 
+#np_load_old = np.load
+#np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
+
 MODELS = ['vgg13_bn', 'vgg16_bn', 'resnet18', 'resnet34', 'vgg19_bn', 'resnet50']
+
 def get_target_model(index):
     i = index
     model_name = MODELS[i]
@@ -70,8 +74,6 @@ def main():
 
     tmp = filter(lambda x: x.requires_grad, maml.parameters())
     num = sum(map(lambda x: np.prod(x.shape), tmp))
-    #print(maml)
-    #print('Total trainable tensors:', num)
 
     # initiate different datasets 
     minis = []
@@ -96,14 +98,14 @@ def main():
                         batchsz=100, 
                         resize=args.imgsz)
 
-    mini_test = DataLoader(mini_test,10, shuffle=True, num_workers=0, pin_memory=True)
+    mini_test = DataLoader(mini_test, 10, shuffle=True, num_workers=0, pin_memory=True)
+    
     # start training
-
     step_number = len(minis[0])
     test_step_number = len(mini_test)
     BEST_ACC = 1.5
     target_model = get_target_model(TARGET_MODEL).to(device)
-    def save_model(model,acc):
+    def save_model(model, acc):
         model_file_path = './checkpoint/meta'
         if not os.path.exists(model_file_path):
             os.makedirs(model_file_path)
@@ -129,12 +131,12 @@ def main():
                 batch_data.append(each.next())
             accs = maml(batch_data,device)
             if (step + 1) % step_number  == 0:
-                print('step:', step, '\ttraining acc:', accs)
-                if accs[0].cpu().detach().numpy() < BEST_ACC:
-                    BEST_ACC = accs[0].cpu().detach().numpy() 
-                    save_model(maml,BEST_ACC)
+                print('Training acc:', accs)
+                if accs[0] < BEST_ACC:
+                    BEST_ACC = accs[0] 
+                    save_model(maml, BEST_ACC)
 
-            if (epoch  + 1) %  (15) == 0 and step ==0:  # evaluation
+            if (epoch + 1) % 15 == 0 and step == 0:  # evaluation
                 accs_all_test = []
                 for i in range(3):
                     test_data = mini_test_iter.next()
